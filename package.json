@@ -25,6 +25,7 @@
         "radix-vue": "^1.9.6",
         "shadcn-vue": "^0.10.5",
         "tailwind-merge": "^2.5.2",
-        "tailwindcss-animate": "^1.0.7"
+        "tailwindcss-animate": "^1.0.7",
+        "vue-toastification": "^2.0.0-rc.5"
     }
 }

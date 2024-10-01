@@ -2,17 +2,17 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from '@/Components/ui/accordion';
-import {Link} from '@inertiajs/vue3';
 import {
     Card,
     CardContent,
     CardHeader,
     CardTitle,
 } from '@/Components/ui/card';
+import {Time} from '@icon-park/vue-next';
 </script>
 
 <template>
-    <Head title="Dashboard"/>
+    <Head title="Guides"/>
 
     <AuthenticatedLayout>
         <template #header>
@@ -30,7 +30,7 @@ import {
                 >
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <h1 class="text-4xl font-bold text-center text-gray-800 mb-16">
-                            Добро пожаловать в Гильдию <span class="text-orange-500">What the hell</span>
+                            Добро пожаловать в Гильдию <span class="text-blue-500">Cat's guild</span>
                         </h1>
 
 
@@ -39,40 +39,24 @@ import {
                         </h3>
                         <ul class="flex space-x-4 justify-around mt-6">
                             <li>
-                                <Link :href="route('timer')">
-                                    <Card class="w-80 text-center">
-                                        <CardHeader>
-                                            <CardTitle>Таймер боссов</CardTitle>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <img class="card__icon" src="/assets/images/ui/timer.png">
-                                        </CardContent>
-                                    </Card>
-                                </Link>
+                                <Card class="w-72 h-56 text-center">
+                                    <CardHeader>
+                                        <CardTitle>Таймер боссов</CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        123
+                                    </CardContent>
+                                </Card>
                             </li>
                             <li>
-                                <Link :href="route('guides')">
-                                    <Card class="w-80 text-center">
-                                        <CardHeader>
-                                            <CardTitle>Гайды по игре</CardTitle>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <img class="card__icon" src="/assets/images/ui/book.png">
-                                        </CardContent>
-                                    </Card>
-                                </Link>
+                                <Card class="w-72 text-center">
+                                    123
+                                </Card>
                             </li>
                             <li>
-                                <Link :href="route('activity')">
-                                    <Card class="w-80 text-center">
-                                        <CardHeader>
-                                            <CardTitle>Активности и конкурсы</CardTitle>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <img class="card__icon" src="/assets/images/ui/active.png">
-                                        </CardContent>
-                                    </Card>
-                                </Link>
+                                <Card class="w-72 text-center">
+                                    123
+                                </Card>
                             </li>
                         </ul>
 
@@ -113,10 +97,3 @@ import {
         </div>
     </AuthenticatedLayout>
 </template>
-<style>
-.card__icon {
-    width: 170px;
-    display: block;
-    margin: 0 auto;
-}
-</style>

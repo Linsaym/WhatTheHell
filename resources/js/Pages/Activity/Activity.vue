@@ -1,6 +1,25 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
+import {Button} from '@/Components/ui/button'
+
+import {useToast} from 'vue-toastification';
+import 'vue-toastification/dist/index.css';
+
+const toast = useToast();
+
+const showToast = () => {
+    toast.success('Уведомление успешно!', {
+        position: 'top-right',
+        timeout: 5000,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        progress: undefined,
+    });
+};
+
 </script>
 
 <template>
@@ -24,6 +43,14 @@ import {Head} from '@inertiajs/vue3';
                         <h3 class="text-2xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
                             На нашем сайте вы найдёте
                         </h3>
+                        <div class="mt-6">
+                            <Button @click="showToast">Click</Button>
+                        </div>
+                        <div class="mt-6">
+                            За участие в гильдийных событиях вы получаете балы за которые сможете потом купить много
+                            плюшек!)
+                            (балы снимаются за нарушение правил)
+                        </div>
                     </div>
                 </div>
             </div>

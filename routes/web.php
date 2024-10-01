@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/activity', function () {
         return Inertia::render('Activity/Activity');
     })->name('activity');
+
+    //Гайды
+    Route::get('guides', fn() => Inertia::render('Guides/Guides'))->name('guides');
 });
 
 require __DIR__ . '/auth.php';
