@@ -61,6 +61,11 @@ const showingNavigationDropdown = ref(false);
                         </div>
 
                         <div class="hidden sm:ms-6 sm:flex sm:items-center">
+                            <div>
+                                <a href="https://discord.gg/DZCEAbxkS5">
+                                    <img class="w-5" src="/assets/images/ui/discord-mark-blue.png" alt="discord">
+                                </a>
+                            </div>
                             <!-- Settings Dropdown -->
                             <div class="relative ms-3">
                                 <Dropdown align="right" width="48">

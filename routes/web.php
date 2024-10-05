@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('Dashboard/Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -35,6 +35,9 @@ Route::middleware('auth')->group(function () {
 
     //Гайды
     Route::get('guides', fn() => Inertia::render('Guides/Guides'))->name('guides');
+    Route::get('guides/buffs', fn() => Inertia::render('Guides/Guides'))->name('guides.buffs');
+    Route::get('guides/builds', fn() => Inertia::render('Guides/Guides'))->name('guides.builds');
+    Route::get('guides/farm', fn() => Inertia::render('Guides/Guides'))->name('guides.farm');
 });
 
 require __DIR__ . '/auth.php';
