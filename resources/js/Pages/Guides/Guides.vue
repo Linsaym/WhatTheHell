@@ -3,7 +3,6 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
 import NavLink from "@/Components/NavLink.vue";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Components/ui/accordion/index.js";
-
 </script>
 
 <template>
@@ -81,6 +80,23 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('dashboard')">
                                                 Гайд на волша
+                                            </NavLink>
+                                        </li>
+                                    </ul>
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-4">
+                                <AccordionTrigger>Гайды по прокачке</AccordionTrigger>
+                                <AccordionContent>
+                                    <ul class="list-disc ml-6">
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
+                                                1-20
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
+                                                20-30
                                             </NavLink>
                                         </li>
                                     </ul>

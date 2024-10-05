@@ -21,6 +21,7 @@
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
         "lucide-vue-next": "^0.446.0",
+        "moment": "^2.30.1",
         "npx": "^10.2.2",
         "radix-vue": "^1.9.6",
         "shadcn-vue": "^0.10.5",
