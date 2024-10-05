@@ -9,7 +9,7 @@ import 'vue-toastification/dist/index.css';
 const toast = useToast();
 
 const showToast = () => {
-    toast.success('Уведомление успешно!', {
+    toast.success('Этот раздел появиться позже :3', {
         position: 'top-right',
         timeout: 5000,
         closeOnClick: true,

@@ -13,7 +13,7 @@ return new class extends Migration {
             $table->string('type'); //world | elite | event
             $table->time('respawn');
             $table->dateTime('time_to_death');
-            $table->string('location_id');
+            $table->foreignId('location_id')->constrained('locations');
             $table->timestamps();
         });
     }

@@ -13,6 +13,19 @@ class BossController extends Controller
         return Inertia::render('Timer/Timer', []);
     }
 
+    public function updateTimeOfDeath(int $id)
+    {
+        $boss = Boss::findOrFail($id);
+
+        $boss->update([
+            'time_to_death' => now()
+        ]);
+        
+        return response()->json([
+            "result" => 'success'
+        ]);
+    }
+
     public function store(BossRequest $request)
     {
         return Boss::create($request->validated());

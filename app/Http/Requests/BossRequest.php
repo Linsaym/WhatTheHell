@@ -11,6 +11,7 @@ class BossRequest extends FormRequest
         return [
             'name' => ['required'],
             'respawn' => ['required', 'date'],
+            'type' => ['required', 'string'],
             'time_to_death' => ['required', 'date'],
             'location_id' => ['required'],
         ];

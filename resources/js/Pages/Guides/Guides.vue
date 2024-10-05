@@ -24,8 +24,8 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                     class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800"
                 >
                     <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <Accordion type="multiple">
-                            <AccordionItem value="item-1" open>
+                        <Accordion type="multiple" :default-value="['item-1','item-2','item-3']">
+                            <AccordionItem value="item-1">
                                 <AccordionTrigger>PVE гайды по боссам</AccordionTrigger>
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
@@ -42,7 +42,7 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                     </ul>
                                 </AccordionContent>
                             </AccordionItem>
-                            <AccordionItem value="item-2" open>
+                            <AccordionItem value="item-2">
                                 <AccordionTrigger>Гайды по фарму</AccordionTrigger>
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
@@ -59,7 +59,7 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                     </ul>
                                 </AccordionContent>
                             </AccordionItem>
-                            <AccordionItem value="item-3" open>
+                            <AccordionItem value="item-3">
                                 <AccordionTrigger>Гайды по классам</AccordionTrigger>
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">

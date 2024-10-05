@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Boss extends Model
 {
-    protected function casts()
+    protected $guarded = [];
+
+    protected function casts(): array
     {
         return [
             'time_to_death' => 'datetime',
