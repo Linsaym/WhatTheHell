@@ -10,7 +10,9 @@ class BossController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Timer/Timer', []);
+        return Inertia::render('Timer/Timer', [
+            'bosses' => Boss::all()
+        ]);
     }
 
     public function updateTimeOfDeath(int $id)
@@ -20,7 +22,7 @@ class BossController extends Controller
         $boss->update([
             'time_to_death' => now()
         ]);
-        
+
         return response()->json([
             "result" => 'success'
         ]);
