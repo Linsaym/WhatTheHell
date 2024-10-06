@@ -57,8 +57,8 @@ const props = defineProps({
                             -->
                             <TabsContent value="showed">
                                 <div v-for="(boss, index) in bosses" :key="boss.id"
-                                     class="px-2  border-b flex align-middle gap-4 text-2xl items-center"
-                                     style="background-color: #c8e6c9; border-bottom-color: rgb(131 121 121);">
+                                     class="px-3  rounded mb-2 flex align-middle gap-4 text-xl items-center"
+                                     style="background-color: #c8e6c9;">
                                     <div>
                                         <MyTooltip>
                                             <template v-slot:main>
