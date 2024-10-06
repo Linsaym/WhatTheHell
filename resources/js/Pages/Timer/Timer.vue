@@ -3,57 +3,23 @@ import {Head} from '@inertiajs/vue3';
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import {Tabs, TabsList, TabsContent, TabsTrigger} from "@/Components/ui/tabs/index.js";
 import moment from "moment";
-import {onBeforeUnmount, onMounted, ref} from "vue";
+import BossCountdownTimer from "@/Components/func/BossCountdownTimer.vue";
+import MyTooltip from "@/Components/func/MyTooltip.vue";
+import {Button} from "@/Components/ui/button/index.js";
 
 const formatTime = time => moment(time).format('DD.MM.YYYY HH:mm:ss')
 
 const respawnTime = (respawn, timeToDie) => {
     const rebornTime = moment(timeToDie);
     rebornTime.add(moment.duration(respawn))//Прибавляем время респавна
-    return formatTime(rebornTime)
+    return moment(rebornTime).format('HH:mm:ss')
 }
-
-const remainedTimes = ref([]);
 
 const props = defineProps({
     bosses: {
         type: Array
     }
 });
-
-// Функция для обновления remainedTimes
-const updateRemainedTimes = () => {
-    const now = moment().local();
-    remainedTimes.value = props.bosses.map(boss => {
-        const rebornTime = moment(boss.time_to_death).add(moment.duration(boss.respawn));
-        const diff = rebornTime.diff(now);
-
-        if (diff <= 0) {
-            return '00:00:00'; // Время респавна прошло
-        }
-
-        const duration = moment.duration(diff);
-        const hours = String(duration.hours()).padStart(2, '0');
-        const minutes = String(duration.minutes()).padStart(2, '0');
-        const seconds = String(duration.seconds()).padStart(2, '0');
-
-        return `${hours}:${minutes}:${seconds}`;
-    });
-};
-
-onMounted(() => {
-    // Обновляем remainedTimes сразу
-    updateRemainedTimes();
-
-    // Устанавливаем интервал для обновления каждую секунду
-    const interval = setInterval(updateRemainedTimes, 1000);
-
-    // Очищаем интервал при размонтировании компонента
-    onBeforeUnmount(() => {
-        clearInterval(interval);
-    });
-});
-
 
 </script>
 
@@ -83,20 +49,47 @@ onMounted(() => {
                                     Hidden
                                 </TabsTrigger>
                             </TabsList>
+                            <!--
+                                    #e5d6b2 - КД
+                                    rgb(243 243 236) - потерян
+                                    rgb(191 191 191) - реснулся!
+                                    #c8e6c9 - Обычный
+                            -->
                             <TabsContent value="showed">
-                                <div v-for="(boss, index) in bosses" :key="boss.id" class="flex align-middle gap-4">
+                                <div v-for="(boss, index) in bosses" :key="boss.id"
+                                     class="px-2  border-b flex align-middle gap-4 text-2xl items-center"
+                                     style="background-color: #c8e6c9; border-bottom-color: rgb(131 121 121);">
                                     <div>
-                                        <img class="w-16 h-16"
-                                             :src="`/assets/images/bosses/Портрет_${boss.name.replaceAll(' ','_')}.png`"
-                                             :alt="boss.name">
+                                        <MyTooltip>
+                                            <template v-slot:main>
+                                                <img class="w-16 h-16 object-cover"
+                                                     :src="`/assets/images/bosses/Портрет_${boss.name.replaceAll(' ','_')}.png`"
+                                                     :alt="boss.name">
+                                            </template>
+                                            <template v-slot:text>
+                                                <ul>
+                                                    <li>respawn - {{ boss.respawn }}</li>
+                                                    <li>Время смерти босса - {{ formatTime(boss.time_to_death) }}</li>
+                                                </ul>
+                                            </template>
+                                        </MyTooltip>
                                     </div>
-                                    <div>{{ boss.name }}</div>
-                                    <div>{{ boss.respawn }}</div>
-                                    <div>{{ formatTime(boss.time_to_death) }}</div>
-                                    <div>{{ respawnTime(boss.respawn, boss.time_to_death) }}</div>
-                                    <div class="ml-auto">{{
-                                            remainedTimes[index]
-                                        }}
+                                    <div class="w-72">{{ boss.name }}</div>
+                                    <div class="w-48">
+                                        <MyTooltip>
+                                            <template v-slot:main>
+                                                {{ respawnTime(boss.respawn, boss.time_to_death) }}
+                                            </template>
+                                            <template v-slot:text>Время возрождения босса</template>
+                                        </MyTooltip>
+                                    </div>
+                                    <div class="ml-4 w-48">
+                                        <BossCountdownTimer :respawn="boss.respawn" :death_time="boss.time_to_death"/>
+                                    </div>
+                                    <div class="flex gap-4 ml-auto my-auto">
+                                        <Button>Умер!</Button>
+                                        <Button>Указать точное время</Button>
+                                        <Button>⋮</Button>
                                     </div>
                                 </div>
                             </TabsContent>
