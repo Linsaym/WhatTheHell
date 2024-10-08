@@ -25,31 +25,72 @@ const bossList = ref(props.bosses)
 //Добавляет поля "оставшегося времени и респавна босса
 const addFieldsToBoss = (boss) => {
     const now = moment();
-    const deathTime = moment(boss.time_to_death); //Время когда босс умер
-    const respawnTime = moment(deathTime).add(moment.duration(boss.respawn)); //Время когда босс должен появится если его не пропустили
+    let deathTime = moment(boss.time_to_death); //Время когда босс умер
+    let respawnTime = moment(deathTime).add(moment.duration(boss.respawn)); //Время когда босс должен появиться
 
-    // Если текущее время уже больше времени респавна, нужно учитывать КД
-    if (now.isAfter(respawnTime)) {
-        // Пропущенный респавн - применяем логику КД
-        return {...boss, timeLeft: '00:00:00', cd: 1, respawnTime: '00:00:00'}
+    // Считаем количество раз, сколько босс пропущен
+    let cdCount = 0;
+
+
+    // Если разница между текущим временем и респавном <= 5 минут, то показываем '00:00:00' и cd = '-'
+    const minutesLeft = respawnTime.diff(now, 'minutes');
+    if (minutesLeft >= -5 && minutesLeft <= 0) {
+        return {...boss, timeLeft: '00:00:00', cd: 'Реснулся!', respawnTime: respawnTime.format('HH:mm:ss'),};
     }
+
+    while (now.isAfter(respawnTime) && cdCount < 5) {
+        let deathTime = respawnTime;//Новое предположительное время смерти для расчёта времени появления (используется только в расчётах, нигде не отображается)
+        respawnTime = moment(deathTime).add(moment.duration(boss.respawn));
+        cdCount++;
+    }
+
+    // Если прошло 5 циклов КД, считаем, что респавн потерян
+    if (cdCount >= 5) {
+        return {...boss, timeLeft: 'Lost', cd: cdCount, respawnTime: 'Lost'};
+    }
+
+
     return {
         ...boss,
         respawnTime: respawnTime.format('HH:mm:ss'),
         timeLeft: moment(respawnTime.diff(now)).utc().format('HH:mm:ss'),
-        cd: 0
+        cd: cdCount
     }
 }
 
 const addFieldsInBossList = (list) => {
     return list.map(boss => {
         return addFieldsToBoss(boss);
+    }).sort((a, b) => {
+        // Специальные случаи для "Lost" и "00:00:00"
+        if (a.timeLeft === b.timeLeft) return 0;
+        if (a.timeLeft === 'Lost') return 1; // 'Lost' всегда в конце
+        if (b.timeLeft === 'Lost') return -1;
+        if (a.timeLeft === '00:00:00') return -1; // '00:00:00' всегда раньше
+        if (b.timeLeft === '00:00:00') return 1;
+
+        // Сортировка по времени (от меньшего к большему)
+        return moment.duration(a.timeLeft).asMilliseconds() - moment.duration(b.timeLeft).asMilliseconds();
     });
 }
 
 const updateRespawnTimers = () => {
     bossList.value = addFieldsInBossList(bossList.value)
 }
+
+
+//Возвращает фон для плашки босса
+const getBackground = (cd) => {
+    if (cd === 'Реснулся!') //Если босс только что появился вместо cd, будет стоять -
+        return 'respawn-bg';
+    else if (cd === 0)
+        return 'simple-bg';
+    else if (cd === 5) //Если кд равно 5, значит респ утерян
+        return 'lost-bg';
+    else if (cd >= 1) //Если кд между 1 и 5, значит респ "почти" утерян
+        return 'almost-lost-bg';
+}
+
 
 onMounted(() => {
     const interval = setInterval(updateRespawnTimers, 1000);
@@ -106,7 +147,7 @@ async function setDieNow(id) {
                             <TabsContent value="showed">
                                 <div v-for="(boss, index) in bossList" :key="boss.id"
                                      class="px-3  rounded mb-2 flex align-middle gap-4 text-xl items-center"
-                                     style="background-color: #c8e6c9;">
+                                     :class="getBackground(boss.cd)">
                                     <div>
                                         <MyTooltip>
                                             <template v-slot:main>
