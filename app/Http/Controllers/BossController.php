@@ -24,7 +24,8 @@ class BossController extends Controller
         ]);
 
         return response()->json([
-            "result" => 'success'
+            "result" => 'success',
+            'bosses' => Boss::all()
         ]);
     }
 

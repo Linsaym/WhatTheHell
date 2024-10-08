@@ -1,35 +1,27 @@
 <script setup>
 
-import {onBeforeUnmount, onMounted, ref} from "vue";
+import {computed, onBeforeUnmount, onMounted, ref} from "vue";
 import MyTooltip from "@/Components/func/MyTooltip.vue";
 import moment from "moment";
 
 const props = defineProps({
-    respawn: {
-        type: String,
+    respawn_time: {
         required: true
     },
-    death_time: {
-        type: String,
-        required: true
-    }
+
 })
 let time_to_reborn = 0
 let kd = 0
 
 //Функция позволяет получить время до возрождения босса
-function getTimeToReborn() {
+const timeLeft = ref('00:00:00')
 
-}
-
-const timer_respawn = ref(props.respawn)
-
-const getRemindedTime = () => {
+const updateTimeLeft = () => {
     const now = moment().local();
-    const rebornTime = 0;
+    const rebornTime = props.respawn_time;
 
     const diff = rebornTime.diff(now);
-
+    console.log(diff)
     if (diff <= 0) {
         return '00:00:00'; // Время респавна прошло
     }
@@ -45,14 +37,14 @@ const getRemindedTime = () => {
 
 onMounted(() => {
     // Устанавливаем интервал для обновления каждую секунду
-    // const interval = setInterval(() => {
-    //     timer_respawn.value = moment(timer_respawn, 'HH:mm:ss').subtract(1, 'seconds')
-    // }, 1000);
-    //
-    //
-    // onBeforeUnmount(() => {
-    //     clearInterval(interval);
-    // });
+    const interval = setInterval(() => {
+        //updateTimeLeft()
+    }, 1000);
+
+
+    onBeforeUnmount(() => {
+        clearInterval(interval);
+    });
 });
 </script>
 
@@ -79,7 +71,7 @@ onMounted(() => {
         </div>
         <MyTooltip>
             <template v-slot:main>
-                {{ '00:00:00' }}
+                {{ timeLeft }}
             </template>
             <template v-slot:text>
                 Время до возрождения

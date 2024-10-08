@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::get('guides/farm', fn() => Inertia::render('Guides/Guides'))->name('guides.farm');
 });
 
-Route::get('api/setTimeDeath/{id}', [BossController::class, 'updateTimeOfDeath']);
+Route::put('api/boss-die/{id}', [BossController::class, 'updateTimeOfDeath'])->name('api.boss-die');
+Route::put('api/setTimeDeath/{id}', [BossController::class, 'updateTimeOfDeath'])->name('api.update-time-death');
 
 require __DIR__ . '/auth.php';

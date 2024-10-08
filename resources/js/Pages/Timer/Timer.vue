@@ -6,13 +6,25 @@ import moment from "moment";
 import BossCountdownTimer from "@/Components/func/BossCountdownTimer.vue";
 import MyTooltip from "@/Components/func/MyTooltip.vue";
 import {Button} from "@/Components/ui/button/index.js";
+import {useToast} from "vue-toastification";
+import 'vue-toastification/dist/index.css';
+import {ref, watch} from "vue";
+
+const toast = useToast();
+
 
 const formatTime = time => moment(time).format('DD.MM.YYYY HH:mm:ss')
 
-const respawnTime = (respawn, timeToDie) => {
-    const rebornTime = moment(timeToDie);
-    rebornTime.add(moment.duration(respawn))//Прибавляем время респавна
+const respawnTime = (boss) => {
+    const rebornTime = moment(boss.time_to_death);
+    rebornTime.add(moment.duration(boss.respawn))//Прибавляем время респавна
     return moment(rebornTime).format('HH:mm:ss')
+}
+
+const respawnTimeWithoutFormat = (boss) => {
+    const rebornTime = moment(boss.time_to_death);
+    rebornTime.add(moment.duration(boss.respawn))//Прибавляем время респавна
+    return rebornTime
 }
 
 const props = defineProps({
@@ -20,6 +32,21 @@ const props = defineProps({
         type: Array
     }
 });
+
+const bossList = ref(props.bosses)
+
+
+//api
+async function setNewDeathTime() {
+    toast.warning('Этот раздел появиться позже :3');
+}
+
+async function setDieNow(id) {
+    const {data} = await axios.put(route('api.boss-die', {id: id}))
+    bossList.value = data.bosses
+    toast.success('Время успешно обновлено!', {timeout: 1000});
+}
+
 
 </script>
 
@@ -49,14 +76,8 @@ const props = defineProps({
                                     Hidden
                                 </TabsTrigger>
                             </TabsList>
-                            <!--
-                                    #e5d6b2 - КД
-                                    rgb(243 243 236) - потерян
-                                    rgb(191 191 191) - реснулся!
-                                    #c8e6c9 - Обычный
-                            -->
                             <TabsContent value="showed">
-                                <div v-for="(boss, index) in bosses" :key="boss.id"
+                                <div v-for="(boss, index) in bossList" :key="boss.id"
                                      class="px-3  rounded mb-2 flex align-middle gap-4 text-xl items-center"
                                      style="background-color: #c8e6c9;">
                                     <div>
@@ -78,18 +99,29 @@ const props = defineProps({
                                     <div class="w-48">
                                         <MyTooltip>
                                             <template v-slot:main>
-                                                {{ respawnTime(boss.respawn, boss.time_to_death) }}
+                                                {{ respawnTime(boss) }}
                                             </template>
                                             <template v-slot:text>Время возрождения босса</template>
                                         </MyTooltip>
                                     </div>
                                     <div class="ml-4 w-48">
-                                        <BossCountdownTimer :respawn="boss.respawn" :death_time="boss.time_to_death"/>
+                                        <BossCountdownTimer :respawn_time="respawnTimeWithoutFormat(boss)"/>
                                     </div>
                                     <div class="flex gap-4 ml-auto my-auto">
-                                        <Button>Умер!</Button>
-                                        <Button>Указать точное время</Button>
-                                        <Button>⋮</Button>
+                                        <Button @click="setDieNow(boss.id)">Умер!</Button>
+                                        <Button @click="setNewDeathTime">Указать точное время</Button>
+                                        <MyTooltip>
+                                            <template v-slot:main>
+                                                <Button>⋮</Button>
+                                            </template>
+                                            <template v-slot:text>
+                                                Внутри будет
+                                                <ul class="list-disc ml-5">
+                                                    <li>История изменений</li>
+                                                    <li>удаление из списка</li>
+                                                </ul>
+                                            </template>
+                                        </MyTooltip>
                                     </div>
                                 </div>
                             </TabsContent>
@@ -103,3 +135,20 @@ const props = defineProps({
         </div>
     </AuthenticatedLayout>
 </template>
+<style>
+.simple-bg {
+    background: #c8e6c9;
+}
+
+.respawn-bg {
+    background: rgb(191 191 191);
+}
+
+.almost-lost-bg {
+    background: #e5d6b2;
+}
+
+.lost-bg {
+    background: rgb(243 243 236);
+}
+</style>
