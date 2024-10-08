@@ -3,29 +3,16 @@ import {Head} from '@inertiajs/vue3';
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import {Tabs, TabsList, TabsContent, TabsTrigger} from "@/Components/ui/tabs/index.js";
 import moment from "moment";
-import BossCountdownTimer from "@/Components/func/BossCountdownTimer.vue";
 import MyTooltip from "@/Components/func/MyTooltip.vue";
 import {Button} from "@/Components/ui/button/index.js";
 import {useToast} from "vue-toastification";
 import 'vue-toastification/dist/index.css';
-import {ref, watch} from "vue";
+import {onMounted, onUnmounted, ref, watch} from "vue";
 
 const toast = useToast();
 
 
 const formatTime = time => moment(time).format('DD.MM.YYYY HH:mm:ss')
-
-const respawnTime = (boss) => {
-    const rebornTime = moment(boss.time_to_death);
-    rebornTime.add(moment.duration(boss.respawn))//Прибавляем время респавна
-    return moment(rebornTime).format('HH:mm:ss')
-}
-
-const respawnTimeWithoutFormat = (boss) => {
-    const rebornTime = moment(boss.time_to_death);
-    rebornTime.add(moment.duration(boss.respawn))//Прибавляем время респавна
-    return rebornTime
-}
 
 const props = defineProps({
     bosses: {
@@ -35,18 +22,58 @@ const props = defineProps({
 
 const bossList = ref(props.bosses)
 
+//Добавляет поля "оставшегося времени и респавна босса
+const addFieldsToBoss = (boss) => {
+    const now = moment();
+    const deathTime = moment(boss.time_to_death); //Время когда босс умер
+    const respawnTime = moment(deathTime).add(moment.duration(boss.respawn)); //Время когда босс должен появится если его не пропустили
 
-//api
+    // Если текущее время уже больше времени респавна, нужно учитывать КД
+    if (now.isAfter(respawnTime)) {
+        // Пропущенный респавн - применяем логику КД
+        return {...boss, timeLeft: '00:00:00', cd: 1, respawnTime: '00:00:00'}
+    }
+    return {
+        ...boss,
+        respawnTime: respawnTime.format('HH:mm:ss'),
+        timeLeft: moment(respawnTime.diff(now)).utc().format('HH:mm:ss'),
+        cd: 0
+    }
+}
+
+const addFieldsInBossList = (list) => {
+    return list.map(boss => {
+        return addFieldsToBoss(boss);
+    });
+}
+
+const updateRespawnTimers = () => {
+    bossList.value = addFieldsInBossList(bossList.value)
+}
+
+onMounted(() => {
+    const interval = setInterval(updateRespawnTimers, 1000);
+    updateRespawnTimers(); // Первоначальный расчет
+
+    // Очищаем интервал при удалении компонента
+    onUnmounted(() => {
+        clearInterval(interval);
+    });
+});
+
+
+//api start
 async function setNewDeathTime() {
     toast.warning('Этот раздел появиться позже :3');
 }
 
 async function setDieNow(id) {
     const {data} = await axios.put(route('api.boss-die', {id: id}))
-    bossList.value = data.bosses
+    bossList.value = addFieldsInBossList(data.bosses)
     toast.success('Время успешно обновлено!', {timeout: 1000});
 }
 
+//api end
 
 </script>
 
@@ -99,13 +126,45 @@ async function setDieNow(id) {
                                     <div class="w-48">
                                         <MyTooltip>
                                             <template v-slot:main>
-                                                {{ respawnTime(boss) }}
+                                                {{ boss.respawnTime }}
                                             </template>
                                             <template v-slot:text>Время возрождения босса</template>
                                         </MyTooltip>
                                     </div>
                                     <div class="ml-4 w-48">
-                                        <BossCountdownTimer :respawn_time="respawnTimeWithoutFormat(boss)"/>
+                                        <div class="flex">
+                                            <div class="w-48">
+                                                <MyTooltip>
+                                                    <template v-slot:main>{{ boss.cd }}</template>
+                                                    <template v-slot:text>
+                                                        <p class="mb-2">КД</p>
+                                                        <p>
+                                                            Что такое кд? <br>
+                                                            Если после возрождения босса, cпустя 5 минут, никто не
+                                                            переписал его таймер,<br>
+                                                            значит, предполагается, что на босса никто не пришёл. <br>
+                                                            <br>
+                                                            В таком случае, записывается "КД 1 раз", и время респавна
+                                                            высчитывается как будто<br>
+                                                            босс сразу умер после возрождения. И так до 5-ти раз, после
+                                                            чего респ становиться утерянным
+                                                            <br>
+                                                            КД нужно для того, чтобы в случае того если никто не пришёл
+                                                            на босса, высчитать его примерное
+                                                            время возрождения
+                                                        </p>
+                                                    </template>
+                                                </MyTooltip>
+                                            </div>
+                                            <MyTooltip>
+                                                <template v-slot:main>
+                                                    {{ boss.timeLeft }}
+                                                </template>
+                                                <template v-slot:text>
+                                                    Время до возрождения
+                                                </template>
+                                            </MyTooltip>
+                                        </div>
                                     </div>
                                     <div class="flex gap-4 ml-auto my-auto">
                                         <Button @click="setDieNow(boss.id)">Умер!</Button>
