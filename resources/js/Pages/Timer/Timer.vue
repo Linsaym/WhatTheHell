@@ -17,11 +17,14 @@ import {
     DialogDescription,
     DialogContent
 } from "@/Components/ui/dialog/index.js"
+import {Input} from '@/Components/ui/input'
+import {Label} from '@/Components/ui/label'
 
 const toast = useToast();
 
 
 const formatTime = time => moment(time).format('DD.MM.YYYY HH:mm:ss')
+
 
 const props = defineProps({
     bosses: {
@@ -30,7 +33,10 @@ const props = defineProps({
 });
 
 const bossList = ref(props.bosses)
-
+const time = ref(moment().format('YYYY-MM-DDTHH:mm:ss'))
+const openModal = () => {
+    time.value = moment().format('YYYY-MM-DDTHH:mm:ss')
+}
 /**
  * @typedef {Object} Boss
  * @property {string} time_to_death - Время смерти босса
@@ -82,7 +88,7 @@ const addFieldsToBoss = (boss) => {
 /**
  * Добавляет поля к каждому боссу в списке и сортирует их.
  * @param {Array.<Boss>} list - Список боссов.
- * @returns {Array.<Object>} - Отсортированный список с добавленными полями.
+ * @returns {Array.<Boss>} - Отсортированный список с добавленными полями.
  */
 const addFieldsInBossList = (list) => {
     return list.map(boss => {
@@ -237,18 +243,37 @@ async function setDieNow(id) {
                                         <Button @click="setDieNow(boss.id)">Умер!</Button>
                                         <Dialog>
                                             <DialogTrigger>
-                                                <Button>Указать точное время</Button>
+                                                <Button @click="openModal">Указать точное время</Button>
                                             </DialogTrigger>
-                                            <DialogContent>
+                                            <DialogContent class="sm:max-w-[525px]">
                                                 <DialogHeader>
-                                                    <DialogTitle>Edit profile</DialogTitle>
-                                                    <DialogDescription>
-                                                        Make changes to your profile here. Click save when you're done.
+                                                    <DialogTitle class="text-center">
+                                                        Указать точное время смерти
+                                                    </DialogTitle>
+                                                    <DialogDescription class="text-center">
+                                                        Помни, на тебе большая ответственность
                                                     </DialogDescription>
                                                 </DialogHeader>
-
+                                                <div class="grid gap-4 py-4">
+                                                    <div class="grid grid-cols-4 items-center gap-4">
+                                                        <Label>Время cмерти</Label>
+                                                        <Input
+                                                            id="time_to_death"
+                                                            type="datetime-local"
+                                                            class="col-span-3"
+                                                            v-model="time"
+                                                            step="1"
+                                                        />
+                                                    </div>
+                                                    <div class="grid grid-cols-4 items-center gap-4">
+                                                        <Label>Комментарий</Label>
+                                                        <Input id="comment" name="comment" class="col-span-3"/>
+                                                    </div>
+                                                </div>
                                                 <DialogFooter>
-                                                    Save changes
+                                                    <Button type="submit" @click="setNewDeathTime">
+                                                        Save changes
+                                                    </Button>
                                                 </DialogFooter>
                                             </DialogContent>
                                         </Dialog>
