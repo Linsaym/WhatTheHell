@@ -7,7 +7,16 @@ import MyTooltip from "@/Components/func/MyTooltip.vue";
 import {Button} from "@/Components/ui/button/index.js";
 import {useToast} from "vue-toastification";
 import 'vue-toastification/dist/index.css';
-import {onMounted, onUnmounted, ref, watch} from "vue";
+import {onMounted, onUnmounted, ref} from "vue";
+import {
+    Dialog,
+    DialogTrigger,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    DialogContent
+} from "@/Components/ui/dialog/index.js"
 
 const toast = useToast();
 
@@ -22,7 +31,19 @@ const props = defineProps({
 
 const bossList = ref(props.bosses)
 
-//Добавляет поля "оставшегося времени и респавна босса
+/**
+ * @typedef {Object} Boss
+ * @property {string} time_to_death - Время смерти босса
+ * @property {string} respawn - Время через которое появиться босс в формате '02:00:00'
+ * @property {string|number} cd - сколько раз босс по КД
+ * @property {string} respawnTime - Время когда босс появится
+ * @property {string} timeLeft - Сколько времени осталось до появления босса в формате '02:00:00'
+ */
+
+/**
+ * Добавляет поля "оставшегося времени и респавна босса"
+ * @param {Boss} boss - Объект босса
+ */
 const addFieldsToBoss = (boss) => {
     const now = moment();
     let deathTime = moment(boss.time_to_death); //Время когда босс умер
@@ -58,6 +79,11 @@ const addFieldsToBoss = (boss) => {
     }
 }
 
+/**
+ * Добавляет поля к каждому боссу в списке и сортирует их.
+ * @param {Array.<Boss>} list - Список боссов.
+ * @returns {Array.<Object>} - Отсортированный список с добавленными полями.
+ */
 const addFieldsInBossList = (list) => {
     return list.map(boss => {
         return addFieldsToBoss(boss);
@@ -209,7 +235,23 @@ async function setDieNow(id) {
                                     </div>
                                     <div class="flex gap-4 ml-auto my-auto">
                                         <Button @click="setDieNow(boss.id)">Умер!</Button>
-                                        <Button @click="setNewDeathTime">Указать точное время</Button>
+                                        <Dialog>
+                                            <DialogTrigger>
+                                                <Button>Указать точное время</Button>
+                                            </DialogTrigger>
+                                            <DialogContent>
+                                                <DialogHeader>
+                                                    <DialogTitle>Edit profile</DialogTitle>
+                                                    <DialogDescription>
+                                                        Make changes to your profile here. Click save when you're done.
+                                                    </DialogDescription>
+                                                </DialogHeader>
+
+                                                <DialogFooter>
+                                                    Save changes
+                                                </DialogFooter>
+                                            </DialogContent>
+                                        </Dialog>
                                         <MyTooltip>
                                             <template v-slot:main>
                                                 <Button>⋮</Button>
@@ -241,7 +283,7 @@ async function setDieNow(id) {
 }
 
 .respawn-bg {
-    background: rgb(191 191 191);
+    background: rgb(243 243 236);
 }
 
 .almost-lost-bg {
@@ -249,6 +291,6 @@ async function setDieNow(id) {
 }
 
 .lost-bg {
-    background: rgb(243 243 236);
+    background: rgb(191 191 191);
 }
 </style>
