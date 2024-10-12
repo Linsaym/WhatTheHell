@@ -272,7 +272,7 @@ async function setDieNow(id) {
                                                 </div>
                                                 <DialogFooter>
                                                     <Button type="submit" @click="setNewDeathTime">
-                                                        Save changes
+                                                        Сохранить
                                                     </Button>
                                                 </DialogFooter>
                                             </DialogContent>
