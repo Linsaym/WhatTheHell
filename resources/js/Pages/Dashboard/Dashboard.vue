@@ -82,10 +82,10 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                                 <AccordionItem value="item-1">
                                     <AccordionTrigger>Цели гильдии</AccordionTrigger>
                                     <AccordionContent>
-                                        <ul class="list-disc ml-6">
-                                            <li>Надо что Аня была довольна</li>
-                                            <li>Надо чтобы Аня не ругала меня</li>
-                                            <!--Система баллов активности, за которые можно покупать игровые ценности-->
+                                        <ul class="list-disc ml-6 text-xl">
+                                            <li>Ходить вместе на данжи</li>
+                                            <li>Забирать сундуки с боссов и элиток</li>
+                                            <li>Веселиться вместе, устраивать конкурсы и находить друзей</li>
                                         </ul>
                                     </AccordionContent>
                                 </AccordionItem>
@@ -93,7 +93,7 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                                     <AccordionTrigger>Правила PVP</AccordionTrigger>
                                     <AccordionContent>
                                         <ul class="list-disc ml-6">
-                                            <li>Никакого нахуй PVP</li>
+                                            <li>Мы не PVP Гильдия</li>
                                         </ul>
                                     </AccordionContent>
                                 </AccordionItem>
@@ -101,10 +101,8 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                                     <AccordionTrigger>Правила PVE</AccordionTrigger>
                                     <AccordionContent>
                                         <ul class="list-disc ml-6">
-                                            <li>Можно выбивать карты боссов</li>
-                                            <li>Можно придумывать правила</li>
-                                            <li>Нельзя обижать разработчиков</li>
-                                            <!--Система баллов активности, за которые можно покупать игровые ценности-->
+                                            <li>Более точные PVE правила появятся после старта сервера</li>
+                                            <li>Как делить лут с боссов мы решим потом, вместе</li>
                                         </ul>
                                     </AccordionContent>
                                 </AccordionItem>
