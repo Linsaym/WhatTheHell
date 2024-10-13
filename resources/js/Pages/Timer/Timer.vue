@@ -175,11 +175,11 @@ async function setDieNow(id) {
                 >
                     <div class="p-6 text-gray-100">
                         <Tabs default-value="showed">
-                            <TabsList class="grid grid-cols-2 w-[400px] mb-6">
-                                <TabsTrigger value="showed" class="bg-gray-600">
+                            <TabsList class="grid grid-cols-2 w-[400px] mb-6 p-2 rounded">
+                                <TabsTrigger class="data-[state=active]:bg-stone-700 rounded-lg" value="showed">
                                     All
                                 </TabsTrigger>
-                                <TabsTrigger value="hidden" class="bg-gray-600">
+                                <TabsTrigger class="data-[state=active]:bg-stone-700 rounded-lg" value="hidden">
                                     Hidden
                                 </TabsTrigger>
                             </TabsList>
@@ -208,7 +208,7 @@ async function setDieNow(id) {
                                             <template v-slot:main>
                                                 <div style="position: relative">
                                                     {{ boss.respawnTime }}
-                                                    <p v-if="boss.cd !== 5"
+                                                    <p v-if="boss.cd !== 5 && boss.cd !== 'Реснулся!'"
                                                        style="position: absolute; right: -41px;top: -12px; font-size: 15px; display: block;width: 40px; text-align: left">
                                                         <span v-if="index%2===0">💬</span>
                                                         <span v-if="boss.cd" class="text-gray-400">{{ boss.cd }}</span>
@@ -239,10 +239,12 @@ async function setDieNow(id) {
                                         </MyTooltip>
                                     </div>
                                     <div class="flex gap-4 ml-auto my-auto align-middle">
-                                        <Button @click="setDieNow(boss.id)">Умер!</Button>
+                                        <Button variant="secondary" @click="setDieNow(boss.id)">Умер!</Button>
                                         <Dialog>
                                             <DialogTrigger>
-                                                <Button @click="openModal">Указать точное время</Button>
+                                                <Button variant="secondary" @click="openModal">
+                                                    Указать точное время
+                                                </Button>
                                             </DialogTrigger>
                                             <DialogContent class="sm:max-w-[525px]">
                                                 <DialogHeader>
@@ -278,7 +280,7 @@ async function setDieNow(id) {
                                         </Dialog>
                                         <MyTooltip>
                                             <template v-slot:main>
-                                                <Button>⋮</Button>
+                                                <Button variant="secondary">⋮</Button>
                                             </template>
                                             <template v-slot:text>
                                                 Внутри будет
