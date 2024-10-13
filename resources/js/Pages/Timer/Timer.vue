@@ -60,7 +60,7 @@ const addFieldsToBoss = (boss) => {
 
 
     // Если разница между текущим временем и респавном <= 5 минут, то показываем '00:00:00' и cd = '-'
-    const minutesLeft = respawnTime.diff(now, 'minutes');
+    let minutesLeft = respawnTime.diff(now, 'minutes');
     if (minutesLeft >= -5 && minutesLeft <= 0) {
         return {...boss, timeLeft: '00:00:00', cd: 'Реснулся!', respawnTime: respawnTime.format('HH:mm:ss'),};
     }
@@ -69,6 +69,13 @@ const addFieldsToBoss = (boss) => {
         let deathTime = respawnTime;//Новое предположительное время смерти для расчёта времени появления (используется только в расчётах, нигде не отображается)
         respawnTime = moment(deathTime).add(moment.duration(boss.respawn));
         cdCount++;
+    }
+
+    // Я продублировал эту логику, чтобы она работала и на боссов по кд
+    // Если разница между текущим временем и респавном <= 5 минут, то показываем '00:00:00' и cd = '-'
+    minutesLeft = respawnTime.diff(now, 'minutes');
+    if (minutesLeft >= -5 && minutesLeft <= 0) {
+        return {...boss, timeLeft: '00:00:00', cd: 'Реснулся!', respawnTime: respawnTime.format('HH:mm:ss'),};
     }
 
     // Если прошло 5 циклов КД, считаем, что респавн потерян
@@ -166,13 +173,13 @@ async function setDieNow(id) {
                 <div
                     class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800"
                 >
-                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <div class="p-6 text-gray-100">
                         <Tabs default-value="showed">
-                            <TabsList class="grid grid-cols-2 w-[400px]">
-                                <TabsTrigger value="showed">
+                            <TabsList class="grid grid-cols-2 w-[400px] mb-6">
+                                <TabsTrigger value="showed" class="bg-gray-600">
                                     All
                                 </TabsTrigger>
-                                <TabsTrigger value="hidden">
+                                <TabsTrigger value="hidden" class="bg-gray-600">
                                     Hidden
                                 </TabsTrigger>
                             </TabsList>
@@ -195,51 +202,43 @@ async function setDieNow(id) {
                                             </template>
                                         </MyTooltip>
                                     </div>
-                                    <div class="w-72">{{ boss.name }}</div>
-                                    <div class="w-48">
+                                    <div class="w-80">{{ boss.name }}</div>
+                                    <div class="w-52">
                                         <MyTooltip>
                                             <template v-slot:main>
-                                                {{ boss.respawnTime }}
+                                                <div style="position: relative">
+                                                    {{ boss.respawnTime }}
+                                                    <p v-if="boss.cd !== 5"
+                                                       style="position: absolute; right: -41px;top: -12px; font-size: 15px; display: block;width: 40px; text-align: left">
+                                                        <span v-if="index%2===0">💬</span>
+                                                        <span v-if="boss.cd" class="text-gray-400">{{ boss.cd }}</span>
+                                                    </p>
+
+                                                </div>
+
                                             </template>
-                                            <template v-slot:text>Время возрождения босса</template>
+                                            <template v-slot:text>
+                                                <p>
+                                                    Время возрождения босса<br>
+                                                    <span v-if="index%2===0">💬 - Респ был перепесан из чата<br></span>
+                                                    <span v-if="boss.cd">
+                                                        <span class="text-gray-400">{{ boss.cd }}</span> - сколько раз босс по кд
+                                                    </span>
+                                                </p>
+                                            </template>
                                         </MyTooltip>
                                     </div>
-                                    <div class="ml-4 w-48">
-                                        <div class="flex">
-                                            <div class="w-48">
-                                                <MyTooltip>
-                                                    <template v-slot:main>{{ boss.cd }}</template>
-                                                    <template v-slot:text>
-                                                        <p class="mb-2">КД</p>
-                                                        <p>
-                                                            Что такое кд? <br>
-                                                            Если после возрождения босса, cпустя 5 минут, никто не
-                                                            переписал его таймер,<br>
-                                                            значит, предполагается, что на босса никто не пришёл. <br>
-                                                            <br>
-                                                            В таком случае, записывается "КД 1 раз", и время респавна
-                                                            высчитывается как будто<br>
-                                                            босс сразу умер после возрождения. И так до 5-ти раз, после
-                                                            чего респ становиться утерянным
-                                                            <br>
-                                                            КД нужно для того, чтобы в случае того если никто не пришёл
-                                                            на босса, высчитать его примерное
-                                                            время возрождения
-                                                        </p>
-                                                    </template>
-                                                </MyTooltip>
-                                            </div>
-                                            <MyTooltip>
-                                                <template v-slot:main>
-                                                    {{ boss.timeLeft }}
-                                                </template>
-                                                <template v-slot:text>
-                                                    Время до возрождения
-                                                </template>
-                                            </MyTooltip>
-                                        </div>
+                                    <div>
+                                        <MyTooltip>
+                                            <template v-slot:main>
+                                                {{ boss.timeLeft === 'Lost' ? '' : boss.timeLeft }}
+                                            </template>
+                                            <template v-slot:text>
+                                                Время до возрождения
+                                            </template>
+                                        </MyTooltip>
                                     </div>
-                                    <div class="flex gap-4 ml-auto my-auto">
+                                    <div class="flex gap-4 ml-auto my-auto align-middle">
                                         <Button @click="setDieNow(boss.id)">Умер!</Button>
                                         <Dialog>
                                             <DialogTrigger>
@@ -303,19 +302,23 @@ async function setDieNow(id) {
     </AuthenticatedLayout>
 </template>
 <style>
+#radix-vue-tabs-v-6-trigger-showed {
+
+}
+
 .simple-bg {
-    background: #c8e6c9;
+    background: #4b3458;
 }
 
 .respawn-bg {
-    background: rgb(243 243 236);
+    background: #914040;
 }
 
 .almost-lost-bg {
-    background: #e5d6b2;
+    background: #323560;
 }
 
 .lost-bg {
-    background: rgb(191 191 191);
+    background: none;
 }
 </style>

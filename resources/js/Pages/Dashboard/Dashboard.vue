@@ -31,7 +31,7 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                     class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800"
                 >
                     <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <h1 class="text-4xl font-bold text-center text-gray-800 mb-16">
+                        <h1 class="text-4xl font-bold text-center text-white mb-16">
                             Добро пожаловать в Гильдию <span class="text-orange-500">What the Hell</span>
                         </h1>
                         <section>
@@ -41,7 +41,7 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                             <ul class="flex space-x-4 justify-around mt-6">
                                 <li>
                                     <Link :href="route('timer')">
-                                        <Card class="w-80 text-center">
+                                        <Card class="w-80 bg-gray-600 text-center text-white">
                                             <CardHeader>
                                                 <CardTitle>Таймер боссов</CardTitle>
                                             </CardHeader>
@@ -53,7 +53,7 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                                 </li>
                                 <li>
                                     <Link :href="route('guides')">
-                                        <Card class="w-80 text-center">
+                                        <Card class="w-80 text-center bg-gray-600 text-white">
                                             <CardHeader>
                                                 <CardTitle>Гайды по игре</CardTitle>
                                             </CardHeader>
@@ -65,7 +65,7 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                                 </li>
                                 <li>
                                     <Link :href="route('activity')">
-                                        <Card class="w-80 text-center">
+                                        <Card class="w-80 text-center bg-gray-600 text-white">
                                             <CardHeader>
                                                 <CardTitle>Активности и конкурсы</CardTitle>
                                             </CardHeader>
@@ -90,7 +90,7 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-2">
-                                    <AccordionTrigger>Правила PVP</AccordionTrigger>
+                                    <AccordionTrigger>Правила общения</AccordionTrigger>
                                     <AccordionContent>
                                         <ul class="list-disc ml-6">
                                             <li>Мы не PVP Гильдия</li>
@@ -110,7 +110,6 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                         </section>
                         <section>
                             <div class="mt-12 mb-16 flex justify-around">
-                                <Introduction/>
                                 <div>
                                     <iframe
                                         src="https://discord.com/widget?id=1291365173726150761&theme=dark"

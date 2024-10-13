@@ -42,31 +42,9 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-2">
-                                <AccordionTrigger>Гайды по фарму</AccordionTrigger>
-                                <AccordionContent>
-                                    <ul class="list-disc ml-6">
-                                        <li>
-                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
-                                                Фарм через добычу ресурсов (500к в час)
-                                            </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
-                                                Фарм соло (до 2кк в час)
-                                            </NavLink>
-                                        </li>
-                                    </ul>
-                                </AccordionContent>
-                            </AccordionItem>
-                            <AccordionItem value="item-3">
                                 <AccordionTrigger>Гайды по классам</AccordionTrigger>
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
-                                        <li>
-                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
-                                                Гайд на рогу
-                                            </NavLink>
-                                        </li>
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('dashboard')">
                                                 Гайд на ханта
@@ -82,21 +60,31 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                                 Гайд на волша
                                             </NavLink>
                                         </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
+                                                Гайд на креста
+                                            </NavLink>
+                                        </li>
                                     </ul>
                                 </AccordionContent>
                             </AccordionItem>
-                            <AccordionItem value="item-4">
-                                <AccordionTrigger>Гайды по прокачке</AccordionTrigger>
+                            <AccordionItem value="item-3">
+                                <AccordionTrigger>Гайды по игре</AccordionTrigger>
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('dashboard')">
-                                                1-20
+                                                Основы прокачки 1-40
                                             </NavLink>
                                         </li>
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('dashboard')">
-                                                20-30
+                                                Важнейшие квесты
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
+                                                60-65
                                             </NavLink>
                                         </li>
                                     </ul>
@@ -109,3 +97,48 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
         </div>
     </AuthenticatedLayout>
 </template>
+<!--<AccordionItem value="item-2">-->
+<!--<AccordionTrigger>Гайды по фарму</AccordionTrigger>-->
+<!--<AccordionContent>-->
+<!--    <ul class="list-disc ml-6">-->
+<!--        <li>-->
+<!--            <NavLink style="font-size: 18px" :href="route('dashboard')">-->
+<!--                Фарм через добычу ресурсов (500к в час)-->
+<!--            </NavLink>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <NavLink style="font-size: 18px" :href="route('dashboard')">-->
+<!--                Фарм соло (до 2кк в час)-->
+<!--            </NavLink>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--</AccordionContent>-->
+<!--</AccordionItem>-->
+<!--<AccordionItem value="item-3">-->
+<!--<AccordionTrigger>Гайды по классам</AccordionTrigger>-->
+<!--<AccordionContent>-->
+<!--    <ul class="list-disc ml-6">-->
+<!--        <li>-->
+<!--            <NavLink style="font-size: 18px" :href="route('dashboard')">-->
+<!--                Гайд на рогу-->
+<!--            </NavLink>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <NavLink style="font-size: 18px" :href="route('dashboard')">-->
+<!--                Гайд на ханта-->
+<!--            </NavLink>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <NavLink style="font-size: 18px" :href="route('dashboard')">-->
+<!--                Гайд на ТРа-->
+<!--            </NavLink>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <NavLink style="font-size: 18px" :href="route('dashboard')">-->
+<!--                Гайд на волша-->
+<!--            </NavLink>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--</AccordionContent>-->
+<!--</AccordionItem>-->
+
