@@ -210,7 +210,7 @@ async function setDieNow(id) {
                                                     {{ boss.respawnTime }}
                                                     <p v-if="boss.cd !== 5 && boss.cd !== 'Реснулся!'"
                                                        style="position: absolute; right: -41px;top: -12px; font-size: 15px; display: block;width: 40px; text-align: left">
-                                                        <span v-if="index%2===0">💬</span>
+                                                        <span v-if="false">💬</span>
                                                         <span v-if="boss.cd" class="text-gray-400">{{ boss.cd }}</span>
                                                     </p>
 
@@ -220,7 +220,7 @@ async function setDieNow(id) {
                                             <template v-slot:text>
                                                 <p>
                                                     Время возрождения босса<br>
-                                                    <span v-if="index%2===0">💬 - Респ был перепесан из чата<br></span>
+                                                    <span v-if="false">💬 - Респ был перепесан из чата<br></span>
                                                     <span v-if="boss.cd">
                                                         <span class="text-gray-400">{{ boss.cd }}</span> - сколько раз босс по кд
                                                     </span>
