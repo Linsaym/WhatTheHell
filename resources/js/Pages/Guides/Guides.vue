@@ -29,12 +29,12 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 Школа баферства
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 Механики и скилы боссов
                                             </NavLink>
                                         </li>
@@ -46,22 +46,22 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 Гайд на ханта
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 Гайд на ТРа
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 Гайд на волша
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 Гайд на креста
                                             </NavLink>
                                         </li>
@@ -73,17 +73,17 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 Основы прокачки 1-40
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 Важнейшие квесты
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('dashboard')">
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 60-65
                                             </NavLink>
                                         </li>
@@ -97,48 +97,4 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
         </div>
     </AuthenticatedLayout>
 </template>
-<!--<AccordionItem value="item-2">-->
-<!--<AccordionTrigger>Гайды по фарму</AccordionTrigger>-->
-<!--<AccordionContent>-->
-<!--    <ul class="list-disc ml-6">-->
-<!--        <li>-->
-<!--            <NavLink style="font-size: 18px" :href="route('dashboard')">-->
-<!--                Фарм через добычу ресурсов (500к в час)-->
-<!--            </NavLink>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--            <NavLink style="font-size: 18px" :href="route('dashboard')">-->
-<!--                Фарм соло (до 2кк в час)-->
-<!--            </NavLink>-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--</AccordionContent>-->
-<!--</AccordionItem>-->
-<!--<AccordionItem value="item-3">-->
-<!--<AccordionTrigger>Гайды по классам</AccordionTrigger>-->
-<!--<AccordionContent>-->
-<!--    <ul class="list-disc ml-6">-->
-<!--        <li>-->
-<!--            <NavLink style="font-size: 18px" :href="route('dashboard')">-->
-<!--                Гайд на рогу-->
-<!--            </NavLink>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--            <NavLink style="font-size: 18px" :href="route('dashboard')">-->
-<!--                Гайд на ханта-->
-<!--            </NavLink>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--            <NavLink style="font-size: 18px" :href="route('dashboard')">-->
-<!--                Гайд на ТРа-->
-<!--            </NavLink>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--            <NavLink style="font-size: 18px" :href="route('dashboard')">-->
-<!--                Гайд на волша-->
-<!--            </NavLink>-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--</AccordionContent>-->
-<!--</AccordionItem>-->
 
