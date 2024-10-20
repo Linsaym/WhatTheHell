@@ -69,7 +69,7 @@ const showingNavigationDropdown = ref(false);
                             </div>
                             <!-- Settings Dropdown -->
                             <div class="relative ms-3">
-                                <Dropdown align="right" width="48">
+                                <Dropdown v-if="$page?.props?.auth?.user?.name" align="right" width="48">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
                                             <button
@@ -109,6 +109,23 @@ const showingNavigationDropdown = ref(false);
                                         </DropdownLink>
                                     </template>
                                 </Dropdown>
+                                <div v-else>
+                                    <nav class="flex flex-1 justify-center">
+                                        <Link
+                                            :href="route('login')"
+                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                        >
+                                            Log in
+                                        </Link>
+
+                                        <Link
+                                            :href="route('register')"
+                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                        >
+                                            Register
+                                        </Link>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
 
@@ -174,6 +191,7 @@ const showingNavigationDropdown = ref(false);
 
                     <!-- Responsive Settings Options -->
                     <div
+                        v-if="$page?.props?.auth?.user?.name"
                         class="border-t border-gray-200 pb-1 pt-4 dark:border-gray-600"
                     >
                         <div class="px-4">

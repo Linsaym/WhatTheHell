@@ -199,7 +199,7 @@ class EliteBossSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Королевский паук',
+                'name' => 'Королевский Паук',
                 'type' => 'elite',
                 'respawn' => '02:00:00',
                 'time_to_death' => now()->subDays(5),

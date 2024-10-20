@@ -109,7 +109,50 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                             </Accordion>
                         </section>
                         <section>
-                            <div class="mt-12 mb-16 flex justify-around">
+                            <div class="mt-12 mb-16 flex justify-between">
+                                <div>
+                                    <h5 class="text-2xl">Подать заявку в Гильдию вы можете в нашем Дискорде!</h5>
+                                    <ul class="list-disc ml-6 mt-6 text-xl">
+                                        <li>
+                                            Общайтесь с согильдийцами
+                                        </li>
+                                        <li>
+                                            Планируйте рейды
+                                        </li>
+                                        <li>
+                                            Проходите вместе данжы
+                                        </li>
+                                        <li>
+                                            Делитесь опытом
+                                        </li>
+                                        <li>
+                                            И просто веселитесь в нашем уютном Discord-сервере!
+                                        </li>
+                                    </ul>
+                                    <div class="mt-12 flex gap-10" style="height: 250px">
+                                        <div class="text-xl" style="width: 700px">
+                                            Если у вас не работает Discord, вы можете использовать обход блокировки,
+                                            через
+                                            <Link class="text-blue-500"
+                                                  href="https://github.com/Flowseal/zapret-discord-youtube">
+                                                https://github.com/Flowseal/zapret-discord-youtube
+                                            </Link>
+                                            <br>
+                                            <br>
+                                            Либо если у вас не получилось разобраться, просто напишите мне.<br>
+                                            И я вам помогу :3
+                                            <Link class="text-blue-500" href="https://vk.com/linsaym">
+                                                https://vk.com/linsaym
+                                            </Link>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <span class="text-3xl space-x-4 tracking-wider">Ждём вас в нашей гильдии
+                                                <span class="text-orange-500">What the Hell</span>!
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div>
                                     <iframe
                                         src="https://discord.com/widget?id=1291365173726150761&theme=dark"

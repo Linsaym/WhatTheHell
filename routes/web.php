@@ -7,19 +7,12 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect()->route('dashboard');
-    }
-
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-    ]);
-});
+    return Inertia::render('Dashboard/Dashboard');
+})->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard/Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     //Профиль
@@ -40,9 +33,9 @@ Route::middleware('auth')->group(function () {
     Route::get('guides/buffs', fn() => Inertia::render('Guides/Guides'))->name('guides.buffs');
     Route::get('guides/builds', fn() => Inertia::render('Guides/Guides'))->name('guides.builds');
     Route::get('guides/farm', fn() => Inertia::render('Guides/Guides'))->name('guides.farm');
+    Route::get('guides/bosses', fn() => Inertia::render('Guides/Guides'))->name('guides.bosses');
 });
 
-Route::put('api/boss-die/{id}', [BossController::class, 'updateTimeOfDeath'])->name('api.boss-die');
-Route::put('api/setTimeDeath/{id}', [BossController::class, 'updateTimeOfDeath'])->name('api.update-time-death');
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/api.php';
