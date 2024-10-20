@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BossController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\CheckPermissions;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -14,6 +15,11 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard/Dashboard');
 })->name('dashboard');
 
+//Вспомогательные
+Route::get('/403', function () {
+    return Inertia::render('403');
+})->name('403');
+
 Route::middleware('auth')->group(function () {
     //Профиль
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -21,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     //Таймер боссов
-    Route::get('/timer', [BossController::class, 'index'])->name('timer');
+    Route::get('/timer', [BossController::class, 'index'])->middleware(CheckPermissions::class . ':medium')->name('timer');
 
     //Активности
     Route::get('/activity', function () {

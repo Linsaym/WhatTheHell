@@ -111,7 +111,13 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                         <section>
                             <div class="mt-12 mb-16 flex justify-between">
                                 <div>
-                                    <h5 class="text-2xl">Подать заявку в Гильдию вы можете в нашем Дискорде!</h5>
+                                    <h5 class="text-2xl">Подать заявку в Гильдию вы можете в нашем
+                                        <a href="https://discord.gg/btxSC29B4R"
+                                           target="_blank"
+                                           class="text-blue-500">
+                                            Дискорде!
+                                        </a>
+                                    </h5>
                                     <ul class="list-disc ml-6 mt-6 text-xl">
                                         <li>
                                             Общайтесь с согильдийцами
@@ -120,7 +126,7 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                                             Планируйте рейды
                                         </li>
                                         <li>
-                                            Проходите вместе данжы
+                                            Проходите вместе данжи
                                         </li>
                                         <li>
                                             Делитесь опытом
@@ -133,17 +139,18 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                                         <div class="text-xl" style="width: 700px">
                                             Если у вас не работает Discord, вы можете использовать обход блокировки,
                                             через
-                                            <Link class="text-blue-500"
-                                                  href="https://github.com/Flowseal/zapret-discord-youtube">
+                                            <a class="text-blue-500"
+                                               target="_blank"
+                                               href="https://github.com/Flowseal/zapret-discord-youtube">
                                                 https://github.com/Flowseal/zapret-discord-youtube
-                                            </Link>
+                                            </a>
                                             <br>
                                             <br>
                                             Либо если у вас не получилось разобраться, просто напишите мне.<br>
                                             И я вам помогу :3
-                                            <Link class="text-blue-500" href="https://vk.com/linsaym">
+                                            <a class="text-blue-500" target="_blank" href="https://vk.com/linsaym">
                                                 https://vk.com/linsaym
-                                            </Link>
+                                            </a>
                                             <br>
                                             <br>
                                             <br>
@@ -154,15 +161,12 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                                     </div>
                                 </div>
                                 <div>
-                                    <iframe
-                                        src="https://discord.com/widget?id=1291365173726150761&theme=dark"
-                                        width="350" height="500" allowtransparency="true" frameborder="0"
-                                        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-                                    </iframe>
+                                    <iframe src="https://discord.com/widget?id=1291365173726150761&theme=dark"
+                                            width="350" height="500" allowtransparency="true" frameborder="0"
+                                            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                                 </div>
                             </div>
                         </section>
-
                     </div>
                 </div>
             </div>
@@ -170,6 +174,10 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
     </AuthenticatedLayout>
 </template>
 <style>
+.widgetBody-38iyIo > div:first-child {
+    display: none;
+}
+
 .card__icon {
     width: 170px;
     display: block;
