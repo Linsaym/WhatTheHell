@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BossRequest;
 use App\Models\Boss;
+use App\Models\UserBossesHiddenRelation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -64,6 +65,34 @@ class BossController extends Controller
             'comment' => $request->input('comment') ?? ''
         ]);
 
+        return response()->json([
+            "result" => 'success',
+            'bosses' => $this->getAllShowedBosses($userId),
+            'hiddenBosses' => $this->getAllHiddenBosses($userId)
+        ]);
+    }
+
+    public function hideBoss(int $boss_id, Request $request)
+    {
+        $userId = $request->user()->id;
+        UserBossesHiddenRelation::create([
+            'user_id' => $userId,
+            'boss_id' => $boss_id,
+        ]);
+        return response()->json([
+            "result" => 'success',
+            'bosses' => $this->getAllShowedBosses($userId),
+            'hiddenBosses' => $this->getAllHiddenBosses($userId)
+        ]);
+    }
+
+    public function deleteBossFromHideList(int $boss_id, Request $request)
+    {
+        $userId = $request->user()->id;
+        UserBossesHiddenRelation::where([
+            'user_id' => $userId,
+            'boss_id' => $boss_id
+        ])->delete();
         return response()->json([
             "result" => 'success',
             'bosses' => $this->getAllShowedBosses($userId),

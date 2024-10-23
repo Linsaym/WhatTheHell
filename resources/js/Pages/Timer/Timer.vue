@@ -19,6 +19,12 @@ import {
 } from "@/Components/ui/dialog/index.js"
 import {Input} from '@/Components/ui/input'
 import {Label} from '@/Components/ui/label'
+import {
+    DropdownMenu,
+    DropdownMenuTrigger,
+    DropdownMenuItem,
+    DropdownMenuContent
+} from "@/Components/ui/dropdown-menu/index.js";
 
 const toast = useToast();
 
@@ -180,11 +186,28 @@ async function setDieNow(id) {
     toast.success('Время успешно обновлено!', {timeout: 1000});
 }
 
+const addBossInHiddenList = async (id) => {
+    try {
+        const {data} = await axios.post(route('api.hide-boss', id))
+        bossList.value = addFieldsInBossList(data.bosses)
+        hiddenBossList.value = data.hiddenBosses
+        toast.success('Теперь вы больше не увидите его :3');
+    } catch (e) {
+        console.log(e)
+        toast.error('Не удалось скрыть босса')
+    }
+}
+
 const deleteBossFromHiddenList = async (id) => {
-    const {data} = await axios.put(route('403'))
-    bossList.value = addFieldsInBossList(data.bosses)
-    hiddenBossList.value = data.hiddenBosses
-    toast.success('Теперь босс будет снова отображаться :3', {timeout: 1000});
+    try {
+        const {data} = await axios.delete(route('api.delete-boss-from-hide-list', id))
+        bossList.value = addFieldsInBossList(data.bosses)
+        hiddenBossList.value = data.hiddenBosses
+        toast.success('Теперь босс будет снова отображаться :3');
+    } catch (e) {
+        console.log(e)
+        toast.error('Не удалось вернуть босса в список')
+    }
 }
 
 //api end
@@ -320,18 +343,16 @@ const isUseDieBtn = (boss) => {
                                                 </DialogFooter>
                                             </DialogContent>
                                         </Dialog>
-                                        <MyTooltip>
-                                            <template v-slot:main>
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger as-child>
                                                 <Button variant="secondary">⋮</Button>
-                                            </template>
-                                            <template v-slot:text>
-                                                Внутри будет
-                                                <ul class="list-disc ml-5">
-                                                    <li>История изменений</li>
-                                                    <li>удаление из списка</li>
-                                                </ul>
-                                            </template>
-                                        </MyTooltip>
+                                            </DropdownMenuTrigger>
+                                            <DropdownMenuContent class="w-56">
+                                                <DropdownMenuItem>История изменений</DropdownMenuItem>
+                                                <DropdownMenuItem @click="addBossInHiddenList(boss.id)">Скрыть
+                                                </DropdownMenuItem>
+                                            </DropdownMenuContent>
+                                        </DropdownMenu>
                                     </div>
                                 </div>
                             </TabsContent>
