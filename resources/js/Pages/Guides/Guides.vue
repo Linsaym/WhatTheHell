@@ -47,6 +47,11 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                     <ul class="list-disc ml-6">
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('403')">
+                                                Какой класс выбрать?
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 Гайд на ханта
                                             </NavLink>
                                         </li>
@@ -72,6 +77,11 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                 <AccordionTrigger>Гайды по игре</AccordionTrigger>
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                                Как увеличить FPS в игре?
+                                            </NavLink>
+                                        </li>
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('403')">
                                                 Основы прокачки 1-40

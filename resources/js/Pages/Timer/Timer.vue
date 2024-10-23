@@ -15,7 +15,7 @@ import {
     DialogHeader,
     DialogTitle,
     DialogDescription,
-    DialogContent
+    DialogContent, DialogClose
 } from "@/Components/ui/dialog/index.js"
 import {Input} from '@/Components/ui/input'
 import {Label} from '@/Components/ui/label'
@@ -29,11 +29,16 @@ const formatTime = time => moment(time).format('DD.MM.YYYY HH:mm:ss')
 const props = defineProps({
     bosses: {
         type: Array
+    },
+    hiddenBosses: {
+        type: Array
     }
 });
 
 const bossList = ref(props.bosses)
+const hiddenBossList = ref(props.hiddenBosses)
 const time = ref(moment().format('YYYY-MM-DDTHH:mm:ss'))
+const comment = ref('')
 const openModal = () => {
     time.value = moment().format('YYYY-MM-DDTHH:mm:ss')
 }
@@ -143,17 +148,50 @@ onMounted(() => {
 
 
 //api start
-async function setNewDeathTime() {
-    toast.warning('Этот раздел появиться позже :3');
+async function setNewDeathTime(id) {
+    // Проверяем, что переданное время, не больше текущего
+    // TODO переделать на селект где можно выбрать сегодня/завтра
+    const currentDate = new Date();
+    const enteredDate = new Date(time.value);
+    if (enteredDate > currentDate) {
+        toast.error('Кажется вы из будущего. Мы вам не доверяем');
+        return;
+    }
+
+    try {
+        const {data} = await axios.put(route('api.set-currently-time-death', [id]), {
+            'time_of_death': moment(time.value).utc().toISOString(),
+            'comment': comment.value
+        });
+        bossList.value = addFieldsInBossList(data.bosses)
+        hiddenBossList.value = data.hiddenBosses
+        comment.value = ''
+        toast.success('Время успешно обновлено!');
+    } catch (e) {
+        console.log(e)
+        toast.error('Не удалось :(');
+    }
 }
 
 async function setDieNow(id) {
-    const {data} = await axios.put(route('api.boss-die', {id: id}))
+    const {data} = await axios.put(route('api.boss-die', id))
     bossList.value = addFieldsInBossList(data.bosses)
+    hiddenBossList.value = data.hiddenBosses
     toast.success('Время успешно обновлено!', {timeout: 1000});
 }
 
+const deleteBossFromHiddenList = async (id) => {
+    const {data} = await axios.put(route('403'))
+    bossList.value = addFieldsInBossList(data.bosses)
+    hiddenBossList.value = data.hiddenBosses
+    toast.success('Теперь босс будет снова отображаться :3', {timeout: 1000});
+}
+
 //api end
+
+const isUseDieBtn = (boss) => {
+    return boss.comment && boss.comment !== 'По кнопке \"Умер!\"'
+}
 
 </script>
 
@@ -196,7 +234,7 @@ async function setDieNow(id) {
                                             </template>
                                             <template v-slot:text>
                                                 <ul>
-                                                    <li>respawn - {{ boss.respawn }}</li>
+                                                    <li>Respawn - {{ boss.respawn }}</li>
                                                     <li>Время смерти босса - {{ formatTime(boss.time_to_death) }}</li>
                                                 </ul>
                                             </template>
@@ -210,7 +248,7 @@ async function setDieNow(id) {
                                                     {{ boss.respawnTime }}
                                                     <p v-if="boss.cd !== 5 && boss.cd !== 'Реснулся!'"
                                                        style="position: absolute; right: -41px;top: -12px; font-size: 15px; display: block;width: 40px; text-align: left">
-                                                        <span v-if="false">💬</span>
+                                                        <span v-if="isUseDieBtn(boss)">💬</span>
                                                         <span v-if="boss.cd" class="text-gray-400">{{ boss.cd }}</span>
                                                     </p>
 
@@ -220,7 +258,7 @@ async function setDieNow(id) {
                                             <template v-slot:text>
                                                 <p>
                                                     Время возрождения босса<br>
-                                                    <span v-if="false">💬 - Респ был перепесан из чата<br></span>
+                                                    <span v-if="boss.comment">💬 - {{ boss.comment }}<br></span>
                                                     <span v-if="boss.cd">
                                                         <span class="text-gray-400">{{ boss.cd }}</span> - сколько раз босс по кд
                                                     </span>
@@ -268,13 +306,17 @@ async function setDieNow(id) {
                                                     </div>
                                                     <div class="grid grid-cols-4 items-center gap-4">
                                                         <Label>Комментарий</Label>
-                                                        <Input id="comment" name="comment" class="col-span-3"/>
+                                                        <Input v-model="comment" maxlength="40" id="comment"
+                                                               name="comment"
+                                                               class="col-span-3"/>
                                                     </div>
                                                 </div>
                                                 <DialogFooter>
-                                                    <Button type="submit" @click="setNewDeathTime">
-                                                        Сохранить
-                                                    </Button>
+                                                    <DialogClose>
+                                                        <Button type="submit" @click="setNewDeathTime(boss.id)">
+                                                            Сохранить
+                                                        </Button>
+                                                    </DialogClose>
                                                 </DialogFooter>
                                             </DialogContent>
                                         </Dialog>
@@ -294,7 +336,20 @@ async function setDieNow(id) {
                                 </div>
                             </TabsContent>
                             <TabsContent value="hidden">
-                                <div>Спрятанные</div>
+                                <div v-for="(boss, index) in hiddenBossList" :key="boss.id"
+                                     class="px-3  rounded mb-2 flex align-middle gap-4 text-xl items-center">
+                                    <div>
+                                        <img class="w-16 h-16 object-cover"
+                                             :src="`/assets/images/bosses/Портрет_${boss.name.replaceAll(' ','_')}.png`"
+                                             :alt="boss.name">
+                                    </div>
+                                    <div class="w-80">{{ boss.name }}</div>
+                                    <div class="flex gap-4 ml-auto my-auto align-middle">
+                                        <Button variant="secondary" @click="deleteBossFromHiddenList(boss.id)">
+                                            Добавить
+                                        </Button>
+                                    </div>
+                                </div>
                             </TabsContent>
                         </Tabs>
                     </div>

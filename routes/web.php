@@ -3,7 +3,6 @@
 use App\Http\Controllers\BossController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\CheckPermissions;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
