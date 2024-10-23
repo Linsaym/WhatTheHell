@@ -348,7 +348,9 @@ const isUseDieBtn = (boss) => {
                                                 <Button variant="secondary">⋮</Button>
                                             </DropdownMenuTrigger>
                                             <DropdownMenuContent class="w-56">
-                                                <DropdownMenuItem>История изменений</DropdownMenuItem>
+                                                <DropdownMenuItem @click="toast.warning('У вас нет прав')">
+                                                    История изменений
+                                                </DropdownMenuItem>
                                                 <DropdownMenuItem @click="addBossInHiddenList(boss.id)">Скрыть
                                                 </DropdownMenuItem>
                                             </DropdownMenuContent>
