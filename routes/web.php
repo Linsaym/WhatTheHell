@@ -35,6 +35,12 @@ Route::middleware('auth')->group(function () {
 
     //Гайды
     Route::get('guides', fn() => Inertia::render('Guides/Guides'))->name('guides');
+
+    Route::name('guides.')->prefix('/guides')->group(function () {
+        Route::get('/crusader', fn() => Inertia::render('Guides/classes/Crusader'))->name('crusader');
+    });
+
+    //Гайды на классы
     Route::get('guides/buffs', fn() => Inertia::render('Guides/Guides'))->name('guides.buffs');
     Route::get('guides/builds', fn() => Inertia::render('Guides/Guides'))->name('guides.builds');
     Route::get('guides/farm', fn() => Inertia::render('Guides/Guides'))->name('guides.farm');

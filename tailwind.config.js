@@ -22,6 +22,10 @@ module.exports = {
             },
         },
         extend: {
+            h3: {
+                'text-2xl': '2rem',
+                'font-bold': '700',
+            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
