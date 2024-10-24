@@ -179,6 +179,23 @@ async function setNewDeathTime(id) {
     }
 }
 
+async function dropTime(id) {
+    // Я просто записываю босса на 3 дня назад
+    try {
+        const {data} = await axios.put(route('api.set-currently-time-death', [id]), {
+            'time_of_death': moment().subtract(3, 'days').toISOString(),
+            'comment': 'Респ утерян'
+        });
+        bossList.value = addFieldsInBossList(data.bosses)
+        hiddenBossList.value = data.hiddenBosses
+        comment.value = ''
+        toast.success('Теперь респ потерян...');
+    } catch (e) {
+        console.log(e)
+        toast.error('Не удалось :(');
+    }
+}
+
 async function setDieNow(id) {
     const {data} = await axios.put(route('api.boss-die', id))
     bossList.value = addFieldsInBossList(data.bosses)
@@ -351,7 +368,11 @@ const isUseDieBtn = (boss) => {
                                                 <DropdownMenuItem @click="toast.warning('У вас нет прав')">
                                                     История изменений
                                                 </DropdownMenuItem>
-                                                <DropdownMenuItem @click="addBossInHiddenList(boss.id)">Скрыть
+                                                <DropdownMenuItem @click="dropTime(boss.id)">
+                                                    Респ утерян
+                                                </DropdownMenuItem>
+                                                <DropdownMenuItem @click="addBossInHiddenList(boss.id)">
+                                                    Скрыть
                                                 </DropdownMenuItem>
                                             </DropdownMenuContent>
                                         </DropdownMenu>
