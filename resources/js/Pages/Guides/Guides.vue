@@ -66,7 +66,7 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                            <NavLink style="font-size: 18px" :href="route('guides.crusader')">
                                                 Гайд на креста
                                             </NavLink>
                                         </li>
