@@ -2,6 +2,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Components/ui/accordion/index.js";
+import {Badge} from "@/Components/ui/badge/index.js";
 </script>
 
 <template>
@@ -22,64 +23,77 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                     class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800"
                 >
                     <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <Accordion :default-value="['item-1']">
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger>Вступление</AccordionTrigger>
-                                <AccordionContent>
-                                    <p></p>
-                                </AccordionContent>
-                            </AccordionItem>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">Вступление</h3>
+                            <div class="text-xl">
+                                <p>
+                                    Добро пожаловать в гайд о сильнейшем бафере в игре - <a
+                                    class="text-orange-500 font-bold"
+                                    href="https://royalquest.info/index.php/Крестоносец"
+                                    target="_blank">Крестоносце</a>
+                                </p>
+                                <div class="flex gap-2 my-3">
+                                    <badge
+                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
+                                        Живучий
+                                    </badge>
+                                    <badge
+                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
+                                        Полезные ауры
+                                    </badge>
+                                    <badge
+                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
+                                        Незаменимые бафы
+                                    </badge>
+                                    <badge
+                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
+                                        Сильный в PVP
+                                    </badge>
+                                </div>
+                                <div class="flex gap-2 mb-6">
+                                    <badge
+                                        class="bg-yellow-500 hover:bg-red-500 transition-colors duration-700">
+                                        Слабый в соло фарме
+                                    </badge>
+                                    <badge
+                                        class="bg-yellow-500 hover:bg-red-500 transition-colors duration-700">
+                                        Долго убивает парики
+                                    </badge>
+                                </div>
+                                <div class="text-base">
+                                    <p>Крестоносец - пожалуй сильнейший бафер в игре. За счёт его скила <a
+                                        class="text-blue-500"
+                                        target="_blank"
+                                        href="https://royalquest.info/index.php/Клеймо_еретика">"Клеймо
+                                        еретика"</a>, увеличивает весь входящий урон от челенов группы
+                                        на 25%, он является незаменимым классом в походах на боссов.
+                                        <br><br>
+                                        Однако, крестоносец не только бафер. Он также имеет хороший урон по
+                                        одной цели в ДД билде, и может танчить боссов.
+                                        В итоге крестоносец, может быть как танком, так и сапортом или бафером.
 
-                            <AccordionItem value="item-2">
+                                        В этом гайде мы рассмотрим как построить эффективного крестоносца, какие
+                                        таланты выбрать, какую экипировку использовать, и какие стратегии
+                                        использовать в боях.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <Accordion type="multiply" default-value="item-1">
+                            <AccordionItem class="text-2xl" value="item-2">
                                 <AccordionTrigger>Таланты/билды</AccordionTrigger>
                                 <AccordionContent>
                                     <p>Здесь будет информация о талантах и билдах.</p>
                                 </AccordionContent>
                             </AccordionItem>
-
-                            <AccordionItem value="item-3">
-                                <AccordionTrigger>Самые важные скилы</AccordionTrigger>
-                                <AccordionContent>
-                                    <p>Здесь будет информация о самых важных скилах.</p>
-                                </AccordionContent>
-                            </AccordionItem>
-
-                            <AccordionItem value="item-4">
-                                <AccordionTrigger>Как фармить</AccordionTrigger>
-                                <AccordionContent>
-                                    <p>Здесь будет информация о том, как фармить.</p>
-                                </AccordionContent>
-                            </AccordionItem>
-
-                            <AccordionItem value="item-5">
-                                <AccordionTrigger>Основная в данжах</AccordionTrigger>
-                                <AccordionContent>
-                                    <p>Здесь будет информация о том, как играть в данжах.</p>
-                                </AccordionContent>
-                            </AccordionItem>
-
-                            <AccordionItem value="item-6">
-                                <AccordionTrigger>Лучшие вещи</AccordionTrigger>
-                                <AccordionContent>
-                                    <p>Здесь будет информация о лучших вещах.</p>
-                                </AccordionContent>
-                            </AccordionItem>
-
-                            <AccordionItem value="item-7">
+                            <AccordionItem class="text-2xl" value="item-7">
                                 <AccordionTrigger>Сборки (ссылки на калькулятор)</AccordionTrigger>
                                 <AccordionContent>
                                     <p>Здесь будут ссылки на калькулятор сборок.</p>
                                 </AccordionContent>
                             </AccordionItem>
 
-                            <AccordionItem value="item-8">
-                                <AccordionTrigger>Советы по прокачке</AccordionTrigger>
-                                <AccordionContent>
-                                    <p>Здесь будут советы по прокачке.</p>
-                                </AccordionContent>
-                            </AccordionItem>
-
-                            <AccordionItem value="item-9">
+                            <AccordionItem class="text-2xl" value="item-9">
                                 <AccordionTrigger>Печати</AccordionTrigger>
                                 <AccordionContent>
                                     <p>Здесь будет информация о печатях.</p>
