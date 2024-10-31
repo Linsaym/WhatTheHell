@@ -80,7 +80,7 @@ import {Badge} from "@/Components/ui/badge/index.js";
                         <Accordion type="multiply" :default-value="['intro']">
                             <AccordionItem class="text-2xl" value="intro">
                                 <AccordionTrigger>Таланты/билды</AccordionTrigger>
-                                <AccordionContent>Вот да... Не успел</AccordionContent>
+                                <AccordionContent>Через пару минут всё распишу</AccordionContent>
                             </AccordionItem>
                             <AccordionItem class="text-2xl" value="item-7">
                                 <AccordionTrigger>Сборки (ссылки на калькулятор)</AccordionTrigger>
