@@ -91,9 +91,9 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                         </p>
                                         <div class="flex gap-6">
                                             <img src="/assets/images/skills/wizard/b1.png"
-                                                 alt="Билд на ханта Royal Quest">
+                                                 alt="Билд на Волшебника Royal Quest">
                                             <img src="/assets/images/skills/wizard/b2.png"
-                                                 alt="Билд на ханта Royal Quest">
+                                                 alt="Билд на Волшебника Royal Quest">
                                         </div>
                                         <div class="mt-3 text-lg">
                                             <p>
@@ -154,12 +154,26 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                                     <img
                                                         src="https://royalquest.info/images/d/dc/Талант_Мастер_телепортации.png"
                                                         style="width: 48px"
-                                                        alt="Совершенный щит">
+                                                        alt="Мастер телепортации">
                                                 </a>
                                                 <p class="w-2/3">
-                                                    - Талант "Мастер телепортации" будет очень имбовым, и позволит вам
+                                                    - Талант "Мастер телепортации", позволит вам
                                                     легче накапливать концентрацию. Если вы не играли на
                                                     волшебнике раньше, то 100% рекомендую взять его
+                                                </p>
+                                            </div>
+                                            <div class="flex gap-3 items-center my-3">
+                                                <a href="https://royalquest.info/index.php/Талант_—_Заживление"
+                                                   target="_blank"
+                                                >
+                                                    <img
+                                                        src="https://royalquest.info/images/9/92/Талант_Заживление.png"
+                                                        style="width: 48px"
+                                                        alt="Заживление">
+                                                </a>
+                                                <p class="w-2/3">
+                                                    - Если взять этот талант и <a href="https://royalquest.info/index.php/Талант_—_Круг_исцеления" target="_blank">
+                                                    Круг исцеления</a>, то вы сможете поддерживать "стаки", увеличивая защиту более чем на 30%. Об этой механике я расскажу ниже
                                                 </p>
                                             </div>
                                             <div class="my-6">
@@ -175,7 +189,7 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                                     <img
                                                         src="https://royalquest.info/images/0/08/Талант_Хранитель_жизни.png"
                                                         style="width: 48px"
-                                                        alt="Отстрел">
+                                                        alt="Хранитель жизни">
                                                 </a>
                                                 <p class="w-2/3">
                                                     - Этот талант так же имеет смысл быть. Тут на ваш вкус и цвет)
@@ -188,7 +202,7 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                                     <img
                                                         src="https://royalquest.info/images/9/9e/Талант_Чистая_телепортация.png"
                                                         style="width: 48px"
-                                                        alt="Разъедающие боеприпасы">
+                                                        alt="Чистая телепортация">
                                                 </a>
                                                 <p class="w-2/3">
                                                     - Когда вы приловчитесь накапливать концентрацию, взять нижний
@@ -196,18 +210,63 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                                     много дебафов
                                                 </p>
                                             </div>
+                                            <div class="flex gap-3 items-center my-3">
+                                                <a href="https://royalquest.info/index.php/Талант_—_Разрушитель_чар"
+                                                   target="_blank"
+                                                >
+                                                    <img
+                                                        src="https://royalquest.info/images/c/c9/Талант_Разрушитель_чар.png"
+                                                        style="width: 48px"
+                                                        alt="Разрушитель чар">
+                                                </a>
+                                                <p class="w-2/3">
+                                                    - Опять же если вы получаете много дебафов и часто участвуете в PVP,
+                                                    этот талант может быть хорошим вариантом. Щит при фарме ломается
+                                                    довольно быстро.
+                                                </p>
+                                            </div>
+                                            <div class="flex gap-3 items-center my-3">
+                                                <a href="https://royalquest.info/index.php/Талант_—_Ошеломление"
+                                                   target="_blank"
+                                                >
+                                                    <img
+                                                        src="https://royalquest.info/images/b/b9/Талант_Ошеломление.png"
+                                                        style="width: 48px"
+                                                        alt="Ошеломление">
+                                                </a>
+                                                <p class="w-2/3">
+                                                    - На высоких уровнях вам надо будет проходить данжи, в которых нужно убить босса на время.
+                                                    Этот талант увеличит урон всей команды более чем на 30%
+                                                </p>
+                                            </div>
                                             <div class="mt-11">
                                                 <p>
-                                                    Бла бла бла
-                                                    <br>
-                                                    <br>
+                                                    Так а теперь постараюсь рассказать про талант  <a href="https://royalquest.info/index.php/Талант_—_Заживление" class="text-blue-500 underline" target="_blank">Заживление</a>
+                                                    и о том как держать стаки. Как можно понять из описания,
+                                                    этот талант позволяет накладывать на игроков "Крепкие доспехи".
+                                                    Фишка в том, что чередуя залинания <a href="https://royalquest.info/index.php/Регенерация" class="text-blue-500 underline" target="_blank">Регенирация</a>
+                                                    и <a href="https://royalquest.info/index.php/Лечение" class="text-blue-500 underline" target="_blank">Лечение</a>,
+                                                    вы можете настакать 14 эффектов, что увеличит защиту на 3*14=42% !
+                                                    <br><br>
+                                                </p>
+                                                <p>
+                                                    А теперь про талант <a href="https://royalquest.info/index.php/Талант_—_Ошеломление" class="text-blue-500 underline" target="_blank">Ошеломление</a> дело в том
+                                                    Что "Устойчивость к стихиям", очень сильно режет весь урон в игре. Если у игрока вставлена карта элемента в оружие, то все атаки становятся элементальными.
+                                                    Снижая эту "устойчивость" вы увеличиваете урон всех кто бьёт этот таргет более чем на 30% (при максимальных стаках).
+                                                    Подробнее о элементах вы можете почитать на <a class="text-blue-500 underline" href="https://royalquest.info/index.php/Элементы" target="_blank">RQ wiki</a>
+                                                    <br><br>
+                                                </p>
+                                                <p>
+                                                    Подводя итоги мы получаем 2 основных PVE билда на капе. В первом нам легче фармить(тот что слева), а во втором мы более полезны на данжах,
+                                                    где нужно наносить много урона по соло цели (4-8ки + усыпалка).
+                                                    <br><br>
                                                 </p>
                                             </div>
                                             <div class="flex gap-6">
                                                 <img src="/assets/images/skills/wizard/b3.png"
-                                                     alt="Билд на ханта Royal Quest">
+                                                     alt="Билд на Волшебника Royal Quest">
                                                 <img src="/assets/images/skills/wizard/b4.png"
-                                                     alt="Билд на ханта Royal Quest">
+                                                     alt="Билд на Волшебника с ошеломлением Royal Quest">
                                             </div>
 
                                         </div>
@@ -221,12 +280,9 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                     <p class="text-green-500 font-bold text-2xl">//TODO надо доделать)</p>
                                     <div>
                                         1.
-                                        GAQuuCsAg4gMLuy22ApIcBa42Y2b2LQhs1cgv1SXx56BgqWBk4WCk4WCEe5dDw/r2okiHkT8AwAAAA==
+                                        GAciuAIAiMhkk2WJ0aoEO4GGq4CKTUtnewXuS3UVSyU6uwVaFgZitgpitgZ+lgY8ZK0XBEEAAAAAAA==
                                         <br>
                                         2. (фулл сборки)<br>
-                                        3. Сборки должны быть с ружьём, и луком<br>
-                                        4. Вот видосик где чел разные билды тестит
-                                        https://www.youtube.com/watch?v=-Bl3ydeSPoM<br>
                                     </div>
                                     <p>
                                         Бомже сборка<br>
