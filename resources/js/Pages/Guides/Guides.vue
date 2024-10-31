@@ -3,6 +3,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
 import NavLink from "@/Components/NavLink.vue";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Components/ui/accordion/index.js";
+import ExternalLink from "@/Components/ExternalLink.vue";
 </script>
 
 <template>
@@ -29,7 +30,7 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                            <NavLink style="font-size: 18px" :href="route('guides.buffs')">
                                                 Школа баферства
                                             </NavLink>
                                         </li>
@@ -46,28 +47,33 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                            <NavLink style="font-size: 18px" :href="route('guides.best-class')">
                                                 Какой класс выбрать?
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('403')">
-                                                Гайд на ханта
+                                            <NavLink style="font-size: 18px" :href="route('guides.hunter')">
+                                                Гайд на Охотника
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('403')">
-                                                Гайд на ТРа
+                                            <NavLink style="font-size: 18px" :href="route('guides.sniper')">
+                                                Гайд на Снайпера
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('403')">
-                                                Гайд на волша
+                                            <NavLink style="font-size: 18px" :href="route('guides.dark-knight')">
+                                                Гайд на Тёмного рыцаря
                                             </NavLink>
                                         </li>
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('guides.crusader')">
-                                                Гайд на креста
+                                                Гайд на Крестоносца
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('guides.wizard')">
+                                                Гайд на Волшебника
                                             </NavLink>
                                         </li>
                                     </ul>
@@ -78,9 +84,10 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('403')">
-                                                Как увеличить FPS в игре?
-                                            </NavLink>
+                                            <ExternalLink style="font-size: 18px"
+                                                          href="https://vk.com/wall-70406297_1019251">
+                                                Как увеличить FPS в игре? (потом норм распишу)
+                                            </ExternalLink>
                                         </li>
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('403')">
@@ -88,8 +95,13 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                             </NavLink>
                                         </li>
                                         <li>
+                                            <NavLink style="font-size: 18px" :href="route('guides.quests')">
+                                                Полезные квесты
+                                            </NavLink>
+                                        </li>
+                                        <li>
                                             <NavLink style="font-size: 18px" :href="route('403')">
-                                                Важнейшие квесты
+                                                Ресурсы, торговля, предметы для ежедневок
                                             </NavLink>
                                         </li>
                                         <li>

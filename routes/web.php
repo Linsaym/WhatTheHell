@@ -37,11 +37,24 @@ Route::middleware('auth')->group(function () {
     Route::get('guides', fn() => Inertia::render('Guides/Guides'))->name('guides');
 
     Route::name('guides.')->prefix('/guides')->group(function () {
+        // buffs
+        Route::get('/buffs', fn() => Inertia::render('Guides/bosses/Buffs'))->name('buffs');
+
+
+        // классы
+        Route::get('/best-class', fn() => Inertia::render('Guides/classes/BestClass'))->name('best-class');
         Route::get('/crusader', fn() => Inertia::render('Guides/classes/Crusader'))->name('crusader');
+        Route::get('/hunter', fn() => Inertia::render('Guides/classes/Hunter'))->name('hunter');
+        Route::get('/sniper', fn() => Inertia::render('Guides/classes/Sniper'))->name('sniper');
+        Route::get('/dark-knight', fn() => Inertia::render('Guides/classes/DarkKnight'))->name('dark-knight');
+        Route::get('/wizard', fn() => Inertia::render('Guides/classes/Wizard'))->name('wizard');
+
+        // гайды по игре
+        Route::get('/quests', fn() => Inertia::render('Guides/game/quests'))->name('quests');
+
     });
 
     //Гайды на классы
-    Route::get('guides/buffs', fn() => Inertia::render('Guides/Guides'))->name('guides.buffs');
     Route::get('guides/builds', fn() => Inertia::render('Guides/Guides'))->name('guides.builds');
     Route::get('guides/farm', fn() => Inertia::render('Guides/Guides'))->name('guides.farm');
     Route::get('guides/bosses', fn() => Inertia::render('Guides/Guides'))->name('guides.bosses');
