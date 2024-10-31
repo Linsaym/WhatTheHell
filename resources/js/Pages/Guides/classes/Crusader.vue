@@ -80,23 +80,27 @@ import {Badge} from "@/Components/ui/badge/index.js";
                             </div>
                         </div>
                         <Accordion type="multiply" default-value="item-1">
-                            <AccordionItem class="text-2xl" value="item-2">
+                            <AccordionItem class="text-2xl" value="item-1">
                                 <AccordionTrigger>Таланты/билды</AccordionTrigger>
                                 <AccordionContent>
-                                    <p>Здесь будет информация о талантах и билдах.</p>
+                                    <p>
+                                        Времени нет расписывать, поэтому коротко. На Креста есть 3 основных билда:<br>
+                                        PVE бафер + хиллер<br>
+                                        PVP бафер + ДД (в пве тоже имба)<br>
+                                        PVP бафер (его мы не будем расматривать)<br>
+                                    </p>
+                                    <div class="flex gap-6">
+                                        <img src="/assets/images/skills/cuesader/b1.png"
+                                             alt="Билд на PVE креста Royal Quest">
+                                        <img src="/assets/images/skills/cuesader/b2.png"
+                                             alt="Билд на PVP креста Royal Quest">
+                                    </div>
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem class="text-2xl" value="item-7">
                                 <AccordionTrigger>Сборки (ссылки на калькулятор)</AccordionTrigger>
                                 <AccordionContent>
                                     <p>Здесь будут ссылки на калькулятор сборок.</p>
-                                </AccordionContent>
-                            </AccordionItem>
-
-                            <AccordionItem class="text-2xl" value="item-9">
-                                <AccordionTrigger>Печати</AccordionTrigger>
-                                <AccordionContent>
-                                    <p>Здесь будет информация о печатях.</p>
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>
