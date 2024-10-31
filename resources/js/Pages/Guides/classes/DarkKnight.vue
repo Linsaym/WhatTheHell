@@ -80,26 +80,18 @@ import {Badge} from "@/Components/ui/badge/index.js";
                         <Accordion type="multiply" :default-value="['intro']">
                             <AccordionItem class="text-2xl" value="intro">
                                 <AccordionTrigger>Таланты/билды</AccordionTrigger>
-                                <AccordionContent>Через пару минут всё распишу</AccordionContent>
-                            </AccordionItem>
-                            <AccordionItem class="text-2xl" value="item-7">
-                                <AccordionTrigger>Сборки (ссылки на калькулятор)</AccordionTrigger>
-                                <AccordionContent>
-                                    <p class="text-green-500 font-bold text-2xl">//TODO надо доделать)</p>
-                                    <div>
-                                        1.
-                                        GAQuuCsAg4gMLuy22ApIcBa42Y2b2LQhs1cgv1SXx56BgqWBk4WCk4WCEe5dDw/r2okiHkT8AwAAAA==
-                                        <br>
-                                        2. (фулл сборки)<br>
-                                        3. Сборки должны быть с ружьём, и луком<br>
-                                        4. Вот видосик где чел разные билды тестит
-                                        https://www.youtube.com/watch?v=-Bl3ydeSPoM<br>
+                                <AccordionContent class="text-lg">
+                                    <div class="mb-4">
+                                        На ТРа, самым профитным для прокачки будет билд через копьё. Вот как он будет
+                                        выглядеть. После 60 уровня билд можно поменять, если вы хотите ходить данжи, но
+                                        я скину этот билд потом. Таланты тоже распишу позже
                                     </div>
-                                    <p>
-                                        Бомже сборка<br>
-                                        Актуальная сборка<br>
-                                        Предметы которые стоит отметить
-                                    </p>
+                                    <div class="flex gap-6">
+                                        <img src="/assets/images/skills/dark-knight/b1.png"
+                                             alt="Билд на Тёмного рыцаря Royal Quest">
+                                        <img src="/assets/images/skills/dark-knight/b2.png"
+                                             alt="Билд на Тёмного рыцаря Royal Quest">
+                                    </div>
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>
