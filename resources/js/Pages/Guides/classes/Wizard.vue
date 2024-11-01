@@ -233,7 +233,7 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                                    target="_blank"
                                                 >
                                                     <img
-                                                        src="https://royalquest.info/images/b/b9/Талант_Ошеломлен е.png"
+                                                        src="https://royalquest.info/images/b/b9/Талант_Ошеломлене.png"
                                                         style="width: 48px"
                                                         alt="Ошеломление">
                                                 </a>
