@@ -11,4 +11,6 @@ Route::put('api/setCurrentlyTimeOfDeath/{id}', [BossController::class, 'setCurre
 Route::post('api/hideBoss/{id}', [BossController::class, 'hideBoss'])->name('api.hide-boss');
 Route::delete('api/hideBoss/{id}', [BossController::class, 'deleteBossFromHideList'])->name('api.delete-boss-from-hide-list');
 
+Route::get('api/bossHistory/{id}', [BossController::class, 'getBossHistory'])->name('api.boss-history');
+
 Route::delete('api/');

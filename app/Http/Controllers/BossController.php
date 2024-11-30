@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BossRequest;
 use App\Models\Boss;
+use App\Models\BossDeathLog;
 use App\Models\UserBossesHiddenRelation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -40,6 +41,15 @@ class BossController extends Controller
         $userId = $request->user()->id;
         $boss = Boss::findOrFail($id);
 
+        //Логирование
+        BossDeathLog::create([
+            'boss_id' => $id,
+            'old_time_to_death' => $boss->time_to_death,
+            'new_time_to_death' => now(),
+            'comment' => 'По кнопке "Умер!"',
+            'user_id' => $userId,
+        ]);
+
         $boss->update([
             'time_to_death' => now(),
             'comment' => 'По кнопке "Умер!"'
@@ -57,11 +67,19 @@ class BossController extends Controller
         $userId = $request->user()->id;
         $boss = Boss::findOrFail($id);
 
-        // Получаем точное время из запроса
         $timeOfDeath = $request->input('time_of_death');
 
+        //Логирование
+        BossDeathLog::create([
+            'boss_id' => $id,
+            'old_time_to_death' => $boss->time_to_death,
+            'new_time_to_death' => Carbon::parse($timeOfDeath)->format('Y-m-d H:i:s'),
+            'comment' => $request->input('comment') ?? '',
+            'user_id' => $userId,
+        ]);
+
         $boss->update([
-            'time_to_death' => $timeOfDeath, // Используем полученное время
+            'time_to_death' => $timeOfDeath,
             'comment' => $request->input('comment') ?? ''
         ]);
 
@@ -98,6 +116,13 @@ class BossController extends Controller
             'bosses' => $this->getAllShowedBosses($userId),
             'hiddenBosses' => $this->getAllHiddenBosses($userId)
         ]);
+    }
+
+    public function getBossHistory(int $boss_id)
+    {
+        return response()->json(
+            BossDeathLog::where('boss_id', $boss_id)->orderBy('created_at', 'desc')->with('user')->limit(10)->get()
+        );
     }
 
     public function store(BossRequest $request)

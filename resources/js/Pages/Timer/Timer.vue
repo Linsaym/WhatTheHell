@@ -41,10 +41,16 @@ const props = defineProps({
     }
 });
 
+
 const bossList = ref(props.bosses)
 const hiddenBossList = ref(props.hiddenBosses)
 const time = ref(moment().format('YYYY-MM-DDTHH:mm:ss'))
 const comment = ref('')
+
+
+const isHistoryModalOpen = ref(false)
+const bossHistory = ref([])
+
 const openModal = () => {
     time.value = moment().format('YYYY-MM-DDTHH:mm:ss')
 }
@@ -243,6 +249,18 @@ const deleteBossFromHiddenList = async (id) => {
     }
 }
 
+const getBossHistory = async (id) => {
+    try {
+        const {data} = await axios.get(route('api.boss-history', id))
+        bossHistory.value = data
+        isHistoryModalOpen.value = true
+    } catch (e) {
+        console.log(e)
+        toast.error('Не удалось получить историю')
+        isHistoryModalOpen.value = false
+    }
+}
+
 //api end
 
 const isUseDieBtn = (boss) => {
@@ -381,7 +399,8 @@ const isUseDieBtn = (boss) => {
                                                 <Button variant="secondary">⋮</Button>
                                             </DropdownMenuTrigger>
                                             <DropdownMenuContent class="w-56">
-                                                <DropdownMenuItem @click="toast.warning('У вас нет прав')">
+                                                <DropdownMenuItem
+                                                    @click="getBossHistory(boss.id)">
                                                     История изменений
                                                 </DropdownMenuItem>
                                                 <DropdownMenuItem @click="dropTime(boss.id)">
@@ -412,6 +431,38 @@ const isUseDieBtn = (boss) => {
                                 </div>
                             </TabsContent>
                         </Tabs>
+                        <!--Модалка с историей-->
+                        <Dialog :open="isHistoryModalOpen"
+                                @update:open="(value)=>isHistoryModalOpen=value">
+                            <DialogContent>
+                                <DialogHeader>
+                                    <DialogTitle class="text-center">
+                                        Последние 10 изменений
+                                    </DialogTitle>
+                                </DialogHeader>
+                                <DialogDescription class="text-center">
+                                    Время на которое изменили | Кто изменил | Когда изменил
+                                </DialogDescription>
+                                <div class="grid gap-4 py-4">
+                                    <ul class="mt-2">
+                                        <li v-for="edit in bossHistory" class="flex justify-between mt-1">
+                                            <div>{{ formatTime(edit.new_time_to_death) }}</div>
+                                            <div>
+                                                <MyTooltip>
+                                                    <template v-slot:main>
+                                                        {{ edit.user.name.substring(0, 20) }}
+                                                    </template>
+                                                    <template v-slot:text>
+                                                        {{ edit.comment || 'Без комментария' }}
+                                                    </template>
+                                                </MyTooltip>
+                                            </div>
+                                            <div>{{ formatTime(edit.created_at) }}</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </DialogContent>
+                        </Dialog>
                     </div>
                 </div>
             </div>
