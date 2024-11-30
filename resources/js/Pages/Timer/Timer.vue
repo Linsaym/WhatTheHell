@@ -71,9 +71,16 @@ const addFieldsToBoss = (boss) => {
 
 
     // Если разница между текущим временем и респавном <= 5 минут, то показываем '00:00:00' и cd = '-'
-    let minutesLeft = respawnTime.diff(now, 'minutes');
-    if (minutesLeft >= -5 && minutesLeft <= 0) {
-        return {...boss, timeLeft: '00:00:00', cd: 'Реснулся!', respawnTime: respawnTime.format('HH:mm:ss'),};
+    let secondsLeft = respawnTime.diff(now, 'seconds');
+    if (secondsLeft >= -300 && secondsLeft <= 0) {
+        return {
+            ...boss,
+            timeLeft: '00:00:00',
+            cd: cdCount,
+            status: 'Respawn',
+            //comment: `Реснулся ${secondsLeft} секунд назад!`,
+            respawnTime: respawnTime.format('HH:mm:ss'),
+        };
     }
 
     while (now.isAfter(respawnTime) && cdCount < 5) {
@@ -84,20 +91,28 @@ const addFieldsToBoss = (boss) => {
 
     // Я продублировал эту логику, чтобы она работала и на боссов по кд
     // Если разница между текущим временем и респавном <= 5 минут, то показываем '00:00:00' и cd = '-'
-    minutesLeft = respawnTime.diff(now, 'minutes');
-    if (minutesLeft >= -5 && minutesLeft <= 0) {
-        return {...boss, timeLeft: '00:00:00', cd: 'Реснулся!', respawnTime: respawnTime.format('HH:mm:ss'),};
+    secondsLeft = respawnTime.diff(now, 'seconds');
+    if (secondsLeft >= -300 && secondsLeft <= 0) {
+        return {
+            ...boss,
+            timeLeft: '00:00:00',
+            cd: cdCount,
+            status: 'Respawn',
+            //comment: `Реснулся ${secondsLeft} секунд назад!`,
+            respawnTime: respawnTime.format('HH:mm:ss'),
+        };
     }
 
     // Если прошло 5 циклов КД, считаем, что респавн потерян
     if (cdCount >= 5) {
-        return {...boss, timeLeft: 'Lost', cd: cdCount, respawnTime: 'Lost'};
+        return {...boss, timeLeft: 'Lost', status: 'lost', cd: cdCount, respawnTime: 'Lost'};
     }
 
 
     return {
         ...boss,
         respawnTime: respawnTime.format('HH:mm:ss'),
+        status: 'lifeless',
         timeLeft: moment(respawnTime.diff(now)).utc().format('HH:mm:ss'),
         cd: cdCount
     }
@@ -130,8 +145,9 @@ const updateRespawnTimers = () => {
 
 
 //Возвращает фон для плашки босса
-const getBackground = (cd) => {
-    if (cd === 'Реснулся!') //Если босс только что появился вместо cd, будет стоять -
+const getBackground = (boss) => {
+    const cd = boss.cd
+    if (boss.status === 'Respawn') //Если босс только что появился
         return 'respawn-bg';
     else if (cd === 0)
         return 'simple-bg';
@@ -264,7 +280,7 @@ const isUseDieBtn = (boss) => {
                             <TabsContent value="showed">
                                 <div v-for="(boss, index) in bossList" :key="boss.id"
                                      class="px-3  rounded mb-2 flex align-middle gap-4 text-xl items-center"
-                                     :class="getBackground(boss.cd)">
+                                     :class="getBackground(boss)">
                                     <div>
                                         <MyTooltip>
                                             <template v-slot:main>

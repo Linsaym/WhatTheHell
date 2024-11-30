@@ -233,7 +233,7 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                                    target="_blank"
                                                 >
                                                     <img
-                                                        src="https://royalquest.info/images/b/b9/Талант_Ошеломлене.png"
+                                                        src="https://royalquest.info/images/b/b9/Талант_Ошеломление.png"
                                                         style="width: 48px"
                                                         alt="Ошеломление">
                                                 </a>
@@ -261,7 +261,8 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                                 <p>
                                                     А теперь про талант <a
                                                     href="https://royalquest.info/index.php/Талант_—_Ошеломление"
-                                                    class="text-blue-500 underline" target="_blank">Ошеломление</a> дело
+                                                    class="text-blue-500 underline" target="_blank">Ошеломление</a>.
+                                                    Дело
                                                     в том
                                                     Что "Устойчивость к стихиям", очень сильно режет весь урон в игре.
                                                     Если у игрока вставлена карта элемента в оружие, то все атаки
