@@ -1,2 +1,8 @@
 User-agent: *
 Disallow:
+User-agent: Googlebot
+Disallow:
+User-agent: Yandex
+Disallow:
+
+sitemap: https://what-the-hell.ru/sitemap.txt
