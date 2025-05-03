@@ -10,6 +10,7 @@ import {
     CardTitle,
 } from '@/Components/ui/card';
 import Introduction from "@/Pages/Dashboard/Introduction.vue";
+import ExternalLink from "@/Components/ExternalLink.vue";
 
 </script>
 
@@ -18,30 +19,26 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
 
     <AuthenticatedLayout>
         <template #header>
-            <h2
-                class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200"
-            >
+            <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
                 Dashboard
             </h2>
         </template>
 
-        <div class="py-12">
-            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div
-                    class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800"
-                >
-                    <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <h1 class="text-4xl font-bold text-center text-white mb-16">
-                            Добро пожаловать в Гильдию <span class="text-orange-500">What the Hell</span>
+        <div class="py-6 sm:py-12">
+            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 px-4">
+                <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
+                    <div class="p-4 sm:p-6 text-gray-900 dark:text-gray-100">
+                        <h1 class="text-2xl sm:text-4xl font-bold text-center text-white mb-8 sm:mb-16">
+                            Добро пожаловать в Гильдию <span class="text-orange-500">What&nbsp;the&nbsp;Hell</span>
                         </h1>
                         <section>
-                            <h3 class="text-2xl text-center font-semibold leading-tight text-gray-800 dark:text-gray-200">
+                            <h3 class="text-xl sm:text-2xl text-center font-semibold leading-tight text-gray-800 dark:text-gray-200">
                                 На нашем сайте вы найдёте
                             </h3>
-                            <ul class="flex space-x-4 justify-around mt-6">
+                            <ul class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 justify-around mt-6 items-center">
                                 <li>
                                     <Link :href="route('timer')">
-                                        <Card class="w-80 bg-gray-600 text-center text-white">
+                                        <Card class="w-64 sm:w-80 bg-gray-600 text-center text-white">
                                             <CardHeader>
                                                 <CardTitle>Таймер боссов</CardTitle>
                                             </CardHeader>
@@ -53,7 +50,7 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                                 </li>
                                 <li>
                                     <Link :href="route('guides')">
-                                        <Card class="w-80 text-center bg-gray-600 text-white">
+                                        <Card class="w-64 sm:w-80 text-center bg-gray-600 text-white">
                                             <CardHeader>
                                                 <CardTitle>Гайды по игре</CardTitle>
                                             </CardHeader>
@@ -64,8 +61,8 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link :href="route('activity')">
-                                        <Card class="w-80 text-center bg-gray-600 text-white">
+                                    <Link :href="route('403')">
+                                        <Card class="w-64 sm:w-80 text-center bg-gray-600 text-white">
                                             <CardHeader>
                                                 <CardTitle>Активности и конкурсы</CardTitle>
                                             </CardHeader>
@@ -78,11 +75,11 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                             </ul>
                         </section>
                         <section>
-                            <Accordion class="mt-12" type="single" collapsible>
+                            <Accordion class="mt-8 sm:mt-12" type="single" collapsible>
                                 <AccordionItem value="item-1">
                                     <AccordionTrigger>Цели гильдии</AccordionTrigger>
                                     <AccordionContent>
-                                        <ul class="list-disc ml-6 text-xl">
+                                        <ul class="list-disc ml-6 text-base sm:text-xl">
                                             <li>Ходить вместе на данжи</li>
                                             <li>Забирать сундуки с боссов и элиток</li>
                                             <li>Веселиться вместе, устраивать конкурсы и находить друзей</li>
@@ -92,7 +89,7 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                                 <AccordionItem value="item-2">
                                     <AccordionTrigger>Правила общения</AccordionTrigger>
                                     <AccordionContent>
-                                        <ul class="list-disc ml-6">
+                                        <ul class="list-disc ml-6 text-base sm:text-xl">
                                             <li>Мы не PVP Гильдия</li>
                                         </ul>
                                     </AccordionContent>
@@ -100,25 +97,29 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                                 <AccordionItem value="item-3">
                                     <AccordionTrigger>Правила PVE</AccordionTrigger>
                                     <AccordionContent>
-                                        <ul class="list-disc ml-6">
-                                            <li>Более точные PVE правила появятся после старта сервера</li>
-                                            <li>Как делить лут с боссов мы решим потом, вместе</li>
+                                        <ul class="list-disc ml-6 text-base sm:text-xl">
+                                            <li>Все PVE правила касаются лута с боссов</li>
+                                            <li>Как мы делим лут с боссов есть в нашем
+                                                <a target="_blank" class="text-blue-500 underline"
+                                                   href="https://discord.gg/btxSC29B4R">дискорде
+                                                </a>
+                                            </li>
                                         </ul>
                                     </AccordionContent>
                                 </AccordionItem>
                             </Accordion>
                         </section>
                         <section>
-                            <div class="mt-12 mb-16 flex justify-between">
-                                <div>
-                                    <h5 class="text-2xl">Подать заявку в Гильдию вы можете в нашем
+                            <div class="mt-8 sm:mt-12 mb-8 sm:mb-16 flex flex-col lg:flex-row gap-6">
+                                <div class="order-2 lg:order-1">
+                                    <h5 class="text-xl sm:text-2xl">Подать заявку в Гильдию вы можете в нашем
                                         <a href="https://discord.gg/btxSC29B4R"
                                            target="_blank"
                                            class="text-blue-500">
                                             Дискорде!
                                         </a>
                                     </h5>
-                                    <ul class="list-disc ml-6 mt-6 text-xl">
+                                    <ul class="list-disc ml-6 mt-4 sm:mt-6 text-base sm:text-xl">
                                         <li>
                                             Общайтесь с согильдийцами
                                         </li>
@@ -135,8 +136,8 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                                             И просто веселитесь в нашем уютном Discord-сервере!
                                         </li>
                                     </ul>
-                                    <div class="mt-12 flex gap-10" style="height: 250px">
-                                        <div class="text-xl" style="width: 700px">
+                                    <div class="mt-6 sm:mt-12" style="height: auto">
+                                        <div class="text-base sm:text-xl">
                                             Если у вас не работает Discord, вы можете использовать обход блокировки,
                                             через
                                             <a class="text-blue-500"
@@ -154,15 +155,16 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
                                             <br>
                                             <br>
                                             <br>
-                                            <span class="text-3xl space-x-4 tracking-wider">Ждём вас в нашей гильдии
-                                                <span class="text-orange-500">What the Hell</span>!
+                                            <span class="text-xl sm:text-3xl space-x-4 tracking-wider">Ждём вас в нашей гильдии
+                                                <span class="text-orange-500">What&nbsp;the&nbsp;Hell</span>!
                                             </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div>
+                                <div class="order-1 lg:order-2 mx-auto">
                                     <iframe src="https://discord.com/widget?id=1291365173726150761&theme=dark"
-                                            width="350" height="500" allowtransparency="true" frameborder="0"
+                                            width="300" height="400" class="sm:w-[350px] sm:h-[500px]"
+                                            allowtransparency="true" frameborder="0"
                                             sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                                 </div>
                             </div>
@@ -179,8 +181,14 @@ import Introduction from "@/Pages/Dashboard/Introduction.vue";
 }
 
 .card__icon {
-    width: 170px;
+    width: 120px;
     display: block;
     margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+    .card__icon {
+        width: 170px;
+    }
 }
 </style>

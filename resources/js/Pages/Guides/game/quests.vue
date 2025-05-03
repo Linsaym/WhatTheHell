@@ -7,7 +7,10 @@ import ExternalLink from "@/Components/ExternalLink.vue";
 </script>
 
 <template>
-    <Head title="Квесты"/>
+    <Head title="Квесты">
+        <!--Без адаптива пока что-->
+        <meta name="viewport" content="width=1200">
+    </Head>
 
     <AuthenticatedLayout>
         <template #header>

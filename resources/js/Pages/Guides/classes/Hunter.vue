@@ -6,7 +6,10 @@ import {Badge} from "@/Components/ui/badge/index.js";
 </script>
 
 <template>
-    <Head title="Охотник"/>
+    <Head title="Охотник">
+        <!--Без адаптива пока что-->
+        <meta name="viewport" content="width=1200">
+    </Head>
 
     <AuthenticatedLayout>
         <template #header>
@@ -233,29 +236,6 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                         </div>
 
                                     </div>
-                                </AccordionContent>
-                            </AccordionItem>
-                            <AccordionItem class="text-2xl" value="item-7">
-                                <AccordionTrigger>Сборки (ссылки на калькулятор)</AccordionTrigger>
-                                <AccordionContent>
-                                    <p class="text-green-500 font-bold text-2xl">//TODO надо доделать)</p>
-                                    <div>
-                                        1.
-                                        GAQuuCsAg4gMLuy22ApIcBa42Y2b2LQhs1cgv1SXx56BgqWBk4WCk4WCEe5dDw/r2okiHkT8AwAAAA==
-                                        <br>
-                                        2. (фулл сборки)<br>
-                                        3. Сборки должны быть с ружьём, и луком<br>
-                                        4. Вот видосик где чел разные билды тестит
-                                        https://www.youtube.com/watch?v=-Bl3ydeSPoM<br>
-                                    </div>
-                                    <p>
-                                        Бомже сборка<br>
-                                        Актуальная сборка<br>
-                                        Предметы которые стоит отметить
-                                    </p>
-                                    <p class="font-bold text-xl">
-                                        Если вы готовы помочь с доработкой напишите мне в дс
-                                    </p>
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>

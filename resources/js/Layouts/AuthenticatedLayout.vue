@@ -47,12 +47,6 @@ const showingNavigationDropdown = ref(false);
                                     Timer
                                 </NavLink>
                                 <NavLink
-                                    :href="route('activity')"
-                                    :active="route().current('activity')"
-                                >
-                                    Activity
-                                </NavLink>
-                                <NavLink
                                     :href="route('guides')"
                                     :active="route().current('guides')"
                                 >

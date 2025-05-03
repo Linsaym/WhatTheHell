@@ -6,7 +6,10 @@ import {Badge} from "@/Components/ui/badge/index.js";
 </script>
 
 <template>
-    <Head title="Guides"/>
+    <Head title="Crusader">
+        <!--Без адаптива пока что-->
+        <meta name="viewport" content="width=1200">
+    </Head>
 
     <AuthenticatedLayout>
         <template #header>

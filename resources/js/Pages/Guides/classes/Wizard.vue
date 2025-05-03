@@ -6,7 +6,10 @@ import {Badge} from "@/Components/ui/badge/index.js";
 </script>
 
 <template>
-    <Head title="Волшебник"/>
+    <Head title="Волшебник">
+        <!--Без адаптива пока что-->
+        <meta name="viewport" content="width=1200">
+    </Head>
 
     <AuthenticatedLayout>
         <template #header>
@@ -293,26 +296,6 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                         </div>
 
                                     </div>
-                                </AccordionContent>
-                            </AccordionItem>
-                            <AccordionItem class="text-2xl" value="item-7">
-                                <AccordionTrigger>Сборки (ссылки на калькулятор)</AccordionTrigger>
-                                <AccordionContent>
-                                    <p class="text-green-500 font-bold text-2xl">//TODO надо доделать)</p>
-                                    <div>
-                                        1.
-                                        GAciuAIAiMhkk2WJ0aoEO4GGq4CKTUtnewXuS3UVSyU6uwVaFgZitgpitgZ+lgY8ZK0XBEEAAAAAAA==
-                                        <br>
-                                        2. (фулл сборки)<br>
-                                    </div>
-                                    <p>
-                                        Бомже сборка<br>
-                                        Актуальная сборка<br>
-                                        Предметы которые стоит отметить
-                                    </p>
-                                    <p class="font-bold text-xl">
-                                        Если вы готовы помочь с доработкой напишите мне в дс
-                                    </p>
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>

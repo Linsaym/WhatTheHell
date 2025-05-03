@@ -28,10 +28,10 @@ Route::middleware('auth')->group(function () {
     //Таймер боссов
     Route::get('/timer', [BossController::class, 'index'])->middleware(CheckPermissions::class . ':medium')->name('timer');
 
-    //Активности
-    Route::get('/activity', function () {
-        return Inertia::render('Activity/Activity');
-    })->name('activity');
+    //Активности (реализация отменена т.к. все активности проводятся внутри дискорда)
+    //    Route::get('/activity', function () {
+    //        return Inertia::render('Activity/Activity');
+    //    })->name('activity');
 });
 
 //Гайды
@@ -40,7 +40,7 @@ Route::get('guides', fn() => Inertia::render('Guides/Guides'))->name('guides');
 Route::name('guides.')->prefix('/guides')->group(function () {
     // buffs
     Route::get('/buffs', fn() => Inertia::render('Guides/bosses/Buffs'))->name('buffs');
-    
+
     // классы
     Route::get('/best-class', fn() => Inertia::render('Guides/classes/BestClass'))->name('best-class');
     Route::get('/crusader', fn() => Inertia::render('Guides/classes/Crusader'))->name('crusader');

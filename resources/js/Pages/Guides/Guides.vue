@@ -57,11 +57,6 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('guides.sniper')">
-                                                Гайд на Снайпера
-                                            </NavLink>
-                                        </li>
-                                        <li>
                                             <NavLink style="font-size: 18px" :href="route('guides.dark-knight')">
                                                 Гайд на Тёмного рыцаря
                                             </NavLink>
@@ -83,12 +78,6 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                 <AccordionTrigger>Гайды по игре</AccordionTrigger>
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
-                                        <li>
-                                            <ExternalLink style="font-size: 18px"
-                                                          href="https://vk.com/wall-70406297_1019251">
-                                                Как увеличить FPS в игре? (потом норм распишу)
-                                            </ExternalLink>
-                                        </li>
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('403')">
                                                 Основы прокачки 1-40

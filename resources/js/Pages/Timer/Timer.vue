@@ -270,7 +270,10 @@ const isUseDieBtn = (boss) => {
 </script>
 
 <template>
-    <Head title="Timer"/>
+    <Head title="Timer">
+        <!--Без адаптива пока что-->
+        <meta name="viewport" content="width=1200">
+    </Head>
     <AuthenticatedLayout>
         <template #header>
             <h2
