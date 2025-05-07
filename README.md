@@ -2,13 +2,13 @@
 
 [![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
 [![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)](https://vuejs.org/)
-[![Inertia.js](https://img.shields.io/badge/Inertia-000000?style=for-the-badge)](https://inertiajs.com/)
 
 Веб-приложение для отслеживания времени возрождения боссов в MMORPG игре Royal Quest. Создано для гильдии "What the
 Hell" для отслеживания респавна боссов.
 
 ## Демонстрация
 
+Сайт в данный момент функционирует по адресу https://what-the-hell.ru/
 ![Демонстрация работы таймера боссов](demo.gif)
 
 ## Основные возможности
@@ -19,6 +19,7 @@ Hell" для отслеживания респавна боссов.
 - Удобный интерфейс для управления таймерами
 - Автоматический расчёт времени возрождения
 - Возможность ручной корректировки таймеров
+- Разделение прав для редактирования и просмотра таймера
 
 ## Для обновления файлов хостинга
 
