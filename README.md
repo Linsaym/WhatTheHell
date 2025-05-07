@@ -1,9 +1,26 @@
-### What the Hell
+# Boss Timer for Royal Quest
 
-Проект создан для Гильдии в MMORPG игре Royal Quest
-<br>
-<br>
-Для обновления файлов хостинга
+[![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)](https://vuejs.org/)
+[![Inertia.js](https://img.shields.io/badge/Inertia-000000?style=for-the-badge)](https://inertiajs.com/)
+
+Веб-приложение для отслеживания времени возрождения боссов в MMORPG игре Royal Quest. Создано для гильдии "What the
+Hell" для отслеживания респавна боссов.
+
+## Демонстрация
+
+![Демонстрация работы таймера боссов](demo.gif)
+
+## Основные возможности
+
+- Таймеры возрождения боссов с визуальным отображением
+- Уведомления о скором появлении боссов
+- История убийств боссов
+- Удобный интерфейс для управления таймерами
+- Автоматический расчёт времени возрождения
+- Возможность ручной корректировки таймеров
+
+## Для обновления файлов хостинга
 
 1. Обновите `master` до нужного состояния
 2. Сделайте `npm run build` у себя локально
@@ -14,7 +31,7 @@
 7. Обновите папку assets, если требуется
 8. Запустите `php artisan optimize`
 
-### Если вы разворачиваете у себя проект
+## Если вы разворачиваете у себя проект
 
 1. Клонируйте проект `git clone https://github.com/Linsaym/WhatTheHell`
 2. Установите все модули `composer install` & `npm install`
@@ -22,6 +39,7 @@
 4. Выполните все нужные сидеры из /database/seeders
 
 P.s. У вас должен быть установлен <a href="https://getcomposer.org/">Composer</a> и <a href="https://getcomposer.org/">
-Node.js</a>,<br>
+Node.js</a>,
+<br>
 а так же поднят MySQL и Apache(PHP). Сделать это можно с помощью <a href="https://www.apachefriends.org/ru/index.html">
 XAMPP</a>
