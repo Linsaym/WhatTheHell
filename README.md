@@ -37,7 +37,8 @@ Hell" для отслеживания респавна боссов.
 1. Клонируйте проект `git clone https://github.com/Linsaym/WhatTheHell`
 2. Установите все модули `composer install` & `npm install`
 3. Сгенерируйте ключ `php artisan key:generate`
-4. Выполните все нужные сидеры из /database/seeders
+4. Выполните все миграции `php artisan migrate`
+5. Выполните все нужные сидеры из /database/seeders
 
 P.s. У вас должен быть установлен <a href="https://getcomposer.org/">Composer</a> и <a href="https://getcomposer.org/">
 Node.js</a>,
