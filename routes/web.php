@@ -29,9 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/timer', [BossController::class, 'index'])->middleware(CheckPermissions::class . ':medium')->name('timer');
 
     //Активности (реализация отменена т.к. все активности проводятся внутри дискорда)
-    //    Route::get('/activity', function () {
-    //        return Inertia::render('Activity/Activity');
-    //    })->name('activity');
+    Route::get('/activity', function () {
+        return "Активности";
+    })->name('activity');
 });
 
 //Гайды

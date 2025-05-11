@@ -6,6 +6,8 @@ import {Button} from '@/Components/ui/button'
 import {useToast} from 'vue-toastification';
 import 'vue-toastification/dist/index.css';
 
+//TODO Эта страница теперь устаревшая, информация о всех конкурсах и активностях пока что перенесена в Дискорд
+
 const toast = useToast();
 
 const showToast = () => {
@@ -23,7 +25,7 @@ const showToast = () => {
 </script>
 
 <template>
-    <Head title="Dashboard"/>
+    <Head title="Activity"/>
 
     <AuthenticatedLayout>
         <template #header>
