@@ -11,11 +11,11 @@ import ExternalLink from "@/Components/ExternalLink.vue";
 
     <AuthenticatedLayout>
         <template #header>
-            <h2
+            <h1
                 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200"
             >
-                Guides
-            </h2>
+                Гайды по игре Royal Quest
+            </h1>
         </template>
 
         <div class="py-12">
@@ -24,7 +24,7 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                     class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800"
                 >
                     <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <Accordion type="multiple" :default-value="['item-1','item-2','item-3']">
+                        <Accordion type="multiple" :default-value="['item-1','item-2','item-3','item-4','item-5']">
                             <AccordionItem value="item-1">
                                 <AccordionTrigger>PVE гайды по боссам</AccordionTrigger>
                                 <AccordionContent>
@@ -35,7 +35,7 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                            <NavLink style="font-size: 18px" :href="route('guides.bosses')">
                                                 Механики и скилы боссов
                                             </NavLink>
                                         </li>
@@ -57,6 +57,11 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                             </NavLink>
                                         </li>
                                         <li>
+                                            <NavLink style="font-size: 18px" :href="route('guides.wizard')">
+                                                Гайд на Снайпера
+                                            </NavLink>
+                                        </li>
+                                        <li>
                                             <NavLink style="font-size: 18px" :href="route('guides.dark-knight')">
                                                 Гайд на Тёмного рыцаря
                                             </NavLink>
@@ -75,6 +80,33 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-3">
+                                <AccordionTrigger>Гайды на ДД классы</AccordionTrigger>
+                                <AccordionContent>
+                                    <ul class="list-disc ml-6">
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                                В чём проблема ДД классов?
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('guides.crusader')">
+                                                Гайд на Чернокнижника
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('guides.hunter')">
+                                                Гайд на Разбойника
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('guides.dark-knight')">
+                                                Гайд на Ассасина
+                                            </NavLink>
+                                        </li>
+                                    </ul>
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-4">
                                 <AccordionTrigger>Гайды по игре</AccordionTrigger>
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
@@ -96,6 +128,28 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('403')">
                                                 60-65
+                                            </NavLink>
+                                        </li>
+                                    </ul>
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-5">
+                                <AccordionTrigger>PVP гайды</AccordionTrigger>
+                                <AccordionContent>
+                                    <ul class="list-disc ml-6">
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                                Фарм знаков крови
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                                Основы PVP на аренах
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                                Тактика PVP на боссах
                                             </NavLink>
                                         </li>
                                     </ul>

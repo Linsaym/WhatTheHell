@@ -52,6 +52,18 @@ const showingNavigationDropdown = ref(false);
                                 >
                                     Guides
                                 </NavLink>
+                                <NavLink
+                                    :href="route('soft')"
+                                    :active="route().current('soft')"
+                                >
+                                    Soft
+                                </NavLink>
+                                <NavLink
+                                    :href="route('donate')"
+                                    :active="route().current('donate')"
+                                >
+                                    Donate
+                                </NavLink>
                             </div>
                         </div>
 

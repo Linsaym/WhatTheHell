@@ -16,9 +16,4 @@ class BossRequest extends FormRequest
             'location_id' => ['required'],
         ];
     }
-
-    public function authorize()
-    {
-        return true;
-    }
 }
