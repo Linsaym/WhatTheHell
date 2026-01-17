@@ -32,16 +32,24 @@ import NavLink from "@/Components/NavLink.vue";
                             </p>
                         </div>
 
-                        <div class="flex flex-col md:flex-row justify-around mb-8">
-                            <div class="text-center mb-4 md:mb-0">
-                                <h3 class="text-xl font-semibold mb-4">Сканируйте QR код для пожертвования</h3>
-                                <img src="/assets/images/VTB_QR.jpg" alt="QR код для пожертвования"
-                                     class="w-48 h-48 mx-auto border rounded">
+                        <div class="flex flex-col md:flex-row justify-around items-center mb-8">
+                            <div class="flex flex-col justify-center space-y-8 md:space-y-12 mb-8 md:mb-0 md:mr-8">
+                                <div class="text-center">
+                                    <h3 class="text-xl font-semibold mb-4">Сканируйте QR код для пожертвования</h3>
+                                    <img src="/assets/images/VTB_QR.jpg" alt="QR код для пожертвования"
+                                         class="w-48 h-48 mx-auto border rounded">
+                                </div>
+
+                                <div class="text-center">
+                                    <h3 class="text-xl font-semibold mb-4">Или можете переводить по номеру телефона</h3>
+                                    <div class="mx-auto text-xl font-bold">ВТБ 89509782755</div>
+                                </div>
                             </div>
 
+
                             <div class="text-center">
-                                <h3 class="text-xl font-semibold mb-4">Или можете переводить по номеру телефона</h3>
-                                <div class="mx-auto text-xl font-bold">ВТБ 89509782755</div>
+                                <img src="/assets/images/it-guy.png" alt="Описание фотографии"
+                                     class="w-full max-w-md md:max-w-lg rounded-lg">
                             </div>
                         </div>
                     </div>
