@@ -61,6 +61,7 @@ Route::name('guides.')->prefix('/guides')->group(function () {
     // классы
     Route::get('/best-class', fn() => Inertia::render('Guides/classes/BestClass'))->name('best-class');
     Route::get('/crusader', fn() => Inertia::render('Guides/classes/Crusader'))->name('crusader');
+    Route::get('/rogue', fn() => Inertia::render('Guides/classes/Rogue'))->name('rogue');
     Route::get('/hunter', fn() => Inertia::render('Guides/classes/Hunter'))->name('hunter');
     Route::get('/sniper', fn() => Inertia::render('Guides/classes/Sniper'))->name('sniper');
     Route::get('/dark-knight', fn() => Inertia::render('Guides/classes/DarkKnight'))->name('dark-knight');

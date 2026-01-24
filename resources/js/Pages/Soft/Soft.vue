@@ -49,6 +49,11 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                                 RoyalWikiOverlay
                                             </NavLink>
                                         </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('soft.royal-wiki-overlay')">
+                                                DPS metter
+                                            </NavLink>
+                                        </li>
                                     </ul>
                                 </AccordionContent>
                             </AccordionItem>

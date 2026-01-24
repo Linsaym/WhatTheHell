@@ -6,7 +6,7 @@ import {Badge} from "@/Components/ui/badge/index.js";
 </script>
 
 <template>
-    <Head title="Волшебник">
+    <Head title="Разбойник">
         <!--Без адаптива пока что-->
         <meta name="viewport" content="width=1200">
     </Head>
@@ -16,7 +16,7 @@ import {Badge} from "@/Components/ui/badge/index.js";
             <h1
                 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200"
             >
-                Гайд на Волшебника
+                Гайд на Разбойника Royal Quest
             </h1>
         </template>
 
@@ -27,52 +27,57 @@ import {Badge} from "@/Components/ui/badge/index.js";
                 >
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <div>
-                            <h3 class="text-2xl font-bold mb-4">Вступление</h3>
-                            <div class="text-xl">
+                            <div class="text-2xl font-bold">
                                 <p>
-                                    Это маг - <a
+                                    Кто сильнейший ДД последнего патча? - <a
                                     class="text-orange-500 font-bold"
-                                    href="https://royalquest.info/index.php/Волшебник"
-                                    target="_blank">Волшебник</a>
+                                    href="https://royalquest.info/index.php/Разбойник"
+                                    target="_blank">Разбойник</a>
                                 </p>
                                 <div class="flex gap-2 my-3">
                                     <badge
                                         class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
-                                        Легко фармит любые локации
+                                        Highest DPS
+                                    </badge>
+                                    <!--TODO Рассказать про свап щита-->
+                                    <badge
+                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
+                                        Высокая выживаемость
                                     </badge>
                                     <badge
                                         class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
-                                        Быстро бегает
+                                        Много контроля
                                     </badge>
                                     <badge
                                         class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
-                                        Может качать других игроков, с любой разницей в уровне
+                                        Грабёж
                                     </badge>
                                     <badge
                                         class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
-                                        Один из самых лучших классов для прокачки
+                                        Универсальность
                                     </badge>
                                 </div>
                                 <div class="flex gap-2 mb-6">
                                     <badge
                                         class="bg-yellow-500 hover:bg-red-500 transition-colors duration-700">
-                                        Не нужен на данжах если танк хорошо одет
+                                        Требует больших вложений
                                     </badge>
                                     <badge
                                         class="bg-yellow-500 hover:bg-red-500 transition-colors duration-700">
-                                        Маленький урон в одну цель
+                                        Медленная прокачка
                                     </badge>
                                     <badge
                                         class="bg-yellow-500 hover:bg-red-500 transition-colors duration-700">
-                                        Нужны прямые руки
+                                        Слабый в масс PVP
                                     </badge>
                                 </div>
                                 <div class="text-base">
-                                    <p>Волшебник - класс который является одним из самых сильных на старте. Он имеет
+                                    <p>Сейчас в Royal Quest мета аватоатакеров, они имеют самый высокий DPS (урон в
+                                        секунду) на мировых боссах. Он имеет
                                         высокую скорость бега, огромную выживаемость, и неплохой урон по толпе. И имеет
                                         много контроля, что полезно в PVP
                                         <br><br>
-                                        Волшебник легко водит парики за счёт своей мобильности. Он может агрить мобов а
+                                        Разбойник легко водит парики за счёт своей мобильности. Он может агрить мобов а
                                         потом продолжать собирать парик так, чтобы держать дистанцию между монстрами и
                                         не получать урон. Волшебник довольно вариативный класс, но какой бы билд вы не
                                         сделали, вы всё равно будете довольно сильным классом.

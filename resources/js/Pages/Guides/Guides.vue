@@ -31,12 +31,17 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                     <ul class="list-disc ml-6">
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('guides.buffs')">
-                                                Школа баферства
+                                                Школа баферства | Как забрать сундук
                                             </NavLink>
                                         </li>
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('guides.bosses')">
-                                                Механики и скилы боссов
+                                                Мировые боссы
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('guides.bosses')">
+                                                Элитки
                                             </NavLink>
                                         </li>
                                     </ul>
@@ -94,7 +99,7 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('guides.hunter')">
+                                            <NavLink style="font-size: 18px" :href="route('guides.rogue')">
                                                 Гайд на Разбойника
                                             </NavLink>
                                         </li>
