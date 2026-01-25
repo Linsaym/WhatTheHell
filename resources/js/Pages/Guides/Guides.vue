@@ -112,12 +112,17 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-4">
-                                <AccordionTrigger>Гайды по игре</AccordionTrigger>
+                                <AccordionTrigger>Общие гайды по игре</AccordionTrigger>
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('403')">
                                                 Основы прокачки 1-40
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                                Гайд по характеристикам
                                             </NavLink>
                                         </li>
                                         <li>
