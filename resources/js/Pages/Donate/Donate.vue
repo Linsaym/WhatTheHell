@@ -1,7 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import {Head, Link} from '@inertiajs/vue3';
-import NavLink from "@/Components/NavLink.vue";
+import {Head} from '@inertiajs/vue3';
 
 </script>
 
@@ -19,16 +18,19 @@ import NavLink from "@/Components/NavLink.vue";
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 px-4">
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
                     <div class="p-4 sm:p-6 text-gray-900 dark:text-gray-100">
-                        <h1 class="text-2xl sm:text-4xl font-bold text-center text-white mb-8 sm:mb-16">
+                        <h1 class="text-2xl sm:text-4xl font-bold text-center text-white sm:mb-6">
                             О авторе сайта
                         </h1>
                         <div class="mb-8">
-                            <p class="text-xl">
-                                Привет! Я Лев, создатель этого сайта и всех программ во вкладке
-                                <NavLink href="{{ route('soft') }}" class="text-xl">Soft</NavLink>
-                                . Я вложил много труда в разработку и написание гайдов. Если вам нравится сайт и вы
+                            <p class="text-xl text-center">
+                                Привет! Я Лев, создатель этого сайта, гайдов и многих программ для RQ
+                                . Я вложил много труда в это всё. Если вам нравится сайт и вы
                                 хотите поддержать его развитие, вы можете
-                                сделать пожертвование.
+                                сделать денежное пожертвование
+                                <a class="underline text-blue-500" href="https://t.me/Linsaym397">криптой в ТГ</a>
+                                .<br>Переводом на карту, или можете просто написать письмо в игре на
+                                ник
+                                <strong>Golang</strong>
                             </p>
                         </div>
 
@@ -58,15 +60,3 @@ import NavLink from "@/Components/NavLink.vue";
         </div>
     </AuthenticatedLayout>
 </template>
-
-<style scoped>
-.field-container {
-    width: 100%;
-    height: 40px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 0 8px;
-    display: flex;
-    align-items: center;
-}
-</style>

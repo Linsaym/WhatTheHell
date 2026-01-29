@@ -3,7 +3,6 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
 import NavLink from "@/Components/NavLink.vue";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Components/ui/accordion/index.js";
-import ExternalLink from "@/Components/ExternalLink.vue";
 </script>
 
 <template>
@@ -24,24 +23,57 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                     class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800"
                 >
                     <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <Accordion type="multiple" :default-value="['item-1','item-2','item-3','item-4','item-5']">
+                        <Accordion type="multiple"
+                                   :default-value="['novice','item-1','item-2','item-3','item-4','item-5']">
+                            <AccordionItem value="novice">
+                                <AccordionTrigger>Гайды для новичков</AccordionTrigger>
+                                <AccordionContent>
+                                    <ul class="list-disc ml-6">
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('guides.best-class')">
+                                                Выбор класса
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                                Прокачка 1-65
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                                Способы фарма
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                                Как выгоднее всего точиться
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                                Гайд по данжам 48 & Соло
+                                            </NavLink>
+                                        </li>
+                                    </ul>
+                                </AccordionContent>
+                            </AccordionItem>
                             <AccordionItem value="item-1">
                                 <AccordionTrigger>PVE гайды по боссам</AccordionTrigger>
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('guides.buffs')">
-                                                Школа баферства | Как забрать сундук
+                                                Баферство и максимальный DPS
                                             </NavLink>
                                         </li>
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('guides.bosses')">
-                                                Мировые боссы
+                                                Мировые боссы и механики
                                             </NavLink>
                                         </li>
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('guides.bosses')">
-                                                Элитки
+                                                Элитки и точки спавна
                                             </NavLink>
                                         </li>
                                     </ul>
@@ -51,11 +83,6 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                 <AccordionTrigger>Гайды по классам</AccordionTrigger>
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
-                                        <li>
-                                            <NavLink style="font-size: 18px" :href="route('guides.best-class')">
-                                                Какой класс выбрать?
-                                            </NavLink>
-                                        </li>
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('guides.hunter')">
                                                 Гайд на Охотника
@@ -117,11 +144,6 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                     <ul class="list-disc ml-6">
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('403')">
-                                                Основы прокачки 1-40
-                                            </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 Гайд по характеристикам
                                             </NavLink>
                                         </li>
@@ -133,11 +155,6 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('403')">
                                                 Ресурсы, торговля, предметы для ежедневок
-                                            </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink style="font-size: 18px" :href="route('403')">
-                                                60-65
                                             </NavLink>
                                         </li>
                                     </ul>
