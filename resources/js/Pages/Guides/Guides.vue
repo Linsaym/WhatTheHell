@@ -35,22 +35,22 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                            <NavLink style="font-size: 18px" :href="route('guides.leveling')">
                                                 Прокачка 1-65
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                            <NavLink style="font-size: 18px" :href="route('guides.farming')">
                                                 Способы фарма
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                            <NavLink style="font-size: 18px" :href="route('guides.enchanting')">
                                                 Как выгоднее всего точиться
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('403')">
+                                            <NavLink style="font-size: 18px" :href="route('guides.dungeons')">
                                                 Гайд по данжам 48 & Соло
                                             </NavLink>
                                         </li>

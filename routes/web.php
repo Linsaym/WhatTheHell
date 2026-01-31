@@ -59,13 +59,19 @@ Route::name('guides.')->prefix('/guides')->group(function () {
     Route::get('/bosses/pozhiki', fn() => Inertia::render('Guides/bosses/pozhiki'))->name('bosses.pozhiki');
 
     // классы
-    Route::get('/best-class', fn() => Inertia::render('Guides/classes/BestClass'))->name('best-class');
+    Route::get('/best-class', fn() => Inertia::render('Guides/newbies/BestClass'))->name('best-class');
     Route::get('/crusader', fn() => Inertia::render('Guides/classes/Crusader'))->name('crusader');
     Route::get('/rogue', fn() => Inertia::render('Guides/classes/Rogue'))->name('rogue');
     Route::get('/hunter', fn() => Inertia::render('Guides/classes/Hunter'))->name('hunter');
     Route::get('/sniper', fn() => Inertia::render('Guides/classes/Sniper'))->name('sniper');
     Route::get('/dark-knight', fn() => Inertia::render('Guides/classes/DarkKnight'))->name('dark-knight');
     Route::get('/wizard', fn() => Inertia::render('Guides/classes/Wizard'))->name('wizard');
+
+    // новички
+    Route::get('/leveling', fn() => Inertia::render('Guides/newbies/Leveling'))->name('leveling');
+    Route::get('/farming', fn() => Inertia::render('Guides/newbies/Farming'))->name('farming');
+    Route::get('/enchanting', fn() => Inertia::render('Guides/newbies/Enchanting'))->name('enchanting');
+    Route::get('/dungeons', fn() => Inertia::render('Guides/newbies/Dungeons'))->name('dungeons');
 
     // гайды по игре
     Route::get('/quests', fn() => Inertia::render('Guides/game/quests'))->name('quests');
