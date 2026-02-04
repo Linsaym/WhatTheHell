@@ -1,6 +1,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
+import Elink from '@/Components/Elink.vue';
 </script>
 
 <template>
@@ -94,9 +95,10 @@ import {Head} from '@inertiajs/vue3';
                             <div class="space-y-3">
                                 <p class="text-gray-700 dark:text-gray-300">
                                     До 25 уровня будет профитно вставить
-                                    <a href="https://royalquest.info/ru/Карта_ученика"
-                                       class="text-blue-600 dark:text-blue-400 underline hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium">
-                                        карты ученика</a> дающие +7 опыта при убийстве существ
+                                    <Elink href="https://royalquest.info/ru/Карта_ученика">
+                                        карты ученика
+                                    </Elink>
+                                    дающие +7 опыта при убийстве существ
                                     в доспех и головной убор.
                                 </p>
                                 <div
@@ -118,10 +120,10 @@ import {Head} from '@inertiajs/vue3';
                                         <li class="flex items-center space-x-2">
                                             <span class="text-green-500">•</span>
                                             <span>Скрафтить шапку из рецепта купленного в
-                                                    <a href="https://royalquest.info/ru/Подвал_мельницы"
-                                                       class="text-blue-600 dark:text-blue-400 underline hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+                                                    <Elink href="https://royalquest.info/ru/Подвал_мельницы"
+                                                           class="font-normal">
                                                         мельнице
-                                                    </a>
+                                                    </Elink>
                                                 </span>
                                         </li>
                                     </ul>
@@ -165,9 +167,9 @@ import {Head} from '@inertiajs/vue3';
                                                 уровня)</h4>
                                             <p class="text-gray-700 dark:text-gray-300 text-sm">
                                                 Делайте задания в Элгоре и собирайте всю траву. С неё падает
-                                                <a href="https://royalquest.info/ru/Лён"
-                                                   class="text-blue-600 dark:text-blue-400 underline hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium">
-                                                    Лён</a>,
+                                                <Elink href="https://royalquest.info/ru/Лён">
+                                                    Лён
+                                                </Elink><!---->,
                                                 который продаётся примерно по 1000 за штуку на рынке (нужен для крафта
                                                 65 шмота).
                                             </p>
@@ -184,13 +186,13 @@ import {Head} from '@inertiajs/vue3';
                                                 17 уровня)</h4>
                                             <p class="text-gray-700 dark:text-gray-300 text-sm">
                                                 Переходите в
-                                                <a href="https://royalquest.info/ru/Катакомбы_1-й_этаж"
-                                                   class="text-blue-600 dark:text-blue-400 underline hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium">
-                                                    Катакомбы</a>,
+                                                <Elink href="https://royalquest.info/ru/Катакомбы_1-й_этаж">
+                                                    Катакомбы
+                                                </Elink><!---->,
                                                 где можно выбивать
-                                                <a href="https://royalquest.info/ru/Хитиновая_пластина"
-                                                   class="text-blue-600 dark:text-blue-400 underline hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium">
-                                                    Хитиновые пластины</a>.
+                                                <Elink href="https://royalquest.info/ru/Хитиновая_пластина">
+                                                    Хитиновые пластины
+                                                </Elink><!---->.
                                                 Их активно скупают для БП (королевский вызов) или ежедневок. Падают с
                                                 многих мобов.
                                             </p>
@@ -200,17 +202,20 @@ import {Head} from '@inertiajs/vue3';
                                 <p>
                                     Далее при всей прокачке из ценного уже в основном "Карты монстров". Если у вас
                                     получиться
-                                    выбить <a href="https://royalquest.info/ru/Карта_Богомола"
-                                              class="text-blue-600 dark:text-blue-400 underline hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium">Карту
-                                    богомола</a>, то она будет помогать
+                                    выбить
+                                    <Elink href="https://royalquest.info/ru/Карта_Богомола">
+                                        Карту богомола
+                                    </Elink><!---->,
+                                    то она будет помогать
                                     вам
                                     зарабатывать больше при убийстве любых мобов
                                 </p>
                                 <p>
-                                    Некоторые карты стоять аномально дорого, например <a
-                                    href="https://royalquest.info/ru/Карта_Харриера"
-                                    class="text-blue-600 dark:text-blue-400 underline hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium">Карта
-                                    харриера</a>. Если вы выбили
+                                    Некоторые карты стоять аномально дорого, например
+                                    <Elink href="https://royalquest.info/ru/Карта_Харриера">
+                                        Карта харриера
+                                    </Elink><!---->.
+                                    Если вы выбили
                                     Искажённый тотем, то это вполне хорошей место чтобы прокачаться и нафармить кучу
                                     денег
                                 </p>

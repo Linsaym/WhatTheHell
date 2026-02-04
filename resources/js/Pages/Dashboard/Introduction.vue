@@ -10,7 +10,7 @@ import {
     StepperTrigger
 } from '@/Components/ui/stepper'
 import {Button} from "@/Components/ui/button"
-import {onMounted, ref} from "vue";
+import Elink from '@/Components/Elink.vue';
 
 const steps = [
     {
@@ -80,7 +80,7 @@ const steps = [
                     :class="[state === 'active' && 'text-primary']"
                     class="text-sm font-semibold transition lg:text-base"
                 >
-                    <a href="https://discord.gg/DZCEAbxkS5">Наш дискорд!</a>
+                    <Elink href="https://discord.gg/DZCEAbxkS5">Наш дискорд!</Elink>
                 </StepperTitle>
                 <StepperDescription
                     :class="[state === 'active' && 'text-primary']"
