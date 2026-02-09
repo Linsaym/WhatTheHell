@@ -261,21 +261,28 @@ import {Head, Link} from '@inertiajs/vue3';
                                     </div>
                                 </div>
                                 <div class="mt-8">
-                                    <div class="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 p-6 rounded-lg border border-emerald-200 dark:border-emerald-800">
+                                    <div
+                                        class="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 p-6 rounded-lg border border-emerald-200 dark:border-emerald-800">
                                         <div class="flex items-center mb-4">
-                                            <svg class="w-6 h-6 mr-3 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                            <svg class="w-6 h-6 mr-3 text-emerald-600 dark:text-emerald-400" fill="none"
+                                                 stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                                             </svg>
-                                            <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Игра с друзьями</h4>
+                                            <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Игра с
+                                                друзьями</h4>
                                         </div>
-                                        
+
                                         <div class="space-y-4">
-                                            <div class="flex items-start space-x-3 p-4 bg-white dark:bg-gray-800 rounded-lg border border-emerald-100 dark:border-emerald-800">
+                                            <div
+                                                class="flex items-start space-x-3 p-4 dark:bg-gray-800 rounded-lg border  dark:border-emerald-800">
                                                 <span class="text-2xl flex-shrink-0">🤝</span>
                                                 <div>
                                                     <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                                                        Возможно вы начинаете играть с друзьями, тогда вы можете сразу взять одну из
-                                                        связок. Из очевидного это связка <span class="font-semibold text-emerald-700 dark:text-emerald-400">Танк + ДД</span>.
+                                                        Возможно вы начинаете играть с друзьями, тогда вы можете сразу
+                                                        взять одну из
+                                                        связок. Из очевидного это связка <span
+                                                        class="font-semibold text-emerald-700 dark:text-emerald-400">Танк + ДД</span>.
                                                     </p>
                                                     <div class="mt-3 space-y-2">
                                                         <div class="flex items-center space-x-2 text-sm">
@@ -293,20 +300,87 @@ import {Head, Link} from '@inertiajs/vue3';
                                                     </div>
                                                 </div>
                                             </div>
-                                            
-                                            <div class="flex items-start space-x-3 p-4 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-lg border border-red-200 dark:border-red-800">
+
+                                            <div
+                                                class="flex items-start space-x-3 p-4 dark:bg-gray-800 rounded-lg border dark:border-red-800">
                                                 <span class="text-2xl flex-shrink-0">💥</span>
                                                 <div>
                                                     <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                                                        Из всех ДД самый высокий массовый урон будет у <span class="font-semibold text-red-700 dark:text-red-400">Чернокнижника</span>.
+                                                        Из всех ДД самый высокий массовый урон будет у <span
+                                                        class="font-semibold text-red-700 dark:text-red-400">Чернокнижника</span>.
                                                     </p>
-                                                    <div class="mt-2 p-3 bg-white dark:bg-gray-800 rounded-md border border-red-100 dark:border-red-800">
-                                                        <p class="text-sm font-medium text-red-800 dark:text-red-300">
+                                                    <div
+                                                        class="mt-2 dark:bg-gray-800 rounded-md">
+                                                        <span class="text-gray-600 dark:text-gray-400">
                                                             🔥 Максимальный профит: связка ТР+ЧК
-                                                        </p>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 space-y-3">
+                                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                            Сейчас в игре мета автоатакеров, поэтому <span class="font-semibold">Разбойник</span>
+                                            и <span
+                                            class="font-semibold">Ассасин</span> с кинжалами будут иметь максимальный
+                                            ДПС по мировым боссам.
+                                            Урон у них примерно одинаковый, но <span
+                                            class="font-semibold">Разбойника</span> легче прокачивать на ранних этапах
+                                            игры. Зато на ассасине чуть легче в дальнейшем прожимать кнопки
+                                        </p>
+
+                                        <div
+                                            class="p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                Эти классы будут одними из самых дорогих в игре.
+                                                Выбирать их желательно, если у вас есть бюджет или они вам очень
+                                                нравятся по вайбу.
+                                            </p>
+                                        </div>
+
+                                        <div class="space-y-2">
+                                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                На самом деле <span class="font-semibold">Охотник</span> и <span
+                                                class="font-semibold">Снайпер</span> тоже будут иметь приближённый к
+                                                ворам урон,
+                                                но с условиями:
+                                            </p>
+                                            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                <li>
+                                                    <span class="font-semibold">Охотник</span> должен менять
+                                                    приручаемого питомца под каждого босса.
+                                                </li>
+                                                <li>
+                                                    У <span class="font-semibold">Снайпера</span> всегда должны быть
+                                                    живы его Роланды, и босс не должен передвигаться,
+                                                    чтобы закопанный Роланд попадал по боссу.
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="space-y-2">
+                                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                У <span class="font-semibold">Чернокнижника</span> есть несколько
+                                                проблем на мировых боссах:
+                                            </p>
+                                            <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                <li>
+                                                    Очень быстро улетает мана
+                                                </li>
+                                                <li>
+                                                    Приходится грамотно давать прокасты
+                                                </li>
+                                                <li>
+                                                    Его стенку огня может перебить любой другой волш/чк, и тогда она не
+                                                    будет наносить урона
+                                                </li>
+                                            </ul>
+                                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                Когда на ассасинах достаточно просто кликнуть ПКМ и автоатачить :D<br>
+                                                Из-за этой горы сложностей Чернокнижники почти не ходят на мировых
+                                                боссов.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
