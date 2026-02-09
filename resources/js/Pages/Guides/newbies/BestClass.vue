@@ -102,6 +102,11 @@ import {Head, Link} from '@inertiajs/vue3';
                                     </div>
                                     <div
                                         class="flex items-center space-x-2 p-3 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                                        <span class="text-lg">⚙️</span>
+                                        <span class="text-gray-700 dark:text-gray-300">Зависимость от экипировки</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center space-x-2 p-3 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
                                         <span class="text-lg">💥</span>
                                         <span class="text-gray-700 dark:text-gray-300">Урон по соло цели</span>
                                     </div>
@@ -109,11 +114,6 @@ import {Head, Link} from '@inertiajs/vue3';
                                         class="flex items-center space-x-2 p-3 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
                                         <span class="text-lg">🌊</span>
                                         <span class="text-gray-700 dark:text-gray-300">Урон по группе мобов</span>
-                                    </div>
-                                    <div
-                                        class="flex items-center space-x-2 p-3 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-                                        <span class="text-lg">⚙️</span>
-                                        <span class="text-gray-700 dark:text-gray-300">Зависимость от экипировки</span>
                                     </div>
                                     <div
                                         class="flex items-center space-x-2 p-3 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
@@ -156,7 +156,7 @@ import {Head, Link} from '@inertiajs/vue3';
                                 <div
                                     class="flex items-center space-x-4 p-4 from-yellow-100 to-amber-100 dark:from-yellow-900/30 dark:to-amber-900/30 dark:border-yellow-700">
                                     <div
-                                        class="flex-shrink-0 w-10 h-10 bg-yellow-500 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                                        class="flex-shrink-0 w-10 h-10 bg-blue-700 text-white rounded-full flex items-center justify-center font-bold text-lg">
                                         1
                                     </div>
                                     <div class="flex-1">
@@ -257,6 +257,56 @@ import {Head, Link} from '@inertiajs/vue3';
                                                    target="_blank">чучело</a>.
                                                 При этом класс очень простой, подробнее можете прочитать в его гайде.
                                             </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-8">
+                                    <div class="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 p-6 rounded-lg border border-emerald-200 dark:border-emerald-800">
+                                        <div class="flex items-center mb-4">
+                                            <svg class="w-6 h-6 mr-3 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                            </svg>
+                                            <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Игра с друзьями</h4>
+                                        </div>
+                                        
+                                        <div class="space-y-4">
+                                            <div class="flex items-start space-x-3 p-4 bg-white dark:bg-gray-800 rounded-lg border border-emerald-100 dark:border-emerald-800">
+                                                <span class="text-2xl flex-shrink-0">🤝</span>
+                                                <div>
+                                                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                        Возможно вы начинаете играть с друзьями, тогда вы можете сразу взять одну из
+                                                        связок. Из очевидного это связка <span class="font-semibold text-emerald-700 dark:text-emerald-400">Танк + ДД</span>.
+                                                    </p>
+                                                    <div class="mt-3 space-y-2">
+                                                        <div class="flex items-center space-x-2 text-sm">
+                                                            <span class="text-red-600 dark:text-red-400">🛡️</span>
+                                                            <span class="text-gray-600 dark:text-gray-400">
+                                                                Если танк - <strong>ТР</strong>, он сможет собирать огромные парики в данжах (на пример на Принце Мары)
+                                                            </span>
+                                                        </div>
+                                                        <div class="flex items-center space-x-2 text-sm">
+                                                            <span class="text-yellow-600 dark:text-yellow-400">✨</span>
+                                                            <span class="text-gray-600 dark:text-gray-400">
+                                                                За креста же в свою очередь проще собирать парики обычных мобов (Эндинополис/Шамба)
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-start space-x-3 p-4 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-lg border border-red-200 dark:border-red-800">
+                                                <span class="text-2xl flex-shrink-0">💥</span>
+                                                <div>
+                                                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                        Из всех ДД самый высокий массовый урон будет у <span class="font-semibold text-red-700 dark:text-red-400">Чернокнижника</span>.
+                                                    </p>
+                                                    <div class="mt-2 p-3 bg-white dark:bg-gray-800 rounded-md border border-red-100 dark:border-red-800">
+                                                        <p class="text-sm font-medium text-red-800 dark:text-red-300">
+                                                            🔥 Максимальный профит: связка ТР+ЧК
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
