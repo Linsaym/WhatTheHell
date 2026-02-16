@@ -255,7 +255,7 @@ import Elink from '@/Components/Elink.vue';
                                     <p class="font-medium text-gray-900 dark:text-gray-100">Что по поводу данжей:</p>
                                     <div
                                         class="mt-2 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900">
-                                        <img class="h-auto w-full" src="/assets/images/guides/dungeon-map2.png"
+                                        <img class="h-auto w-full" src="/assets/images/guides/dungeon-map.png"
                                              alt="Карта данжей для прокачки Royal Quest">
                                     </div>
                                 </div>
