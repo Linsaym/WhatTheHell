@@ -3,7 +3,6 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
 import NavLink from "@/Components/NavLink.vue";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Components/ui/accordion/index.js";
-import ExternalLink from "@/Components/ExternalLink.vue";
 </script>
 
 <template>
@@ -52,6 +51,11 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('soft.royal-wiki-overlay')">
                                                 DPS metter
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('soft.royal-wiki-overlay')">
+                                                Анти AFK script
                                             </NavLink>
                                         </li>
                                     </ul>

@@ -103,7 +103,8 @@ import Elink from '@/Components/Elink.vue';
                                 </p>
                                 <div
                                     class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">Где достать карты:</p>
+                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">Где достать слотовую
+                                        шапку/нагрудник:</p>
                                     <ul class="space-y-1 text-sm text-gray-600 dark:text-gray-400">
                                         <li class="flex items-center space-x-2">
                                             <span class="text-green-500">•</span>
@@ -216,9 +217,48 @@ import Elink from '@/Components/Elink.vue';
                                         Карта харриера
                                     </Elink><!---->.
                                     Если вы выбили
-                                    Искажённый тотем, то это вполне хорошей место чтобы прокачаться и нафармить кучу
+                                    Искажённый тотем, то это вполне хорошее место чтобы прокачаться и нафармить кучу
                                     денег
                                 </p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <span>После 20 уровня перед вами встаёт выбор "Как дальше качаться?"</span>
+                            <ul class="mt-1 list-disc pl-5 text-gray-700 dark:text-gray-300 leading-relaxed">
+                                <li>
+                                    Мобы (фарм денег, опыта Гильдии)
+                                </li>
+                                <li>
+                                    Квесты (весело, разнообразно)
+                                </li>
+                                <li>
+                                    Данжи (более быстрая прокачка)
+                                </li>
+                            </ul>
+                            <div
+                                class="mt-3 rounded-lg border border-gray-200 bg-gray-50 p-4 text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800/50 dark:text-gray-300">
+                                <p class="leading-relaxed">
+                                    Вы можете смело миксовать эти способы. Поделали квестики, побили мобов, нашли пати и
+                                    покачались в данжах. Мобов для прокачки лучше фармить тех с кого падают карты или
+                                    ресурсы. А так же смотрим чтобы можно было комфортно собирать парики (группы мобов).
+                                    Это будут локации:
+                                </p>
+                                <ul class="mt-3 list-disc space-y-1 pl-5 leading-relaxed">
+                                    <li>24-32 лвл - Остров барона Логарта в Ирисе, много муравьёв</li>
+                                    <li>32-45 лвл - Эндинополис, любая часть карты</li>
+                                    <li>35-45 лвл - Ведок, любая часть карты</li>
+                                    <li>45-60 лвл - Шамба, фармится кураре</li>
+                                    <li>50-65 лвл - Хабул (борозубки, мороки), если вы ТР или Волш, максимальный опыт
+                                    </li>
+                                </ul>
+                                <div class="mt-4">
+                                    <p class="font-medium text-gray-900 dark:text-gray-100">Что по поводу данжей:</p>
+                                    <div
+                                        class="mt-2 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900">
+                                        <img class="h-auto w-full" src="/assets/images/guides/dungeon-map2.png"
+                                             alt="Карта данжей для прокачки Royal Quest">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
