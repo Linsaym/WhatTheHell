@@ -30,7 +30,7 @@ const showToast = () => {
     <AuthenticatedLayout>
         <template #header>
             <h2
-                class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200"
+                class="text-xl font-semibold leading-tight text-gray-200"
             >
                 Активности
             </h2>
@@ -39,10 +39,10 @@ const showToast = () => {
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div
-                    class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800"
+                    class="overflow-hidden bg-gray-800 shadow-sm sm:rounded-lg"
                 >
-                    <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <h3 class="text-2xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
+                    <div class="p-6 text-gray-100">
+                        <h3 class="text-2xl font-semibold leading-tight text-gray-200">
                             На нашем сайте вы найдёте
                         </h3>
                         <div class="mt-6">

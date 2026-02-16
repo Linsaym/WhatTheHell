@@ -14,7 +14,7 @@ const props = defineProps({
 
 const slots = useSlots();
 const classes = computed(() => [
-    'text-blue-600 dark:text-blue-400 underline hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium',
+    'text-blue-400 underline hover:text-blue-300 transition-colors font-medium',
     props.class,
 ]);
 

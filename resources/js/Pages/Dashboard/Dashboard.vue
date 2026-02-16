@@ -18,20 +18,20 @@ import Elink from '@/Components/Elink.vue';
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
+            <h2 class="text-xl font-semibold leading-tight text-gray-200">
                 Dashboard
             </h2>
         </template>
 
         <div class="py-6 sm:py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 px-4">
-                <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
-                    <div class="p-4 sm:p-6 text-gray-900 dark:text-gray-100">
+                <div class="overflow-hidden bg-gray-800 shadow-sm sm:rounded-lg">
+                    <div class="p-4 sm:p-6 text-gray-100">
                         <h1 class="text-2xl sm:text-4xl font-bold text-center text-white mb-8 sm:mb-16">
                             Добро пожаловать в Гильдию <span class="text-orange-500">What&nbsp;the&nbsp;Hell</span>
                         </h1>
                         <section>
-                            <h3 class="text-xl sm:text-2xl text-center font-semibold leading-tight text-gray-800 dark:text-gray-200">
+                            <h3 class="text-xl sm:text-2xl text-center font-semibold leading-tight text-gray-200">
                                 На нашем сайте вы найдёте
                             </h3>
                             <ul class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 justify-around mt-6 items-center">
