@@ -260,6 +260,58 @@ import Elink from '@/Components/Elink.vue';
                                     </div>
                                 </div>
                             </div>
+                            <div class="mt-4">
+                                <p>
+                                    Исходя из
+                                    <elink href="https://royalquest.info/index.php/Таблица_опыта">
+                                        таблицы опыта
+                                    </elink>
+                                    мы можем увидеть, что опыт в паре с другим игроком идет только при разнице в уровнях
+                                    не более 25. Максимальный уровень в игре 65, поэтому начиная с 40 уровня мы можем
+                                    проситься в пати и стоять афк возле 65 уровней которые фармят локацию.
+                                </p>
+                                <span>Два самых популярных спота на которых можно стоять АФК и бесплатно качаться это:</span>
+                                <ul class="mt-3 list-disc space-y-1 pl-5 leading-relaxed">
+                                    <li>
+                                        <elink href="https://royalquest.info/ru/Монстр_Тролль_Копейщик">
+                                            Тролли
+                                        </elink>
+                                    </li>
+                                    <li>
+                                        <elink href="https://royalquest.info/ru/Монстр_Северный_клешнегрыз">
+                                            Крабы
+                                        </elink>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mt-4">
+                                <p>
+                                    После 55-60 апается куда быстрее чем другие уровни, ведь у нас открывается много
+                                    ежедневок и квестов за которые дают кучу опыта. В вашу рутину обязательно должно
+                                    войти ходить на ГПД (Гуль, Психо, Ядовитый Дакстер). Пати всегда можно собрать в
+                                    Варлоне. Исходя из
+                                    <Elink
+                                        href="https://docs.google.com/spreadsheets/d/1CNmJA245YYIEHLlh4KSw2ohaGswtlMsLqpviNdcuUH0/edit?gid=0#gid=0">
+                                        замеров
+                                    </Elink>
+                                    суммарно за ГПД мы получаем примерно 10кк опыта. Из квестов важнее
+                                    всего выполнить цепочку
+                                    <elink href="https://royalquest.info/ru/Задание_—_Теория_Хобеля._Овен">
+                                        Теория Хобеля
+                                    </elink>
+                                    , ведь она открывает для нас целый
+                                    <elink
+                                        href="https://docs.google.com/spreadsheets/d/1CNmJA245YYIEHLlh4KSw2ohaGswtlMsLqpviNdcuUH0/edit?gid=0#gid=0">
+                                        список ежедневок
+                                    </elink>
+                                    за выполнение которых мы получаем примерно 100кк опыта и 100кк голды. Кайфуйте от
+                                    игры и зарабатывайте деньги,
+                                    ведь теперь вас ждёт
+                                    <elink :href="route('guides.endgame')" target="_self">
+                                        65 уровень
+                                    </elink>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

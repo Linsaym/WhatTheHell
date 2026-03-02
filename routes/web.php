@@ -69,6 +69,7 @@ Route::name('guides.')->prefix('/guides')->group(function () {
 
     // новички
     Route::get('/leveling', fn() => Inertia::render('Guides/newbies/Leveling'))->name('leveling');
+    Route::get('/65-lvl', fn() => Inertia::render('Guides/newbies/Endgame'))->name('endgame');
     Route::get('/farming', fn() => Inertia::render('Guides/newbies/Farming'))->name('farming');
     Route::get('/enchanting', fn() => Inertia::render('Guides/newbies/Enchanting'))->name('enchanting');
     Route::get('/dungeons', fn() => Inertia::render('Guides/newbies/Dungeons'))->name('dungeons');

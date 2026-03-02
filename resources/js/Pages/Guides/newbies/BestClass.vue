@@ -102,7 +102,7 @@ import {Head, Link} from '@inertiajs/vue3';
                                     </div>
                                     <div
                                         class="flex items-center space-x-2 p-3 bg-gray-800 rounded-lg shadow-sm">
-                                        <span class="text-lg">⚙️</span>
+                                        <span class="text-lg">🛡️</span>
                                         <span class="text-gray-300">Зависимость от экипировки</span>
                                     </div>
                                     <div
@@ -118,24 +118,24 @@ import {Head, Link} from '@inertiajs/vue3';
                                     <div
                                         class="flex items-center space-x-2 p-3 bg-gray-800 rounded-lg shadow-sm">
                                         <span class="text-lg">⚔️</span>
-                                        <span class="text-gray-300">Актуальность в масс PVP</span>
+                                        <span class="text-gray-300">Актуальность в PVP</span>
                                     </div>
                                     <div
                                         class="flex items-center space-x-2 p-3 bg-gray-800 rounded-lg shadow-sm">
-                                        <span class="text-lg">🤺</span>
-                                        <span class="text-gray-300">Актуальность в PVP (дуэли)</span>
+                                        <span class="text-lg">💰</span>
+                                        <span class="text-gray-300">Возможность фармить деньги</span>
                                     </div>
                                     <div
                                         class="flex items-center space-x-2 p-3 bg-gray-800 rounded-lg shadow-sm">
-                                        <span class="text-lg">🏆</span>
-                                        <span class="text-gray-300">Актуальность в PVP (арены)</span>
+                                        <span class="text-lg">📈</span>
+                                        <span class="text-gray-300">Скорость прокачки</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Рекомендации для новичков -->
                         <div
-                            class="mt-4 from-amber-900/20 to-orange-900/20 p-6 rounded-lg border border-amber-800">
+                            class="mt-4 from-amber-900/20 to-orange-900/20 p-6 rounded-lg ">
                             <h3 class="text-lg font-semibold text-gray-200 mb-4 flex items-center">
                                 <svg class="w-5 h-5 mr-2 text-amber-400" fill="none"
                                      stroke="currentColor" viewBox="0 0 24 24">
@@ -154,13 +154,13 @@ import {Head, Link} from '@inertiajs/vue3';
                             <!-- Топ 3 класса -->
                             <div class="space-y-4 mb-6">
                                 <div
-                                    class="flex items-center space-x-4 p-4 from-yellow-900/30 to-amber-900/30 border border-yellow-700 rounded-lg">
+                                    class="flex items-center space-x-4 p-4 from-yellow-900/30 to-amber-900/30 rounded-lg">
                                     <div
                                         class="flex-shrink-0 w-10 h-10 bg-blue-700 text-white rounded-full flex items-center justify-center font-bold text-lg">
                                         1
                                     </div>
                                     <div class="flex-1">
-                                        <Link href="{{ route('guides.wizard') }}"
+                                        <Link :href="route('guides.wizard')"
                                               class="text-lg font-semibold text-gray-200 hover:text-yellow-400 transition-colors">
                                             Волшебник
                                         </Link>
@@ -176,7 +176,7 @@ import {Head, Link} from '@inertiajs/vue3';
                                         2
                                     </div>
                                     <div class="flex-1">
-                                        <Link href="{{ route('guides.dark-knight') }}"
+                                        <Link :href="route('guides.dark-knight')"
                                               class="text-lg font-semibold text-gray-200 hover:text-gray-400 transition-colors">
                                             Тёмный рыцарь
                                         </Link>
@@ -193,7 +193,7 @@ import {Head, Link} from '@inertiajs/vue3';
                                         3
                                     </div>
                                     <div class="flex-1">
-                                        <Link href="{{ route('guides.hunter') }}"
+                                        <Link :href="route('guides.hunter')"
                                               class="text-lg font-semibold text-gray-200 hover:text-orange-400 transition-colors">
                                             Охотник
                                         </Link>

@@ -6,6 +6,10 @@ const props = defineProps({
         type: String,
         required: true,
     },
+    target: {
+        type: String,
+        default: '_blank',
+    },
     class: {
         type: [String, Array, Object],
         default: '',
@@ -35,7 +39,7 @@ const cleanSlotContent = () => {
 </script>
 
 <template>
-    <a :href="href" target="_blank" rel="noopener noreferrer"
+    <a :href="href" :target="target" rel="noopener noreferrer"
        :class="classes"
     >
         {{ cleanSlotContent() }}<!----></a>

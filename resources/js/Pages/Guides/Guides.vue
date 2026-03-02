@@ -40,6 +40,11 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                             </NavLink>
                                         </li>
                                         <li>
+                                            <NavLink style="font-size: 18px" :href="route('guides.endgame')">
+                                                Что делать после 65
+                                            </NavLink>
+                                        </li>
+                                        <li>
                                             <NavLink style="font-size: 18px" :href="route('guides.farming')">
                                                 Способы фарма
                                             </NavLink>
