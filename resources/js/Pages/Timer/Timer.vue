@@ -76,6 +76,7 @@ const addFieldsToBoss = (boss) => {
     let cdCount = 0;
 
 
+    //TODO вынести этот блок в функцию или избавиться от него. Захуя он? Для тестирования можно добавить босса с респавном 5:05
     // Если разница между текущим временем и респавном <= 5 минут, то показываем '00:00:00' и cd = '-'
     let secondsLeft = respawnTime.diff(now, 'seconds');
     if (secondsLeft >= -300 && secondsLeft <= 0) {

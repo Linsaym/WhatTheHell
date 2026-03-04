@@ -1,9 +1,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
-import NavLink from "@/Components/NavLink.vue";
-import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Components/ui/accordion/index.js";
-import {Badge} from "@/Components/ui/badge/index.js";
+import Elink from '@/Components/Elink.vue';
 </script>
 
 <template>
@@ -112,11 +110,13 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                                 </a>
                                                 <p>
                                                     - Знамя света (крестоносец). С талантом
-                                                    <a class="text-blue-500"
-                                                       href="https://royalquest.info/index.php/Талант_—_Воин_света"
-                                                       target="_blank">
+                                                    <Elink
+                                                        href="https://royalquest.info/index.php/Талант_—_Воин_света"
+                                                        class="text-blue-500 no-underline hover:underline"
+                                                    >
                                                         Воин света
-                                                    </a> увеличивает атаку союзников на 7%
+                                                    </Elink>
+                                                    увеличивает атаку союзников на 7%
                                                 </p>
                                             </li>
                                         </ul>
@@ -129,20 +129,29 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                     <div class="space-y-2 text-xl">
                                         Также есть навыки, которые не бафают урон напрямую, но помогают в сражениях:
                                         <br>
-                                        <a href="https://royalquest.info/index.php/Надёжная_защита" target="_blank"
-                                           class="text-blue-600 underline">
+                                        <Elink
+                                            href="https://royalquest.info/index.php/Надёжная_защита"
+                                            class="text-blue-600 underline"
+                                        >
                                             Надёжная защита
-                                        </a> — помогает избежать контроля.
+                                        </Elink>
+                                        — помогает избежать контроля.
                                         <br>
-                                        <a href="https://royalquest.info/index.php/Свет_Ауры" target="_blank"
-                                           class="text-blue-600 underline">
+                                        <Elink
+                                            href="https://royalquest.info/index.php/Свет_Ауры"
+                                            class="text-blue-600 underline"
+                                        >
                                             Свет Ауры
-                                        </a> — помогает снизить получаемый урон.
+                                        </Elink>
+                                        — помогает снизить получаемый урон.
                                         <br>
-                                        <a href="https://royalquest.info/index.php/Талант_—_Жертва" target="_blank"
-                                           class="text-blue-600 underline">
+                                        <Elink
+                                            href="https://royalquest.info/index.php/Талант_—_Жертва"
+                                            class="text-blue-600 underline"
+                                        >
                                             Жертва
-                                        </a> — также снижает получаемый урон.
+                                        </Elink>
+                                        — также снижает получаемый урон.
                                     </div>
                                 </div>
                             </div>

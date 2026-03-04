@@ -9,8 +9,7 @@ import {
     CardHeader,
     CardTitle,
 } from '@/Components/ui/card';
-import Introduction from "@/Pages/Dashboard/Introduction.vue";
-import ExternalLink from "@/Components/ExternalLink.vue";
+import Elink from '@/Components/Elink.vue';
 
 </script>
 
@@ -19,20 +18,20 @@ import ExternalLink from "@/Components/ExternalLink.vue";
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
+            <h2 class="text-xl font-semibold leading-tight text-gray-200">
                 Dashboard
             </h2>
         </template>
 
         <div class="py-6 sm:py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 px-4">
-                <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
-                    <div class="p-4 sm:p-6 text-gray-900 dark:text-gray-100">
+                <div class="overflow-hidden bg-gray-800 shadow-sm sm:rounded-lg">
+                    <div class="p-4 sm:p-6 text-gray-100">
                         <h1 class="text-2xl sm:text-4xl font-bold text-center text-white mb-8 sm:mb-16">
                             Добро пожаловать в Гильдию <span class="text-orange-500">What&nbsp;the&nbsp;Hell</span>
                         </h1>
                         <section>
-                            <h3 class="text-xl sm:text-2xl text-center font-semibold leading-tight text-gray-800 dark:text-gray-200">
+                            <h3 class="text-xl sm:text-2xl text-center font-semibold leading-tight text-gray-200">
                                 На нашем сайте вы найдёте
                             </h3>
                             <ul class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 justify-around mt-6 items-center">
@@ -43,7 +42,7 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                                 <CardTitle>Таймер боссов</CardTitle>
                                             </CardHeader>
                                             <CardContent>
-                                                <img class="card__icon" src="/assets/images/ui/timer.png">
+                                                <img alt="timer" class="card__icon" src="/assets/images/ui/timer.png">
                                             </CardContent>
                                         </Card>
                                     </Link>
@@ -55,7 +54,7 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                                 <CardTitle>Гайды по игре</CardTitle>
                                             </CardHeader>
                                             <CardContent>
-                                                <img class="card__icon" src="/assets/images/ui/book.png">
+                                                <img alt="book" class="card__icon" src="/assets/images/ui/book.png">
                                             </CardContent>
                                         </Card>
                                     </Link>
@@ -67,7 +66,7 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                                 <CardTitle>Активности и конкурсы</CardTitle>
                                             </CardHeader>
                                             <CardContent>
-                                                <img class="card__icon" src="/assets/images/ui/active.png">
+                                                <img alt="active" class="card__icon" src="/assets/images/ui/active.png">
                                             </CardContent>
                                         </Card>
                                     </Link>
@@ -100,9 +99,10 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                         <ul class="list-disc ml-6 text-base sm:text-xl">
                                             <li>Все PVE правила касаются лута с боссов</li>
                                             <li>Как мы делим лут с боссов есть в нашем
-                                                <a target="_blank" class="text-blue-500 underline"
-                                                   href="https://discord.gg/btxSC29B4R">дискорде
-                                                </a>
+                                                <Elink href="https://discord.gg/btxSC29B4R"
+                                                       class="text-blue-500 underline">
+                                                    дискорде
+                                                </Elink>
                                             </li>
                                         </ul>
                                     </AccordionContent>
@@ -113,11 +113,10 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                             <div class="mt-8 sm:mt-12 mb-8 sm:mb-16 flex flex-col lg:flex-row gap-6">
                                 <div class="order-2 lg:order-1">
                                     <h5 class="text-xl sm:text-2xl">Подать заявку в Гильдию вы можете в нашем
-                                        <a href="https://discord.gg/btxSC29B4R"
-                                           target="_blank"
-                                           class="text-blue-500">
+                                        <Elink href="https://discord.gg/btxSC29B4R"
+                                               class="text-blue-500 no-underline hover:underline">
                                             Дискорде!
-                                        </a>
+                                        </Elink>
                                     </h5>
                                     <ul class="list-disc ml-6 mt-4 sm:mt-6 text-base sm:text-xl">
                                         <li>
@@ -140,18 +139,18 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                         <div class="text-base sm:text-xl">
                                             Если у вас не работает Discord, вы можете использовать обход блокировки,
                                             через
-                                            <a class="text-blue-500"
-                                               target="_blank"
-                                               href="https://github.com/Flowseal/zapret-discord-youtube">
+                                            <Elink href="https://github.com/Flowseal/zapret-discord-youtube"
+                                                   class="text-blue-500 no-underline hover:underline">
                                                 https://github.com/Flowseal/zapret-discord-youtube
-                                            </a>
+                                            </Elink>
                                             <br>
                                             <br>
                                             Либо если у вас не получилось разобраться, просто напишите мне.<br>
                                             И я вам помогу :3
-                                            <a class="text-blue-500" target="_blank" href="https://vk.com/linsaym">
+                                            <Elink href="https://vk.com/linsaym"
+                                                   class="text-blue-500 no-underline hover:underline">
                                                 https://vk.com/linsaym
-                                            </a>
+                                            </Elink>
                                             <br>
                                             <br>
                                             <br>
@@ -164,7 +163,7 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                 <div class="order-1 lg:order-2 mx-auto">
                                     <iframe src="https://discord.com/widget?id=1291365173726150761&theme=dark"
                                             width="300" height="400" class="sm:w-[350px] sm:h-[500px]"
-                                            allowtransparency="true" frameborder="0"
+                                            allowtransparency="true"
                                             sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                                 </div>
                             </div>

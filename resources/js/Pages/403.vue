@@ -1,5 +1,5 @@
 <script setup>
-import {Head, Link} from '@inertiajs/vue3';
+import {Head} from '@inertiajs/vue3';
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 
 defineProps({
@@ -10,13 +10,6 @@ defineProps({
         type: Boolean,
     },
 });
-
-function handleImageError() {
-    document.getElementById('screenshot-container')?.classList.add('!hidden');
-    document.getElementById('docs-card')?.classList.add('!row-span-1');
-    document.getElementById('docs-card-content')?.classList.add('!flex-row');
-    document.getElementById('background')?.classList.add('!hidden');
-}
 </script>
 
 <template>
@@ -36,10 +29,11 @@ function handleImageError() {
                 <div
                     class="overflow-hidden shadow-sm sm:rounded-lg dark:bg-gray-800 text-center py-12"
                 >
-                    <h1 class="text-3xl mb-2">К сожалению у вас недостаточно прав для просмотра этой страницы</h1>
-                    <p class="text-2xl">Но вы можете запросить их в дискорде</p>
-                    <a href="https://discord.gg/btxSC29B4R"
-                       class="text-blue-500 text-xl">https://discord.gg/btxSC29B4R</a>
+                    <div class="text-3xl mb-3">К сожалению у вас недостаточно прав для просмотра этой страницы</div>
+                    <div class="text-3xl">Может если сделать
+                        <a class="text-blue-600" :href="route('donate')">донат</a>
+                        она откроеться?🤔
+                    </div>
                 </div>
             </div>
         </div>

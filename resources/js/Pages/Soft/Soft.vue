@@ -3,7 +3,6 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
 import NavLink from "@/Components/NavLink.vue";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Components/ui/accordion/index.js";
-import ExternalLink from "@/Components/ExternalLink.vue";
 </script>
 
 <template>
@@ -12,7 +11,7 @@ import ExternalLink from "@/Components/ExternalLink.vue";
     <AuthenticatedLayout>
         <template #header>
             <h1
-                class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200"
+                class="text-xl font-semibold leading-tight text-gray-200"
             >
                 Полезные программы для Royal Quest
             </h1>
@@ -21,9 +20,9 @@ import ExternalLink from "@/Components/ExternalLink.vue";
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div
-                    class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800"
+                    class="overflow-hidden bg-gray-800 shadow-sm sm:rounded-lg"
                 >
-                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <div class="p-6 text-gray-100">
                         <Accordion type="multiple" :default-value="['item-1']">
                             <AccordionItem value="item-1">
                                 <AccordionTrigger>Программы для игроков</AccordionTrigger>
@@ -47,6 +46,16 @@ import ExternalLink from "@/Components/ExternalLink.vue";
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('soft.royal-wiki-overlay')">
                                                 RoyalWikiOverlay
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('soft.royal-wiki-overlay')">
+                                                DPS metter
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('soft.royal-wiki-overlay')">
+                                                Анти AFK script
                                             </NavLink>
                                         </li>
                                     </ul>
