@@ -2,6 +2,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
 import NavLink from "@/Components/NavLink.vue";
+import Elink from "@/Components/Elink.vue";
 </script>
 
 <template>
@@ -21,6 +22,16 @@ import NavLink from "@/Components/NavLink.vue";
                 <div
                     class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800"
                 >
+                    <div class="p-6 pb-2">
+                        Я хотел расписать скиллы каждого босса, потому что я знаю как оно работает. Я даже сделал кучу
+                        гифок, но потом засомневался, как это лучше сделать? Скорее всего лучше не прописывать каждого,
+                        а снять ролик про всех сразу. Подобные ролики уже делали
+                        <elink href="https://www.youtube.com/@nisdoka2328/videos">Remi</elink>
+                        и Nestery. Remi - идеально, коротко и информативно рассказал о PVE боссах, а Nestery с кучей
+                        воды, с кучей ошибок и вредных советов рассказал о PVE боссах. Если ты тот отважный PVE воин,
+                        который готов заснять и нарезать фрагменты о PVE боссах, я с радостью помогу тебе и сделаем
+                        клёвый ролик
+                    </div>
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <div class="mb-8">
                             <h2 class="text-2xl font-semibold mb-4">Порезка урона от уровня</h2>
