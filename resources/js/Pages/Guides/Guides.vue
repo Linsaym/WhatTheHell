@@ -49,16 +49,6 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                                 Способы фарма
                                             </NavLink>
                                         </li>
-                                        <li>
-                                            <NavLink style="font-size: 18px" :href="route('guides.enchanting')">
-                                                Как выгоднее всего точиться
-                                            </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink style="font-size: 18px" :href="route('guides.dungeons')">
-                                                Гайд по данжам 48 & Соло
-                                            </NavLink>
-                                        </li>
                                     </ul>
                                 </AccordionContent>
                             </AccordionItem>
