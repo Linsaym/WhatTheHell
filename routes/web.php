@@ -43,20 +43,7 @@ Route::name('guides.')->prefix('/guides')->group(function () {
 
     // bosses
     Route::get('/bosses', fn() => Inertia::render('Guides/bosses/bosses'))->name('bosses');
-    Route::get('/bosses/dark-shaman', fn() => Inertia::render('Guides/bosses/dark-shaman'))->name('bosses.dark-shaman');
-    Route::get('/bosses/rat-queen', fn() => Inertia::render('Guides/bosses/rat-queen'))->name('bosses.rat-queen');
-    Route::get('/bosses/beastmorph', fn() => Inertia::render('Guides/bosses/beastmorph'))->name('bosses.beastmorph');
-    Route::get('/bosses/archon', fn() => Inertia::render('Guides/bosses/archon'))->name('bosses.archon');
-    Route::get('/bosses/giant-tortolla', fn() => Inertia::render('Guides/bosses/giant-tortolla'))->name('bosses.giant-tortolla');
-    Route::get('/bosses/destructor', fn() => Inertia::render('Guides/bosses/destructor'))->name('bosses.destructor');
-    Route::get('/bosses/ancient-ent', fn() => Inertia::render('Guides/bosses/ancient-ent'))->name('bosses.ancient-ent');
-    Route::get('/bosses/hugo', fn() => Inertia::render('Guides/bosses/hugo'))->name('bosses.hugo');
-    Route::get('/bosses/zibo', fn() => Inertia::render('Guides/bosses/zibo'))->name('bosses.zibo');
-    Route::get('/bosses/springy', fn() => Inertia::render('Guides/bosses/springy'))->name('bosses.springy');
-    Route::get('/bosses/edward', fn() => Inertia::render('Guides/bosses/edward'))->name('bosses.edward');
-    Route::get('/bosses/dengur', fn() => Inertia::render('Guides/bosses/dengur'))->name('bosses.dengur');
-    Route::get('/bosses/voko', fn() => Inertia::render('Guides/bosses/voko'))->name('bosses.voko');
-    Route::get('/bosses/pozhiki', fn() => Inertia::render('Guides/bosses/pozhiki'))->name('bosses.pozhiki');
+    Route::get('/bosses-spawn', fn() => Inertia::render('Guides/bosses/bosses-spawn'))->name('bosses-spawn');
 
     // классы
     Route::get('/best-class', fn() => Inertia::render('Guides/newbies/BestClass'))->name('best-class');

@@ -67,7 +67,7 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('guides.bosses')">
+                                            <NavLink style="font-size: 18px" :href="route('guides.bosses-spawn')">
                                                 Элитки и точки спавна
                                             </NavLink>
                                         </li>
