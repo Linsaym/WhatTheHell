@@ -23,6 +23,11 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                     class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800"
                 >
                     <div class="p-6 text-gray-900 dark:text-gray-100">
+                        <div>
+                            <NavLink style="font-size: 30px" :href="route('guides.for-developers')">
+                                Рекомендации для разработчиков RQ
+                            </NavLink>
+                        </div>
                         <Accordion type="multiple"
                                    :default-value="['novice','item-1','item-2','item-3','item-4','item-5']">
                             <AccordionItem value="novice">
@@ -32,6 +37,11 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('guides.best-class')">
                                                 Выбор класса
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink style="font-size: 18px" :href="route('guides.words')">
+                                                Расшифровка сленга
                                             </NavLink>
                                         </li>
                                         <li>

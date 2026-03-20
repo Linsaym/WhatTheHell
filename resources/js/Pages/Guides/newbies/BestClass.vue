@@ -1,6 +1,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head, Link} from '@inertiajs/vue3';
+import Elink from "@/Components/Elink.vue";
 </script>
 
 <template>
@@ -129,6 +130,36 @@ import {Head, Link} from '@inertiajs/vue3';
                                         class="flex items-center space-x-2 p-3 bg-gray-800 rounded-lg shadow-sm">
                                         <span class="text-lg">📈</span>
                                         <span class="text-gray-300">Скорость прокачки</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative mb-2 mt-6">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-red-900/20 via-amber-900/20 to-red-900/20 rounded-lg"></div>
+                            <div
+                                class="relative flex items-center justify-between p-4 border border-red-700/30 rounded-lg">
+                                <!-- Левый восклицательный знак -->
+                                <div class="flex-shrink-0 mr-4">
+                                    <div class="w-10 h-10 bg-red-600/20 rounded-full flex items-center justify-center">
+                                        <span class="text-2xl text-red-400 font-bold">!</span>
+                                    </div>
+                                </div>
+
+                                <!-- Текст -->
+                                <span class="text-center text-gray-200 font-medium flex-1">
+                                    Возможно тут будет куча непонятного сленга. Если вы новичок, можете глянуть расшифровки
+                                    <elink :href="route('guides.words')"
+                                           class="text-yellow-400 hover:text-yellow-300 underline underline-offset-2 transition-colors">
+                                        тут
+                                    </elink>
+                                </span>
+
+
+                                <!-- Правый восклицательный знак -->
+                                <div class="flex-shrink-0 ml-4">
+                                    <div class="w-10 h-10 bg-red-600/20 rounded-full flex items-center justify-center">
+                                        <span class="text-2xl text-red-400 font-bold">!</span>
                                     </div>
                                 </div>
                             </div>
@@ -382,6 +413,61 @@ import {Head, Link} from '@inertiajs/vue3';
                                                 боссов.
                                             </p>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="mt-8 space-y-6">
+                                    <!-- Заголовок секции PVP -->
+                                    <div class="flex items-center space-x-3 mb-2">
+                                        <h3 class="text-xl font-semibold text-gray-200">Если же в ваша главная страсть -
+                                            PVP (как у меня), то читайте этот блок</h3>
+                                    </div>
+
+                                    <!-- Карточка с факторами стоимости -->
+                                    <div
+                                        class="bg-gradient-to-r from-red-900/10 to-orange-900/10 rounded-lg border border-red-800/30 overflow-hidden">
+                                        <div class="border-b border-red-800/30 bg-red-900/20 px-6 py-3">
+                                            <div class="flex items-center">
+                                                <span class="text-red-400 font-medium">💰 Стоимость экипировки</span>
+                                            </div>
+                                        </div>
+                                        <div class="p-6">
+                                            <p class="text-gray-300 leading-relaxed">
+                                                По стоимости шмота, дешевле всего одеть креста. Можно сделать
+                                                крестоносца в шмотках B класса и он уже будет нормально жить.
+                                                Второй по дешёвости сборки будет ТР. По ТРу не так часто играют, за счёт
+                                                этого ваша задача сделать +8-9 шмот и разогнать урон.
+                                                Примерно такая же ситуация с волшом. Вам понадобиться +9 сет 63 уровня.
+                                                Любой ДД класс будет стоить кучу денег, чтобы жить на арене.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Карточка с ДД классами -->
+                                    <div
+                                        class="bg-gradient-to-r from-purple-900/10 to-pink-900/10 rounded-lg border border-purple-800/30 overflow-hidden">
+                                        <div class="border-b border-purple-800/30 bg-purple-900/20 px-6 py-3">
+                                            <div class="flex items-center">
+                                                <span class="text-purple-400 font-medium">⚔️ ДД классы в PVP</span>
+                                            </div>
+                                        </div>
+                                        <div class="p-6">
+                                            <p class="text-gray-300 leading-relaxed">
+                                                Из ДД классов дешевле всего одеть чернокнижника (но он и самый сложный
+                                                класс, на нём надо нажимать больше всего кнопок).
+                                                Это происходит из-за того, что у него есть антиконтроль. Так же высокая
+                                                выживаемость в плохом шмоте будет у разбойника
+                                                (его нули сбрасывают любой контроль). Остальные классы (снайпер, хант,
+                                                син) будут требовать хорошего шмота с заточкой и печатями.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            А так, все классы по своему хороши. Можете играть, на том что больше
+                                            нравиться. Возможно кто-то скажет "Снайпер и хант - хуйня". Но на них просто
+                                            нужно делать грамотную сборку с устойкой и свап шмотом. К тому же скоро
+                                            должен быть ребаланс снайпера. Возможно его усилят
+                                        </p>
                                     </div>
                                 </div>
                             </div>

@@ -29,32 +29,32 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('soft.gear-calculator')">
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 Онлайн калькулятор шмота
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('soft.market-analyzer')">
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 Анализатор рынка
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('soft.boss-timer')">
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 Персональный таймер боссов
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('soft.royal-wiki-overlay')">
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 RoyalWikiOverlay
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('soft.royal-wiki-overlay')">
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 DPS metter
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('soft.royal-wiki-overlay')">
+                                            <NavLink style="font-size: 18px" :href="route('403')">
                                                 Анти AFK script
                                             </NavLink>
                                         </li>

@@ -38,6 +38,8 @@ Route::middleware('auth')->group(function () {
 Route::get('guides', fn() => Inertia::render('Guides/Guides'))->name('guides');
 
 Route::name('guides.')->prefix('/guides')->group(function () {
+    Route::get("/for-developers", fn() => Inertia::render('Guides/ForDevelopers'))->name('for-developers');
+
     // buffs
     Route::get('/buffs', fn() => Inertia::render('Guides/bosses/Buffs'))->name('buffs');
 
@@ -56,6 +58,7 @@ Route::name('guides.')->prefix('/guides')->group(function () {
 
     // новички
     Route::get('/leveling', fn() => Inertia::render('Guides/newbies/Leveling'))->name('leveling');
+    Route::get('/words', fn() => Inertia::render('Guides/newbies/Words'))->name('words');
     Route::get('/65-lvl', fn() => Inertia::render('Guides/newbies/Endgame'))->name('endgame');
     Route::get('/farming', fn() => Inertia::render('Guides/newbies/Farming'))->name('farming');
     Route::get('/enchanting', fn() => Inertia::render('Guides/newbies/Enchanting'))->name('enchanting');

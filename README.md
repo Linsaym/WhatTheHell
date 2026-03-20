@@ -44,4 +44,4 @@ P.s. У вас должен быть установлен <a href="https://getco
 Node.js</a>,
 <br>
 а так же поднят MySQL и Apache(PHP). Сделать это можно с помощью <a href="https://www.apachefriends.org/ru/index.html">
-XAMPP</a>
+XAMPP</a>. Если у вас проблемы с MySQL, вы можете использовать SQLite, благодаря ORM всё полностью совместимо
