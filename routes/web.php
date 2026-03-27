@@ -74,7 +74,8 @@ Route::get('guides/builds', fn() => Inertia::render('Guides/Guides'))->name('gui
 Route::get('guides/farm', fn() => Inertia::render('Guides/Guides'))->name('guides.farm');
 
 //Soft
-Route::get('royal-quest/soft', fn() => Inertia::render('Soft/Soft'))->name('soft');
+//Route::get('royal-quest/soft', fn() => Inertia::render('Soft/Soft'))->name('soft');
+Route::get('royal-quest/soft', fn() => Inertia::render('403'))->name('soft');
 
 Route::name('soft.')->prefix('/royal-quest/soft')->group(function () {
     Route::get('/gear-calculator', fn() => Inertia::render('Soft/GearCalculator'))->name('gear-calculator');

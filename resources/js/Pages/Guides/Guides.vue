@@ -24,7 +24,7 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                 >
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <div>
-                            <NavLink style="font-size: 30px" :href="route('guides.for-developers')">
+                            <NavLink style="font-size: 30px; line-height: 30px" :href="route('guides.for-developers')">
                                 Рекомендации для разработчиков RQ
                             </NavLink>
                         </div>

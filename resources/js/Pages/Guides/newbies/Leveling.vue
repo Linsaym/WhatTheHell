@@ -57,8 +57,8 @@ import Elink from '@/Components/Elink.vue';
                                             <h4 class="font-semibold text-gray-200">Тотем ученика
                                                 шамана</h4>
                                             <p class="text-sm text-gray-400">После 5 уровня</p>
-                                            <p class="text-sm text-gray-300">+150 опыта за каждого
-                                                моба и +150% при активации</p>
+                                            <p class="text-sm text-gray-300">+5 опыта за каждого
+                                                моба и +100% при активации</p>
                                         </div>
                                     </div>
 
@@ -289,7 +289,8 @@ import Elink from '@/Components/Elink.vue';
                             </div>
                             <div class="mt-4">
                                 <p>
-                                    123
+                                    Порог 40-55 если мы качаемся самостоятельно будет одним из самых сложных на нашем
+                                    <!--пути. //TODO-->
                                 </p>
                                 <p class="mt-2">
                                     После 55-60 апается куда быстрее чем другие уровни, ведь у нас открывается много
