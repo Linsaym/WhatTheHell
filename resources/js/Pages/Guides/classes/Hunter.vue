@@ -3,6 +3,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Components/ui/accordion/index.js";
 import {Badge} from "@/Components/ui/badge/index.js";
+import HighlightBlock from "@/Components/HighlightBlock.vue";
 </script>
 
 <template>
@@ -72,12 +73,14 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                         бега, неплохую выживаемость, и хороший урон как по толпе, так и по одиночной
                                         цели. Он всегда полезен на данжах и может фармить в соло.
                                         <br><br>
-                                        Хант имеет разнообразные билды. В одном больше урона, в другом выживаемости.
-                                        Есть билды, через вторую ветку, которые подходят для PVP и имеют больше
-                                        контроля.
-                                        Есть билд через волка, в котором хант может танчить боссов. Сегодня мы
-                                        рассмотрим их все)
                                     </p>
+                                    <HighlightBlock color="orange">
+                                        <p>Хант имеет разнообразные билды. В одном больше урона, в другом выживаемости.
+                                            Есть билды, через вторую ветку, которые подходят для PVP и имеют больше
+                                            контроля.
+                                            Есть билд через волка, в котором хант может танчить боссов. Сегодня мы
+                                            рассмотрим их все)</p>
+                                    </HighlightBlock>
                                 </div>
                             </div>
                         </div>
@@ -104,109 +107,137 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                             <img src="/assets/images/skills/hunter/b2.png"
                                                  alt="Билд на ханта Royal Quest">
                                         </div>
-                                        <div class="mt-3 text-lg">
-                                            <p>
+                                        <div class="mt-8 text-lg">
+                                            <p class="mb-6 text-xl font-medium">
                                                 А теперь давайте поговорим, какие таланты тут ключевые и почему билд
                                                 выглядит именно так.
-                                                <br><br>
+                                            </p>
+                                            <p class="mb-6 text-lg font-medium text-orange-500">
                                                 Начнём с ключевых талантов.
                                             </p>
-                                            <div class="flex gap-3 items-center my-3">
-                                                <a href="https://royalquest.info/index.php/Талант_—_Жужжащие_стрелы"
-                                                   target="_blank"
-                                                >
-                                                    <img
-                                                        src="https://royalquest.info/images/2/2a/Талант_Жужжащие_стрелы.png"
-                                                        style="width: 48px"
-                                                        alt="Жужжащие стрелы">
-                                                </a>
-                                                <p class="w-2/3">
-                                                    - Талант "Жужжащие стрелы", очень сильно поможет нам первое время в
-                                                    фарме. Таким образом уже на 20 уровне у нас будет дополнительный
-                                                    массовый урон
-                                                </p>
+
+                                            <!-- Talents list with card design -->
+                                            <div class="space-y-4">
+                                                <div
+                                                    class="flex flex-col sm:flex-row gap-4 items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-700/30 hover:shadow-md transition-all duration-300 group">
+                                                    <a href="https://royalquest.info/index.php/Талант_—_Жужжащие_стрелы"
+                                                       target="_blank"
+                                                       class="flex-shrink-0 transition-transform group-hover:scale-110 duration-300">
+                                                        <img
+                                                            src="https://royalquest.info/images/2/2a/Талант_Жужжащие_стрелы.png"
+                                                            style="width: 56px" alt="Жужжащие стрелы"
+                                                            class="rounded-lg shadow-md">
+                                                    </a>
+                                                    <p class="flex-1 leading-relaxed">
+                                                        <span class="font-bold text-orange-500">- Талант "Жужжащие стрелы"</span>,
+                                                        очень сильно поможет нам первое время в фарме. Таким образом уже
+                                                        на 20 уровне у нас будет дополнительный массовый урон
+                                                    </p>
+                                                </div>
+
+                                                <div
+                                                    class="flex flex-col sm:flex-row gap-4 items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-700/30 hover:shadow-md transition-all duration-300 group">
+                                                    <a href="https://royalquest.info/index.php/Талант_—_Огненный_град"
+                                                       target="_blank"
+                                                       class="flex-shrink-0 transition-transform group-hover:scale-110 duration-300">
+                                                        <img
+                                                            src="https://royalquest.info/images/d/d4/Талант_Огненный_град.png"
+                                                            style="width: 56px" alt="Огненный град"
+                                                            class="rounded-lg shadow-md">
+                                                    </a>
+                                                    <p class="flex-1 leading-relaxed">
+                                                        <span class="font-bold text-orange-500">- На 23 уровне у вас появиться "Град стрел"</span>,
+                                                        это ваш основный скил для массового урона. Этот талант
+                                                        существенно увеличит урон с него
+                                                    </p>
+                                                </div>
+
+                                                <div
+                                                    class="flex flex-col sm:flex-row gap-4 items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-700/30 hover:shadow-md transition-all duration-300 group">
+                                                    <a href="https://royalquest.info/index.php/Талант_—_Походный_боекомплект"
+                                                       target="_blank"
+                                                       class="flex-shrink-0 transition-transform group-hover:scale-110 duration-300">
+                                                        <img
+                                                            src="https://royalquest.info/images/d/d3/Талант_Походный_боекомплект.png"
+                                                            style="width: 56px" alt="Походный боекомплект"
+                                                            class="rounded-lg shadow-md">
+                                                    </a>
+                                                    <p class="flex-1 leading-relaxed">
+                                                        <span class="font-bold text-orange-500">- Позволит вам более быстро передвигаться по карте</span>,
+                                                        и сделает вас более полезным в группах. Так же вы будете более
+                                                        эффективным "баффером"
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <div class="flex gap-3 items-center my-3">
-                                                <a href="https://royalquest.info/index.php/Талант_—_Огненный_град"
-                                                   target="_blank"
-                                                >
-                                                    <img
-                                                        src="https://royalquest.info/images/d/d4/Талант_Огненный_град.png"
-                                                        style="width: 48px"
-                                                        alt="Жужжащие стрелы">
-                                                </a>
-                                                <p class="w-2/3">
-                                                    - На 23 уровне у вас появиться "Град стрел", это ваш основный скил
-                                                    для массового урона. Этот талант существенно увеличит урон с него
-                                                </p>
-                                            </div>
-                                            <div class="flex gap-3 items-center my-3">
-                                                <a href="https://royalquest.info/index.php/Талант_—_Походный_боекомплект"
-                                                   target="_blank"
-                                                >
-                                                    <img
-                                                        src="https://royalquest.info/images/d/d3/Талант_Походный_боекомплект.png"
-                                                        style="width: 48px"
-                                                        alt="Походный боекомплект">
-                                                </a>
-                                                <p class="w-2/3">
-                                                    - Позволит вам более быстро передвигаться по карте, и
-                                                    сделает вас более полезным в группах. Так же вы будете более
-                                                    эффективным "баффером"
-                                                </p>
-                                            </div>
-                                            <div class="my-11">
-                                                <p>
+
+                                            <div
+                                                class="my-8 p-6 bg-orange-500/5 rounded-xl border border-orange-500/20">
+                                                <p class="text-center">
                                                     После этого я бы рекомендовал вкачивать вторую ветку до середины,
                                                     потом верхнюю до середины. Как только вы начнёте ходить на боссов
                                                     вам понадобиться РБ, поэтому его важно взять. До этого момента, оно
                                                     вам не особо нужно
                                                 </p>
                                             </div>
-                                            <div class="flex gap-3 items-center my-3">
-                                                <a href="https://royalquest.info/index.php/Талант_—_Отстрел"
-                                                   target="_blank"
-                                                >
-                                                    <img
-                                                        src="https://royalquest.info/images/b/bf/Талант_Отстрел.png"
-                                                        style="width: 48px"
-                                                        alt="Отстрел">
-                                                </a>
-                                                <p class="w-2/3">
-                                                    - Ваш град стрел и стенка огня(у волшебника), накладывают
-                                                    медлительность. Поэтому враги почти всегда будут под замедлением. И
-                                                    этот талант существенно увеличит урон
-                                                </p>
+
+                                            <div class="space-y-4">
+                                                <div
+                                                    class="flex flex-col sm:flex-row gap-4 items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-700/30 hover:shadow-md transition-all duration-300 group">
+                                                    <a href="https://royalquest.info/index.php/Талант_—_Отстрел"
+                                                       target="_blank"
+                                                       class="flex-shrink-0 transition-transform group-hover:scale-110 duration-300">
+                                                        <img
+                                                            src="https://royalquest.info/images/b/bf/Талант_Отстрел.png"
+                                                            style="width: 56px" alt="Отстрел"
+                                                            class="rounded-lg shadow-md">
+                                                    </a>
+                                                    <p class="flex-1 leading-relaxed">
+                                                        <span class="font-bold text-orange-500">- Ваш град стрел и стенка огня(у волшебника), накладывают медлительность</span>.
+                                                        Поэтому враги почти всегда будут под замедлением. И этот талант
+                                                        существенно увеличит урон
+                                                    </p>
+                                                </div>
+
+                                                <div
+                                                    class="flex flex-col sm:flex-row gap-4 items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-700/30 hover:shadow-md transition-all duration-300 group">
+                                                    <a href="https://royalquest.info/index.php/Талант_—_Азартный_стрелок"
+                                                       target="_blank"
+                                                       class="flex-shrink-0 transition-transform group-hover:scale-110 duration-300">
+                                                        <img
+                                                            src="https://royalquest.info/images/4/48/Талант_Азартный_стрелок.png"
+                                                            style="width: 56px" alt="Азартный стрелок"
+                                                            class="rounded-lg shadow-md">
+                                                    </a>
+                                                    <p class="flex-1 leading-relaxed">
+                                                        <span class="font-bold text-orange-500">- Отличный талант</span>
+                                                        который увеличивает урон как по соло цели, так и по толпе. В
+                                                        основном ради него мы качали всю первую ветку. +16% к атаке -
+                                                        это очень много.
+                                                    </p>
+                                                </div>
+
+                                                <div
+                                                    class="flex flex-col sm:flex-row gap-4 items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-700/30 hover:shadow-md transition-all duration-300 group">
+                                                    <a href="https://royalquest.info/index.php/Талант_—_Разъедающие_боеприпасы"
+                                                       target="_blank"
+                                                       class="flex-shrink-0 transition-transform group-hover:scale-110 duration-300">
+                                                        <img
+                                                            src="https://royalquest.info/images/a/a4/Талант_Разъедающие_боеприпасы.png"
+                                                            style="width: 56px" alt="Разъедающие боеприпасы"
+                                                            class="rounded-lg shadow-md">
+                                                    </a>
+                                                    <p class="flex-1 leading-relaxed">
+                                                        <span class="font-bold text-orange-500">- этот талант сокращённо все называют РБ</span>.
+                                                        Он колоссально увеличивает урон, и необходим на боссах. Но он
+                                                        абсолютно бесполезен при прокачке, поэтому мы берём его ближе к
+                                                        60
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <div class="flex gap-3 items-center my-3">
-                                                <a href="https://royalquest.info/index.php/Талант_—_Азартный_стрелок"
-                                                   target="_blank"
-                                                >
-                                                    <img
-                                                        src="https://royalquest.info/images/4/48/Талант_Азартный_стрелок.png"
-                                                        style="width: 48px"
-                                                        alt="Разъедающие боеприпасы">
-                                                </a>
-                                                <p class="w-2/3">
-                                                    - Отличный талант который увеличивает урон как по соло цели, так и
-                                                    по толпе.
-                                                </p>
-                                            </div>
-                                            <div class="flex gap-3 items-center my-3">
-                                                <a href="https://royalquest.info/index.php/Талант_—_Разъедающие_боеприпасы"
-                                                   target="_blank"
-                                                >
-                                                    <img
-                                                        src="https://royalquest.info/images/a/a4/Талант_Разъедающие_боеприпасы.png"
-                                                        style="width: 48px"
-                                                        alt="Разъедающие боеприпасы">
-                                                </a>
-                                                <p class="w-2/3">
-                                                    - этот талант сокращённо все называют РБ. Он колоссально увеличивает
-                                                    урон, и необходим на боссах. Но он абсолютно бесполезен при
-                                                    прокачке, поэтому мы берём его ближе к 60
-                                                </p>
-                                            </div>
+                                        </div>
+
+
+                                        <div class="mt-3 text-lg">
                                             <div class="mt-11">
                                                 <p>
                                                     В этом билде много талантов, которые нацелены на более комфортную
@@ -232,9 +263,7 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                                 <img src="/assets/images/skills/hunter/b4.png"
                                                      alt="Билд на ханта Royal Quest">
                                             </div>
-
                                         </div>
-
                                     </div>
                                 </AccordionContent>
                             </AccordionItem>

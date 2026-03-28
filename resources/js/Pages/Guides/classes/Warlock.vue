@@ -16,7 +16,7 @@ import {Badge} from "@/Components/ui/badge/index.js";
             <h1
                 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200"
             >
-                Гайд на Волшебника
+                Гайд на Чернокнижника
             </h1>
         </template>
 
