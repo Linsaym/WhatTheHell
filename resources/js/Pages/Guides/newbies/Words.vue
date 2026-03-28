@@ -1,8 +1,8 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
-import {ref, computed} from 'vue';
-
+import {ref, computed, onMounted} from 'vue';
+import {watch} from 'vue';
 
 //TODO сортировать по длине через GPT
 // Массив со сленговыми словами Royal Quest
@@ -106,8 +106,21 @@ const processingLinks = (item) => {
     return result;
 };
 
-// Поисковый запрос
-const searchQuery = ref('');
+// Инициализация searchQuery из query параметра
+const urlParams = new URLSearchParams(window.location.search);
+const initialSearch = urlParams.get('search') || '';
+const searchQuery = ref(initialSearch);
+
+
+watch(searchQuery, (newValue) => {
+    const url = new URL(window.location);
+    if (newValue) {
+        url.searchParams.set('search', newValue);
+    } else {
+        url.searchParams.delete('search');
+    }
+    window.history.replaceState({}, '', url);
+});
 
 // Выбранная категория для фильтрации
 const selectedCategory = ref('Все');
@@ -164,7 +177,7 @@ const clearSearch = () => {
                                         filteredSlangWords.length
                                     }}</span>
                                     <button
-                                        @click="clearSearch; selectedCategory = 'Все'"
+                                        @click="() => { clearSearch(); selectedCategory = 'Все'; }"
                                         class="ml-2 text-xs text-gray-400 hover:text-white transition"
                                     >
                                         ✕ Сбросить
@@ -244,7 +257,7 @@ const clearSearch = () => {
                             <h3 class="text-lg font-medium text-gray-400 mb-2">Ничего не найдено</h3>
                             <p class="text-gray-500">Попробуйте изменить параметры поиска</p>
                             <button
-                                @click="clearSearch; selectedCategory = 'Все'"
+                                @click="() => { clearSearch(); selectedCategory = 'Все'; }"
                                 class="mt-4 px-4 py-2 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600 transition"
                             >
                                 Сбросить фильтры
