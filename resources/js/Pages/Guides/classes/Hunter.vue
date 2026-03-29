@@ -4,6 +4,7 @@ import {Head} from '@inertiajs/vue3';
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Components/ui/accordion/index.js";
 import {Badge} from "@/Components/ui/badge/index.js";
 import HighlightBlock from "@/Components/HighlightBlock.vue";
+import TalentCard from "@/Components/TalentCard.vue";
 </script>
 
 <template>
@@ -112,62 +113,48 @@ import HighlightBlock from "@/Components/HighlightBlock.vue";
                                                 А теперь давайте поговорим, какие таланты тут ключевые и почему билд
                                                 выглядит именно так.
                                             </p>
-                                            <p class="mb-6 text-lg font-medium text-orange-500">
+                                            <p class="mb-6 text-lg font-medium">
                                                 Начнём с ключевых талантов.
                                             </p>
 
-                                            <!-- Talents list with card design -->
                                             <div class="space-y-4">
-                                                <div
-                                                    class="flex flex-col sm:flex-row gap-4 items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-700/30 hover:shadow-md transition-all duration-300 group">
-                                                    <a href="https://royalquest.info/index.php/Талант_—_Жужжащие_стрелы"
-                                                       target="_blank"
-                                                       class="flex-shrink-0 transition-transform group-hover:scale-110 duration-300">
-                                                        <img
-                                                            src="https://royalquest.info/images/2/2a/Талант_Жужжащие_стрелы.png"
-                                                            style="width: 56px" alt="Жужжащие стрелы"
-                                                            class="rounded-lg shadow-md">
-                                                    </a>
-                                                    <p class="flex-1 leading-relaxed">
-                                                        <span class="font-bold text-orange-500">- Талант "Жужжащие стрелы"</span>,
-                                                        очень сильно поможет нам первое время в фарме. Таким образом уже
-                                                        на 20 уровне у нас будет дополнительный массовый урон
-                                                    </p>
-                                                </div>
+                                                <!-- Талант с простым текстом -->
+                                                <TalentCard
+                                                    name="Жужжащие стрелы"
+                                                    icon="https://royalquest.info/images/2/2a/Талант_Жужжащие_стрелы.png"
+                                                    link="https://royalquest.info/index.php/Талант_—_Жужжащие_стрелы"
+                                                >
+                                                    , очень сильно поможет нам первое время в фарме. Таким образом уже
+                                                    на 20 уровне у нас будет дополнительный массовый урон
+                                                </TalentCard>
 
-                                                <div
-                                                    class="flex flex-col sm:flex-row gap-4 items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-700/30 hover:shadow-md transition-all duration-300 group">
-                                                    <a href="https://royalquest.info/index.php/Талант_—_Огненный_град"
-                                                       target="_blank"
-                                                       class="flex-shrink-0 transition-transform group-hover:scale-110 duration-300">
-                                                        <img
-                                                            src="https://royalquest.info/images/d/d4/Талант_Огненный_град.png"
-                                                            style="width: 56px" alt="Огненный град"
-                                                            class="rounded-lg shadow-md">
-                                                    </a>
-                                                    <p class="flex-1 leading-relaxed">
-                                                        <span class="font-bold text-orange-500">- На 23 уровне у вас появиться "Град стрел"</span>,
-                                                        это ваш основный скил для массового урона. Этот талант
-                                                        существенно увеличит урон с него
-                                                    </p>
-                                                </div>
+                                                <!-- Талант с HTML и ссылками -->
+                                                <TalentCard
+                                                    name="Огненный град"
+                                                    icon="https://royalquest.info/images/d/d4/Талант_Огненный_град.png"
+                                                    link="https://royalquest.info/index.php/Талант_—_Огненный_град"
+                                                >
+                                                    - На 23 уровне у вас появиться
+                                                    <strong>"Град стрел"</strong>, это ваш
+                                                    основный скил
+                                                    для массового урона. Этот талант существенно увеличит урон с него
+                                                </TalentCard>
 
-                                                <div
-                                                    class="flex flex-col sm:flex-row gap-4 items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-700/30 hover:shadow-md transition-all duration-300 group">
-                                                    <a href="https://royalquest.info/index.php/Талант_—_Походный_боекомплект"
-                                                       target="_blank"
-                                                       class="flex-shrink-0 transition-transform group-hover:scale-110 duration-300">
-                                                        <img
-                                                            src="https://royalquest.info/images/d/d3/Талант_Походный_боекомплект.png"
-                                                            style="width: 56px" alt="Походный боекомплект"
-                                                            class="rounded-lg shadow-md">
-                                                    </a>
-                                                    <p class="flex-1 leading-relaxed">
-                                                        <span class="font-bold text-orange-500">- Позволит вам более быстро передвигаться по карте</span>,
-                                                        и сделает вас более полезным в группах. Так же вы будете более
-                                                        эффективным "баффером"
-                                                    </p>
-                                                </div>
+                                                <!-- Талант со сложной структурой -->
+                                                <TalentCard
+                                                    name="Походный боекомплект"
+                                                    icon="https://royalquest.info/images/d/d3/Талант_Походный_боекомплект.png"
+                                                    link="https://royalquest.info/index.php/Талант_—_Походный_боекомплект"
+                                                    name-color="orange"
+                                                >
+                                                    <div class="inline">
+                                                        - Позволит вам более быстро передвигаться по карте, и
+                                                        <span
+                                                            class="font-semibold">сделает вас более полезным в группах</span>.
+                                                        Так же вы будете более эффективным
+                                                        <span class="italic">"баффером"</span>
+                                                    </div>
+                                                </TalentCard>
                                             </div>
 
                                             <div
@@ -181,58 +168,40 @@ import HighlightBlock from "@/Components/HighlightBlock.vue";
                                             </div>
 
                                             <div class="space-y-4">
-                                                <div
-                                                    class="flex flex-col sm:flex-row gap-4 items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-700/30 hover:shadow-md transition-all duration-300 group">
-                                                    <a href="https://royalquest.info/index.php/Талант_—_Отстрел"
-                                                       target="_blank"
-                                                       class="flex-shrink-0 transition-transform group-hover:scale-110 duration-300">
-                                                        <img
-                                                            src="https://royalquest.info/images/b/bf/Талант_Отстрел.png"
-                                                            style="width: 56px" alt="Отстрел"
-                                                            class="rounded-lg shadow-md">
-                                                    </a>
-                                                    <p class="flex-1 leading-relaxed">
-                                                        <span class="font-bold text-orange-500">- Ваш град стрел и стенка огня(у волшебника), накладывают медлительность</span>.
-                                                        Поэтому враги почти всегда будут под замедлением. И этот талант
-                                                        существенно увеличит урон
-                                                    </p>
-                                                </div>
+                                                <TalentCard
+                                                    name="Отстрел"
+                                                    icon="https://royalquest.info/images/b/bf/Талант_Отстрел.png"
+                                                    link="https://royalquest.info/index.php/Талант_—_Отстрел"
+                                                >
+                                                    - Ваш
+                                                    <span class="font-medium">град стрел</span> и
+                                                    <span class="font-medium">стенка огня</span> (у волшебника),
+                                                    накладывают медлительность.
+                                                    Поэтому враги почти всегда будут под замедлением. И этот талант
+                                                    существенно увеличит урон
+                                                </TalentCard>
 
-                                                <div
-                                                    class="flex flex-col sm:flex-row gap-4 items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-700/30 hover:shadow-md transition-all duration-300 group">
-                                                    <a href="https://royalquest.info/index.php/Талант_—_Азартный_стрелок"
-                                                       target="_blank"
-                                                       class="flex-shrink-0 transition-transform group-hover:scale-110 duration-300">
-                                                        <img
-                                                            src="https://royalquest.info/images/4/48/Талант_Азартный_стрелок.png"
-                                                            style="width: 56px" alt="Азартный стрелок"
-                                                            class="rounded-lg shadow-md">
-                                                    </a>
-                                                    <p class="flex-1 leading-relaxed">
-                                                        <span class="font-bold text-orange-500">- Отличный талант</span>
-                                                        который увеличивает урон как по соло цели, так и по толпе. В
-                                                        основном ради него мы качали всю первую ветку. +16% к атаке -
-                                                        это очень много.
-                                                    </p>
-                                                </div>
+                                                <TalentCard
+                                                    name="Азартный стрелок"
+                                                    icon="https://royalquest.info/images/4/48/Талант_Азартный_стрелок.png"
+                                                    link="https://royalquest.info/index.php/Талант_—_Азартный_стрелок"
+                                                    name-color="orange"
+                                                >
+                                                    - Отличный талант который увеличивает урон как по соло цели, так и
+                                                    по толпе. Он увеличивает урон на 16% - а это реально много. Ради
+                                                    него мы и берём всю первую ветку
+                                                </TalentCard>
 
-                                                <div
-                                                    class="flex flex-col sm:flex-row gap-4 items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-700/30 hover:shadow-md transition-all duration-300 group">
-                                                    <a href="https://royalquest.info/index.php/Талант_—_Разъедающие_боеприпасы"
-                                                       target="_blank"
-                                                       class="flex-shrink-0 transition-transform group-hover:scale-110 duration-300">
-                                                        <img
-                                                            src="https://royalquest.info/images/a/a4/Талант_Разъедающие_боеприпасы.png"
-                                                            style="width: 56px" alt="Разъедающие боеприпасы"
-                                                            class="rounded-lg shadow-md">
-                                                    </a>
-                                                    <p class="flex-1 leading-relaxed">
-                                                        <span class="font-bold text-orange-500">- этот талант сокращённо все называют РБ</span>.
-                                                        Он колоссально увеличивает урон, и необходим на боссах. Но он
-                                                        абсолютно бесполезен при прокачке, поэтому мы берём его ближе к
-                                                        60
-                                                    </p>
-                                                </div>
+                                                <TalentCard
+                                                    name="Разъедающие боеприпасы"
+                                                    icon="https://royalquest.info/images/a/a4/Талант_Разъедающие_боеприпасы.png"
+                                                    link="https://royalquest.info/index.php/Талант_—_Разъедающие_боеприпасы"
+                                                    name-color="orange"
+                                                >
+                                                    - этот талант сокращённо все называют РБ. Он колоссально увеличивает
+                                                    урон, и необходим на боссах. Но он абсолютно бесполезен при
+                                                    прокачке, поэтому мы берём его ближе к 60
+                                                </TalentCard>
                                             </div>
                                         </div>
 
