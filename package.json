@@ -18,13 +18,14 @@
         "vue": "^3.4.0"
     },
     "dependencies": {
-        "@vueuse/core": "^11.1.0",
+        "@vueuse/core": "^11.3.0",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
         "lucide-vue-next": "^0.446.0",
         "moment": "^2.30.1",
         "npx": "^10.2.2",
-        "radix-vue": "^1.9.6",
+        "radix-vue": "^1.9.17",
+        "reka-ui": "^2.9.2",
         "shadcn-vue": "^0.10.5",
         "tailwind-merge": "^2.5.2",
         "tailwindcss-animate": "^1.0.7",

@@ -1,7 +1,7 @@
 <script setup>
 import {Head} from '@inertiajs/vue3';
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import {Tabs, TabsList, TabsContent, TabsTrigger} from "@/Components/ui/tabs/index.js";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/Components/ui/tabs/index.js";
 import moment from "moment";
 import MyTooltip from "@/Components/func/MyTooltip.vue";
 import {Button} from "@/Components/ui/button/index.js";
@@ -10,21 +10,23 @@ import 'vue-toastification/dist/index.css';
 import {onMounted, onUnmounted, ref} from "vue";
 import {
     Dialog,
-    DialogTrigger,
+    DialogClose,
+    DialogContent,
+    DialogDescription,
     DialogFooter,
     DialogHeader,
     DialogTitle,
-    DialogDescription,
-    DialogContent, DialogClose
+    DialogTrigger
 } from "@/Components/ui/dialog/index.js"
 import {Input} from '@/Components/ui/input'
 import {Label} from '@/Components/ui/label'
 import {
     DropdownMenu,
-    DropdownMenuTrigger,
+    DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuContent
+    DropdownMenuTrigger
 } from "@/Components/ui/dropdown-menu/index.js";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/Components/ui/select"
 
 const toast = useToast();
 
@@ -40,6 +42,29 @@ const props = defineProps({
         type: Array
     }
 });
+
+//TODO добавить подгрузку из localStorage
+const voiceMode = ref('girl') // 'off' | 'girl'
+
+const playSound = async (boss, timeLeft) => {
+    if (voiceMode.value === 'off') return
+    const url = `/assets/sounds/${boss}${timeLeft}.ogg`
+
+    try {
+        const res = await fetch(url, {method: 'HEAD'})
+
+        if (!res.ok) {
+            console.log('Озвучка не найдена:', url)
+            return
+        }
+
+        const audio = new Audio(url)
+        await audio.play()
+        console.log(boss)
+    } catch (e) {
+        console.error('Ошибка при проверке файла:', e)
+    }
+}
 
 
 const bossList = ref(props.bosses)
@@ -99,6 +124,13 @@ const addFieldsToBoss = (boss) => {
     // Я продублировал эту логику, чтобы она работала и на боссов по кд
     // Если разница между текущим временем и респавном <= 5 минут, то показываем '00:00:00' и cd = '-'
     secondsLeft = respawnTime.diff(now, 'seconds');
+    if (secondsLeft === 300) {
+        playSound(boss.name, 300)
+    } else if (secondsLeft === 60) {
+        playSound(boss.name, 60)
+    } else if (secondsLeft === 1) {
+        playSound(boss.name, 1)
+    }
     if (secondsLeft >= -300 && secondsLeft <= 0) {
         return {
             ...boss,
@@ -291,14 +323,27 @@ const isUseDieBtn = (boss) => {
                 >
                     <div class="p-6 text-gray-100">
                         <Tabs default-value="showed">
-                            <TabsList class="grid grid-cols-2 w-[400px] mb-6 p-2 rounded">
-                                <TabsTrigger class="data-[state=active]:bg-stone-700 rounded-lg" value="showed">
-                                    All
-                                </TabsTrigger>
-                                <TabsTrigger class="data-[state=active]:bg-stone-700 rounded-lg" value="hidden">
-                                    Hidden
-                                </TabsTrigger>
-                            </TabsList>
+                            <div class="flex justify-between">
+                                <TabsList class="grid grid-cols-2 w-[400px] mb-6 p-2 rounded">
+                                    <TabsTrigger class="data-[state=active]:bg-stone-700 rounded-lg" value="showed">
+                                        All
+                                    </TabsTrigger>
+                                    <TabsTrigger class="data-[state=active]:bg-stone-700 rounded-lg" value="hidden">
+                                        Hidden
+                                    </TabsTrigger>
+                                </TabsList>
+                                <div class="p-4">
+                                    <Select v-model="voiceMode">
+                                        <SelectTrigger class="w-[90px]">
+                                            <SelectValue/>
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="off">off</SelectItem>
+                                            <SelectItem value="girl">girl</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                            </div>
                             <TabsContent value="showed">
                                 <div v-for="(boss, index) in bossList" :key="boss.id"
                                      class="px-3  rounded mb-2 flex align-middle gap-4 text-xl items-center"
