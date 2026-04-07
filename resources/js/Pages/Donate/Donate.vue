@@ -30,7 +30,7 @@ import {Head} from '@inertiajs/vue3';
                                 <a class="underline text-blue-500" href="https://t.me/Linsaym397">криптой в ТГ</a>
                                 .<br>Переводом на карту, или можете просто написать письмо в игре на
                                 ник
-                                <strong>Golang</strong>
+                                <strong>МурчуКотятам</strong>
                             </p>
                         </div>
 
@@ -53,6 +53,9 @@ import {Head} from '@inertiajs/vue3';
                                 <img src="/assets/images/it-guy.png" alt="Описание фотографии"
                                      class="w-full max-w-md md:max-w-lg rounded-lg">
                             </div>
+                        </div>
+                        <div class="flex text-xl flex-col justify-center items-center mt-16">
+                            Важно! Донаты не дают вам никакие права. Это чисто благотворительное пожертвование
                         </div>
                     </div>
                 </div>

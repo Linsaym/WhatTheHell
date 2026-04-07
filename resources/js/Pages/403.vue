@@ -32,7 +32,7 @@ defineProps({
                     <div class="text-3xl mb-3">К сожалению у вас недостаточно прав для просмотра этой страницы</div>
                     <div class="text-3xl">Может если сделать
                         <a class="text-blue-600" :href="route('donate')">донат</a>
-                        она откроеться?🤔
+                        она откроется?🤔
                     </div>
                 </div>
             </div>
