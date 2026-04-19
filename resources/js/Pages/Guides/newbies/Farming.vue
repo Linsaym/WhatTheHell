@@ -27,7 +27,10 @@ import Elink from "@/Components/Elink.vue";
                             <p class="my-4">
                                 На самом деле с каждым годом, всё меньше способов фармить, цены всё падают :(<br>
                                 А исправляется это всё супер просто. Нужно ввести шмот, крафт которого требует ресурсы с
-                                низкоуровневых локаций
+                                низкоуровневых локаций.<br>
+                                Тогда бы цены на ресурсы выросли и был бы смысл качаться самому, а не покупая кач. Но
+                                разработчики этого не
+                                делают💔
                             </p>
                             <div
                                 class="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 p-6 text-gray-200">
@@ -55,7 +58,7 @@ import Elink from "@/Components/Elink.vue";
                                     <li class="flex items-start gap-2">
                                         <span
                                             class="inline-flex items-center justify-center bg-blue-400/20 text-blue-400 font-bold rounded-full w-6 h-6 shrink-0 mt-0.5 text-sm">4</span>
-                                        <span><span class="font-semibold text-blue-400">Ферма персонажей</span> (примерно до 6кк в час)</span>
+                                        <span><span class="font-semibold text-blue-400">Ферма персонажей</span> (примерно до 8кк в час)</span>
                                     </li>
                                     <li class="flex items-start gap-2">
                                         <span

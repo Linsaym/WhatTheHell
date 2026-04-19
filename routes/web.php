@@ -18,6 +18,9 @@ Route::get('/dashboard', function () {
 Route::get('/403', function () {
     return Inertia::render('403');
 })->name('403');
+Route::get('/do-it-pls', function () {
+    return Inertia::render('DoItPls');
+})->name('do-it-pls');
 
 Route::middleware('auth')->group(function () {
     //Профиль

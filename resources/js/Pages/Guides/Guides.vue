@@ -94,7 +94,7 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('guides.sniper')">
+                                            <NavLink style="font-size: 18px" :href="route('do-it-pls')">
                                                 Гайд на Снайпера
                                             </NavLink>
                                         </li>
@@ -148,18 +148,13 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
                                 <AccordionContent>
                                     <ul class="list-disc ml-6">
                                         <li>
-                                            <NavLink style="font-size: 18px" :href="route('403')">
-                                                Гайд по характеристикам
-                                            </NavLink>
-                                        </li>
-                                        <li>
                                             <NavLink style="font-size: 18px" :href="route('guides.quests')">
                                                 Полезные квесты
                                             </NavLink>
                                         </li>
                                         <li>
                                             <NavLink style="font-size: 18px" :href="route('403')">
-                                                Ресурсы, торговля, предметы для ежедневок
+                                                Гайд по характеристикам и шмоту
                                             </NavLink>
                                         </li>
                                     </ul>
