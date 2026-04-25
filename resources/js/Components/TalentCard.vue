@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex flex-col sm:flex-row gap-4 items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-700/30 hover:shadow-md transition-all duration-300 group"
+        class="flex flex-col sm:flex-row gap-4 items-start p-4 rounded-xl bg-gray-700/30  hover:shadow-md group"
     >
         <a
             :href="link"

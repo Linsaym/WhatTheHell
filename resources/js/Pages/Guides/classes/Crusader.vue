@@ -3,6 +3,9 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Components/ui/accordion/index.js";
 import {Badge} from "@/Components/ui/badge/index.js";
+import Elink from "@/Components/Elink.vue";
+import HighlightBlock from "@/Components/HighlightBlock.vue";
+import TalentCard from "@/Components/TalentCard.vue";
 </script>
 
 <template>
@@ -27,7 +30,7 @@ import {Badge} from "@/Components/ui/badge/index.js";
                 >
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <div>
-                            <h3 class="text-2xl font-bold mb-4">Вступление</h3>
+                            <h3 class="text-2xl font-bold mb-4">Прокачка</h3>
                             <div class="text-xl">
                                 <p>
                                     Добро пожаловать в гайд о сильнейшем бафере в игре - <a
@@ -46,7 +49,7 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                     </badge>
                                     <badge
                                         class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
-                                        Незаменимые бафы
+                                        Незаменимые баффы
                                     </badge>
                                     <badge
                                         class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
@@ -55,30 +58,31 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                 </div>
                                 <div class="flex gap-2 mb-6">
                                     <badge
-                                        class="bg-yellow-500 hover:bg-red-500 transition-colors duration-700">
-                                        Слабый в соло фарме
+                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
+                                        Минимальные требования к шмоту
                                     </badge>
                                     <badge
-                                        class="bg-yellow-500 hover:bg-red-500 transition-colors duration-700">
-                                        Долго убивает парики
+                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
+                                        Большая вариативность билдов
                                     </badge>
                                 </div>
                                 <div class="text-base">
-                                    <p>Крестоносец - пожалуй сильнейший бафер в игре. За счёт его скила <a
-                                        class="text-blue-500"
-                                        target="_blank"
-                                        href="https://royalquest.info/index.php/Клеймо_еретика">"Клеймо
-                                        еретика"</a>, увеличивает весь входящий урон от челенов группы
-                                        на 25%, он является незаменимым классом в походах на боссов.
-                                        <br><br>
-                                        Однако, крестоносец не только бафер. Он также имеет хороший урон по
-                                        одной цели в ДД билде, и может танчить боссов.
-                                        В итоге крестоносец, может быть как танком, так и сапортом или бафером.
-
-                                        В этом гайде мы рассмотрим как построить эффективного крестоносца, какие
-                                        таланты выбрать, какую экипировку использовать, и какие стратегии
-                                        использовать в боях.
+                                    <p class="mb-4">Крестоносец - сильнейший бафер в игре. За счёт его скила
+                                        <elink
+                                            href="https://royalquest.info/index.php/Клеймо_еретика">Клеймо
+                                            еретика
+                                        </elink>
+                                        , увеличивает весь входящий урон от челенов группы
+                                        на 35%, он является незаменимым классом в походах на боссов.
+                                        После недавнего ребаланса это теперь <span class="text-red-600 font-bold">САМЫЙ ВАРИАТИВНЫЙ КЛАСС В ИГРЕ</span>
                                     </p>
+                                    <highlight-block color="green">
+                                        Хоть мы и можем сделать из Крестоносца ДД, чтобы было удобнее фармить, но он
+                                        будет уступать по урону другим ДД классам. Но при этом плюсом останутся его ауры
+                                        и клеймо. В итоге с ним команда суммарно будет наносить больше урона чем с
+                                        другим ДД, а также иметь
+                                        высокую выживаемость
+                                    </highlight-block>
                                 </div>
                             </div>
                         </div>
@@ -87,152 +91,157 @@ import {Badge} from "@/Components/ui/badge/index.js";
                                 <AccordionTrigger>Таланты/билды</AccordionTrigger>
                                 <AccordionContent>
                                     <div class="text-lg">
-                                        <div>
-                                            <p>
-                                                Времени нет расписывать, поэтому коротко. На Креста есть 3 основных
-                                                билда:<br>
+                                        <div class="mb-4">
+                                            <p class="mb-4">
+                                                Начнём с билда для прокачки. Ниже вариант, в котором очень удобно
+                                                качаться в соло, но при этом у нас остаётся возможность бегать с кем-то
+                                                в группе. Такой билд можно оставить до конца игры вплоть до 65.
+                                                Раньше я не любил ездить на петах, но всё поменялось 😅😎
                                             </p>
-                                            <ul class="list-disc pl-8">
-                                                <li>PVE бафер + хиллер</li>
-                                                <li>PVP бафер + ДД (в пве тоже имба)</li>
-                                                <li>PVP бафер (его мы не будем расматривать)</li>
-                                            </ul>
-                                            <br>
+                                            <div class="mb-4">
+                                                <p class="mb-6">
+                                                    Самым профитным к прокачке будет <span
+                                                    class="font-bold text-green-600">гибридный билд</span>.
+                                                    Дело в том, что в
+                                                    нём наш урон куда больше, чем в любом другом билде. За счёт пета
+                                                    мы получаем огромную скорость передвижения без каких либо затрат.
+                                                    Скорость передвижения - это очень важный стат. Он помогает нам
+                                                    как банально быстрее передвигаться, так и не умирать, пока мы
+                                                    собираем мобов. Ниже билды <span class="font-bold">20 лвл</span> и
+                                                    <span
+                                                        class="font-bold">60 лвл</span>
+                                                </p>
+                                                <div class="flex gap-6">
+                                                    <img src="/assets/images/skills/crusader/b20.png"
+                                                         alt="Билд на PVE креста Royal Quest">
+                                                    <img src="/assets/images/skills/crusader/b65c.png"
+                                                         alt="Билд на PVP креста Royal Quest">
+                                                </div>
+                                            </div>
+                                            <p class="mb-6">
+                                                Я выделил квадратиками ключевые таланты, а так же уровень на котором мы
+                                                их вкачиваем. Очки талантов нам дают каждые 4 уровня, поэтому когда
+                                                вкачивать остальные таланты, вы можете догадаться сами. Погнали
+                                                разбирать почему именно так
+                                            </p>
+                                            <TalentCard
+                                                name="Массовое уничтожение"
+                                                icon="https://royalquest.info/images/5/56/Талант_Массовое_уничтожение.png"
+                                                link="https://royalquest.info/index.php/Талант_—_Массовое_уничтожение"
+                                            >
+                                                Помимо того, что он сильно бустит наш дамаг, он так же делает, чтобы
+                                                скилы<br>
+                                                <elink href="https://royalquest.info/ru/Гнев">Гнев</elink><!---->,
+                                                <elink href="https://royalquest.info/ru/Круговой_удар">
+                                                    Круговой удар
+                                                </elink>
+                                                и
+                                                <elink href="https://royalquest.info/ru/Возмездие">Возмездие</elink>
+                                                били не только 5 целей, а всех кого касаются
+                                            </TalentCard>
                                         </div>
-                                        <p>
-                                            За крестоносца очень сложно прокачиваться в соло, поэтому я бы
-                                            порекомендовал вам бегать в пачке с ТРом. Для прокачки у нас есть 2
-                                            варианта. ДД билд через копьё и билд через хил. Лично я рекомендовал бы билд
-                                            через копьё (левая картинка), т.к. с ним вы можете наносить много урона
-                                            <br><br>
+                                        <p class="text-xl mb-4">
+                                            Из за такой механики в наш прокаст кроме пронзания и прорыва
+                                            добавляется все эти скилы. Кд пронзания 4 секунды и мы должны что-то
+                                            вставить в это окно. Итого у нас получается такой порядок скилов:
                                         </p>
-                                        <div class="flex gap-6">
-                                            <img src="/assets/images/skills/cuesader/b1.png"
-                                                 alt="Билд на PVE креста Royal Quest">
-                                            <img src="/assets/images/skills/cuesader/b2.png"
-                                                 alt="Билд на PVP креста Royal Quest">
-                                        </div>
-                                        <div class="mt-6">
-                                            <p>
-                                                Я постараюсь выделить пару талантов, и объяснить почему билд через копьё
-                                                имба. А так же упомяну таланты который важны для баферства. Вся ваша
-                                                игра в билде через копьё будет играться через скил "пронзание"
-                                            </p>
-                                            <div class="flex gap-3 items-center my-3">
-                                                <a href="https://royalquest.info/index.php/Талант_—_Массовое_уничтожение"
-                                                   target="_blank"
-                                                >
-                                                    <img
-                                                        src="https://royalquest.info/images/5/56/Талант_Массовое_уничтожение.png"
-                                                        style="width: 48px; border-radius: 100%"
-                                                        alt="Массовое уничтожение">
-                                                </a>
-                                                <p class="w-2/3">
-                                                    - Пронзание, это массовый скил) +10%
-                                                </p>
-                                            </div>
-                                            <div class="flex gap-3 items-center my-3">
-                                                <a href="https://royalquest.info/index.php/Талант_—_Контроль_эмоций"
-                                                   target="_blank"
-                                                >
-                                                    <img
-                                                        src="https://royalquest.info/images/f/fa/Талант_Контроль_эмоций.png"
-                                                        style="width: 48px"
-                                                        alt="Контроль эмоций">
-                                                </a>
-                                                <p class="w-2/3">
-                                                    - Мы не юзаем только пронзание) и у нас 8 черепков. 8*4=32%
-                                                </p>
-                                            </div>
-                                            <div class="flex gap-3 items-center my-3">
-                                                <a href="https://royalquest.info/index.php/Талант_—_Кавалерийский_натиск"
-                                                   target="_blank"
-                                                >
-                                                    <img
-                                                        src="https://royalquest.info/images/1/13/Талант_Кавалерийский_натиск.png"
-                                                        style="width: 48px"
-                                                        alt="Контроль эмоций">
-                                                </a>
-                                                <p class="w-2/3">
-                                                    - В этом билде... Мы юзаем только пронзание 8*5=40%
-                                                </p>
-                                            </div>
-                                            <div class="flex gap-3 items-center my-3">
-                                                <a href="https://royalquest.info/index.php/Талант_—_Отвага"
-                                                   target="_blank"
-                                                >
-                                                    <img
-                                                        src="https://royalquest.info/images/8/82/Талант_Отвага.png"
-                                                        style="width: 48px"
-                                                        alt="Контроль эмоций">
-                                                </a>
-                                                <p class="w-2/3">
-                                                    - Собрать пару мобов ещё + 10% к урону
-                                                </p>
-                                            </div>
-                                            <div>
-                                                <p>
-                                                    Итого у нас 40+32+10+10=92% дополнительного урона. При этом ещё мы
-                                                    ставим флаг и даём клеймо. Таким образом крест имеет огромный
-                                                    массовый урон. Который даже больше чем у ТРа. Но при этом ТР
-                                                    хилиться от нанесённого урона, поэтому он более живучий.
-                                                    <br><br>
-                                                    Так же не стоит забывать о талантах которые важны для баферства:
-                                                </p>
-                                            </div>
-                                            <div class="flex gap-3 items-center my-3">
-                                                <a href="https://royalquest.info/index.php/Талант_—_Воин_света"
-                                                   target="_blank"
-                                                >
-                                                    <img
-                                                        src="https://royalquest.info/images/2/2e/Талант_Воин_света.png"
-                                                        style="width: 48px"
-                                                        alt="Воин света">
-                                                </a>
-                                                <p class="w-2/3">
-                                                    - Делает, чтобы наш флаг усиливал атаку на 7% для нашей группы
-                                                </p>
-                                            </div>
-                                            <div class="flex gap-3 items-center my-3">
-                                                <a href="https://royalquest.info/index.php/Талант_—_Чистота_помыслов"
-                                                   target="_blank"
-                                                >
-                                                    <img
-                                                        src="https://royalquest.info/images/d/da/Талант_Чистота_помыслов.png"
-                                                        style="width: 48px"
-                                                        alt="Воин света">
-                                                </a>
-                                                <p class="w-2/3">
-                                                    - Мы можем поддерживать стаки с помощью "Луч света".
-                                                </p>
-                                            </div>
-                                            <div class="flex gap-3 items-center my-3">
-                                                <a href="https://royalquest.info/index.php/Талант_—_Предводитель"
-                                                   target="_blank"
-                                                >
-                                                    <img
-                                                        src="https://royalquest.info/images/8/81/Талант_Предводитель.png"
-                                                        style="width: 48px"
-                                                        alt="Предводитель">
-                                                </a>
-                                                <p class="w-2/3">
-                                                    - Делает воодушевление массовым
-                                                </p>
-                                            </div>
-                                            <div class="flex gap-3 items-center my-3">
-                                                <a href="https://royalquest.info/index.php/Талант_—_Провидение"
-                                                   target="_blank"
-                                                >
-                                                    <img
-                                                        src="https://royalquest.info/images/a/a3/Талант_Провидение.png"
-                                                        style="width: 48px"
-                                                        alt="Предводитель">
-                                                </a>
-                                                <p class="w-2/3">
-                                                    - Можем сокращать кд скила "Надёжная защита".
-                                                </p>
-                                            </div>
-                                        </div>
+                                        <ol class="mb-6 list-decimal pl-5">
+                                            <li>
+                                                Хилимся и кидаем возмездие по кд пока собираем парик (можно так же
+                                                кидать пронзание)
+                                            </li>
+                                            <li>
+                                                Кидаем воодушевление и совершенку
+                                            </li>
+                                            <li>
+                                                Слезаем с коня и ставим флаг
+                                            </li>
+                                            <li>
+                                                Кидаем планарку
+                                            </li>
+                                            <li>
+                                                Топаем(Гнев), круговой удар
+                                            </li>
+                                            <li>
+                                                Садимся на коня, даём пронзание и прорыв
+                                            </li>
+                                        </ol>
+                                        <p class="mb-6">
+                                            В любой момент комбинации мы можем похилиться (самое большое окно у нас
+                                            - после прорыва), но в таком случае желательно не забыть слезть с коня,
+                                            чтобы хил был больше. В большинстве случаев этого должно хватить, чтобы
+                                            убить любой парик, даже если у вас не заточено оружие. Важно, что гнев
+                                            накладывает <span class="text-green-600 font-bold">неповоротливость</span>.
+                                            Это очень сильный дебаф, который делает нас почти бессмертными
+                                        </p>
+                                        <video src="/assets/images/skills/crusader/procast.mp4"
+                                               class="mb-6"
+                                               controls>
+                                            Ваш браузер не поддерживает видео.
+                                        </video>
+                                        <TalentCard
+                                            class="mb-4"
+                                            name="Сноровка"
+                                            icon="https://royalquest.info/images/c/c7/Талант_Сноровка.png"
+                                            link="https://royalquest.info/ru/Талант_—_Сноровка"
+                                        >
+                                            В начале игры у нас очень низкая скорость передвижения. В будущем мы сможем
+                                            её разогнать с помощью карт, печатей и сапог. Но на старте без этого таланта
+                                            мы будем очень медленные
+                                        </TalentCard>
+                                        <p class="text-xl mb-8">
+                                            Даже на 20 уровне за счёт этих талантов уже можно приятно фармить любые
+                                            парики, несмотря на то, что у нас нет пронзания, прорыва и флага. На курице
+                                            мы будем быстро передвигаться по карте. Парики из обычных мобов мы
+                                            будем шотать просто с гнева и кругового удара. Ни в одном другом билде
+                                            у креста не будет столько дамага
+                                        </p>
+                                        <video src="/assets/images/skills/crusader/lvl20_procast.mp4"
+                                               class="mb-6"
+                                               controls>
+                                            Ваш браузер не поддерживает видео.
+                                        </video>
+                                        <p class="text-xl mb-8">
+                                            Надеюсь у меня получилось вас убедить, почему это хорошие таланты для
+                                            старта. А теперь давайте разберём какие ключевые таланты качать дальше и
+                                            почему этот билд лучший для начала игры (и остаётся актуальным в поздней
+                                            стадии)
+                                        </p>
+                                        <TalentCard
+                                            class="mb-4"
+                                            name="Контроль эмоций"
+                                            icon="https://royalquest.info/images/f/fa/Талант_Контроль_эмоций.png"
+                                            link="https://royalquest.info/ru/Талант_—_Контроль_эмоций"
+                                        >
+                                            Этот талант сильно увеличит наш дамаг. К тому же у нас нет ни одной хорошей
+                                            альтернативы на начальном этапе игры. Так как все остальные скилы пока что
+                                            не доступны :(
+                                        </TalentCard>
+                                        <TalentCard
+                                            class="mb-4"
+                                            name="Королевский страж"
+                                            icon="https://royalquest.info/images/f/f8/Талант_Королевский_страж.png"
+                                            link="https://royalquest.info/ru/Талант_—_Королевский_страж"
+                                        >
+                                            Это ключевой талант, который безумно сильно повысит нашу выживаемость.<br>
+                                            60% сопротивления урону, это безумно огромная цифра, которая сопоставима
+                                            с несколькими тысячами защиты
+                                        </TalentCard>
+                                        <TalentCard
+                                            class="mb-4"
+                                            name="Чистота помыслов"
+                                            icon="https://royalquest.info/images/d/da/Талант_Чистота_помыслов.png"
+                                            link="https://royalquest.info/ru/Талант_—_Чистота_помыслов"
+                                        >
+                                            С этим талантом у нас наконец-то появляется нормальный отхил 😅<br>
+                                            Да есть и неплохие таланты в
+                                            ветке защита, но они всё равно будут проигрывать по выживаемости этому
+                                            таланту.
+                                        </TalentCard>
+                                        <p>
+                                            Получается такой расклад. В этом билде есть всё, как выживаемость, так и
+                                            урон.
+                                        </p>
                                     </div>
                                 </AccordionContent>
                             </AccordionItem>
