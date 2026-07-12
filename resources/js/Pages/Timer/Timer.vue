@@ -53,7 +53,7 @@ const playSound = async (boss, timeLeft) => {
 
     // Приводим timeLeft к ближайшему целевому значению (1, 60, 300)
     // если разница не больше 2
-    const targets = [1, 60, 300];
+    const targets = [0, 60, 300];
     const normalizedTimeLeft = targets.find(target => Math.abs(timeLeft - target) <= 2) || timeLeft;
 
     // Создаем уникальный ключ для звука
@@ -63,7 +63,6 @@ const playSound = async (boss, timeLeft) => {
     if (playedSounds.has(soundKey)) {
         return;
     }
-
     const url = `/assets/sounds/${boss}${normalizedTimeLeft}.ogg`
 
     try {
@@ -238,12 +237,12 @@ onMounted(() => {
     updateRespawnTimers(); // Первоначальный расчет
 
     // Пулим всех боссов через апишку (шобы не перезагружать страницу)
-    const refreshInterval = setInterval(refreshBossList, 10000);
+    //const refreshInterval = setInterval(refreshBossList, 10000);
 
     // Очищаем интервал при удалении компонента
     onUnmounted(() => {
         clearInterval(interval);
-        clearInterval(refreshInterval);
+        //clearInterval(refreshInterval);
     });
 });
 
