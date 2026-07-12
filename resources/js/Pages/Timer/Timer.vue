@@ -46,8 +46,19 @@ const props = defineProps({
 //TODO добавить подгрузку из localStorage
 const voiceMode = ref('girl') // 'off' | 'girl'
 
+const playedSounds = new Set();
+
 const playSound = async (boss, timeLeft) => {
     if (voiceMode.value === 'off') return
+
+    // Создаем уникальный ключ для звука
+    const soundKey = `${boss}_${timeLeft}`;
+
+    // Если звук уже воспроизводился - пропускаем
+    if (playedSounds.has(soundKey)) {
+        return;
+    }
+
     const url = `/assets/sounds/${boss}${timeLeft}.ogg`
 
     try {
@@ -58,9 +69,19 @@ const playSound = async (boss, timeLeft) => {
             return
         }
 
+        // Отмечаем, что звук воспроизведен
+        playedSounds.add(soundKey);
+
         const audio = new Audio(url)
         await audio.play()
         console.log(boss)
+
+        // Удаляем ключ через 2 секунды, чтобы можно было снова воспроизвести
+        // при следующем появлении босса
+        setTimeout(() => {
+            playedSounds.delete(soundKey);
+        }, 2000);
+
     } catch (e) {
         console.error('Ошибка при проверке файла:', e)
     }
@@ -338,7 +359,7 @@ const isUseDieBtn = (boss) => {
                                             class="w-[150px] h-10 border border-slate-700 bg-[#111827] text-white transition-colors duration-200 hover:bg-[#161e2e] hover:border-slate-600 focus:ring-0 focus:ring-offset-0">
                                             <div class="flex items-center gap-2"><span>🔊</span>
                                                 <SelectValue><span v-if="voiceMode === 'off'">Без озвучки</span><span
-                                                    v-else-if="voiceMode === 'girl'">Девушка</span></SelectValue>
+                                                    v-else-if="voiceMode === 'girl'">Девочка ✨</span></SelectValue>
                                             </div>
                                         </SelectTrigger>
                                         <SelectContent
@@ -349,7 +370,7 @@ const isUseDieBtn = (boss) => {
                                             </SelectItem>
                                             <SelectItem value="girl"
                                                         class="cursor-pointer focus:bg-slate-800 focus:text-white">🔊
-                                                Девушка
+                                                Девочка ✨
                                             </SelectItem>
                                         </SelectContent>
                                     </Select>
@@ -495,7 +516,7 @@ const isUseDieBtn = (boss) => {
                         <Dialog :open="isHistoryModalOpen"
                                 @update:open="(value)=>isHistoryModalOpen=value">
                             <DialogContent
-                                class="sm:max-w-[500px] bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 shadow-2xl p-4">
+                                class="sm:max-w-[700px] bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 shadow-2xl p-4">
                                 <DialogHeader class="border-b border-gray-700 pb-3">
                                     <DialogTitle
                                         class="text-center text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
@@ -506,6 +527,14 @@ const isUseDieBtn = (boss) => {
                                     </DialogDescription>
                                 </DialogHeader>
 
+                                <!-- Заголовки колонок -->
+                                <div
+                                    class="grid grid-cols-3 gap-2 px-2 py-2 border-b border-gray-700/50 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                                    <div class="text-left">Время на которое изменили</div>
+                                    <div class="text-center">Кто изменил</div>
+                                    <div class="text-right">Когда изменил</div>
+                                </div>
+
                                 <div class="py-3 max-h-[350px] overflow-y-auto custom-scrollbar">
                                     <div v-if="bossHistory.length === 0" class="text-center text-gray-500 py-6">
                                         <span class="text-3xl block mb-2">📭</span>
@@ -514,15 +543,17 @@ const isUseDieBtn = (boss) => {
                                     <ul class="space-y-2.5">
                                         <li v-for="(edit, index) in bossHistory"
                                             :key="index"
-                                            class="flex items-center justify-between p-2.5 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-all duration-200 border border-gray-700/50 hover:border-gray-600">
+                                            class="grid grid-cols-3 gap-2 items-center p-2.5 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-all duration-200 border border-gray-700/50 hover:border-gray-600">
 
-                                            <div class="flex items-center gap-2 min-w-[120px]">
+                                            <!-- Колонка 1: Время на которое указали -->
+                                            <div class="flex items-center gap-2">
                         <span class="text-blue-400 font-mono text-base font-semibold whitespace-nowrap">
                             {{ formatTime(edit.new_time_to_death) }}
                         </span>
                                             </div>
 
-                                            <div class="flex-1 flex justify-center px-2">
+                                            <!-- Колонка 2: Кто указал -->
+                                            <div class="flex justify-center">
                                                 <MyTooltip>
                                                     <template v-slot:main>
                                                         <div
@@ -545,9 +576,10 @@ const isUseDieBtn = (boss) => {
                                                 </MyTooltip>
                                             </div>
 
-                                            <div class="min-w-[140px] text-right">
+                                            <!-- Колонка 3: Когда отметили -->
+                                            <div class="text-right">
                         <span
-                            class="text-gray-400 text-sm font-mono flex items-center justify-end gap-1.5 whitespace-nowrap">
+                            class="text-gray-400 text-base font-mono flex items-center justify-end gap-1.5 whitespace-nowrap">
                             <span>🕐</span>
                             {{ formatTime(edit.created_at) }}
                         </span>
