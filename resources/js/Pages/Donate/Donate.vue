@@ -1,7 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
-
 </script>
 
 <template>
@@ -9,56 +8,130 @@ import {Head} from '@inertiajs/vue3';
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
+            <h2 class="text-xl font-semibold leading-tight text-gray-200">
                 Поддержать проект
             </h2>
         </template>
 
         <div class="py-6 sm:py-12">
-            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 px-4">
-                <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
-                    <div class="p-4 sm:p-6 text-gray-900 dark:text-gray-100">
-                        <h1 class="text-2xl sm:text-4xl font-bold text-center text-white sm:mb-6">
-                            О авторе сайта
+            <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+
+                <!-- Основная карточка -->
+                <div class="rounded-xl bg-gray-800 p-6 sm:p-10">
+                    <div class="mx-auto max-w-2xl text-center">
+                        <h1 class="text-3xl font-bold text-white sm:text-4xl">
+                            🎉 Йоу, я Лев 🎉
                         </h1>
-                        <div class="mb-8">
-                            <p class="text-xl text-center">
-                                Привет! Я Лев, создатель этого сайта, гайдов и многих программ для RQ
-                                . Я вложил много труда в это всё. Если вам нравится сайт и вы
-                                хотите поддержать его развитие, вы можете
-                                сделать денежное пожертвование
-                                <a class="underline text-blue-500" href="https://t.me/Linsaym397">криптой в ТГ</a>
-                                .<br>Переводом на карту, или можете просто написать письмо в игре на
-                                ник
-                                <strong>МурчуКотятам</strong>
-                            </p>
-                        </div>
 
-                        <div class="flex flex-col md:flex-row justify-around items-center mb-8">
-                            <div class="flex flex-col justify-center space-y-8 md:space-y-12 mb-8 md:mb-0 md:mr-8">
-                                <div class="text-center">
-                                    <h3 class="text-xl font-semibold mb-4">Сканируйте QR код для пожертвования</h3>
-                                    <img src="/assets/images/VTB_QR.jpg" alt="QR код для пожертвования"
-                                         class="w-48 h-48 mx-auto border rounded">
-                                </div>
+                        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+                            Я создатель этого сайта, гайдов и различных программ для
+                            <span class="font-semibold text-white">Royal Quest</span>.
+                            <br>В этот проект вложено много времени и труда.
+                        </p>
 
-                                <div class="text-center">
-                                    <h3 class="text-xl font-semibold mb-4">Или можете переводить по номеру телефона</h3>
-                                    <div class="mx-auto text-xl font-bold">ВТБ 89509782755</div>
-                                </div>
-                            </div>
-
-
-                            <div class="text-center">
-                                <img src="/assets/images/it-guy.png" alt="Описание фотографии"
-                                     class="w-full max-w-md md:max-w-lg rounded-lg">
-                            </div>
-                        </div>
-                        <div class="flex text-xl flex-col justify-center items-center mt-16">
-                            Важно! Донаты не дают вам никакие права. Это чисто благотворительное пожертвование
-                        </div>
+                        <p class="mt-3 text-lg leading-relaxed text-gray-400">
+                            Если сайт оказался полезным и вы хотите поддержать его развитие<br>
+                            буду очень благодарен ❤️
+                        </p>
                     </div>
+
+                    <!-- Способы поддержки -->
+                    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+
+                        <a
+                            href="https://t.me/Linsaym397"
+                            target="_blank"
+                            class="group rounded-lg bg-gray-700/50 p-5 transition hover:bg-gray-700"
+                        >
+                            <div class="text-2xl">💎</div>
+
+                            <h3 class="mt-3 font-semibold text-white">
+                                Поддержать криптовалютой
+                            </h3>
+
+                            <p class="mt-1 text-sm text-gray-400">
+                                Напишите мне в Telegram @Linsaym397
+                            </p>
+
+                            <span
+                                class="mt-3 inline-block text-sm font-medium text-blue-400 group-hover:text-blue-300"
+                            >
+                                Открыть Telegram →
+                            </span>
+                        </a>
+
+                        <div class="rounded-lg bg-gray-700/50 p-5">
+                            <div class="text-2xl">🎮</div>
+
+                            <h3 class="mt-3 font-semibold text-white">
+                                Написать письмо в игре
+                            </h3>
+
+                            <p class="mt-1 text-sm text-gray-400">
+                                Мой игровой ник
+                            </p>
+
+                            <div class="mt-3 text-lg font-bold text-violet-400">
+                                Hellme
+                            </div>
+                        </div>
+
+                        <div class="rounded-lg bg-gray-700/50 p-5">
+                            <div class="text-2xl">💳</div>
+
+                            <h3 class="mt-3 font-semibold text-white">
+                                Перевод на карту
+                            </h3>
+
+                            <p class="mt-1 text-sm text-gray-400">
+                                Сбербанк · СБП
+                            </p>
+
+                            <div class="mt-3">
+                                <div class="text-lg font-bold text-violet-400">
+                                    8 908 224-18-81
+                                </div>
+
+                                <div class="mt-1 text-sm text-gray-400">
+                                    Якуба Алла Григорьевна
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Блок с GitHub Star -->
+                        <a
+                            href="https://github.com/Linsaym/WhatTheHell"
+                            target="_blank"
+                            class="group rounded-lg bg-gray-700/50 p-5 transition hover:bg-gray-700"
+                        >
+                            <div class="text-2xl">⭐</div>
+
+                            <h3 class="mt-3 font-semibold text-white">
+                                Поставьте звёздочку на GitHub
+                            </h3>
+
+                            <p class="mt-1 text-sm text-gray-400">
+                                Звёздочки мне нужны для пропуска на хакатон
+                            </p>
+
+                            <span
+                                class="mt-3 inline-block text-sm font-medium text-blue-400 group-hover:text-blue-300"
+                            >
+                                Открыть репозиторий →
+                            </span>
+
+                            <div class="mt-1 text-sm text-gray-400">
+                                Или даже можете стать контрибьютером :3
+                            </div>
+                        </a>
+                    </div>
+
+                    <p class="mt-8 text-center text-sm text-gray-500">
+                        На самом деле у вас не откроется никакой функционал за донат, но я буду счастлив :D<br>
+                        Но если серьёзно, после доната можете написать мне в лс и я реализую то, что вам нужно
+                    </p>
                 </div>
+
             </div>
         </div>
     </AuthenticatedLayout>
