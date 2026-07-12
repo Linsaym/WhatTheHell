@@ -101,14 +101,16 @@ import NavLink from "@/Components/NavLink.vue";
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink :href="route('do-it-pls')"
-                                                 class="text-gray-300 hover:text-white transition-colors text-base">
+                                        <NavLink :href="route('403')"
+                                                 class="text-gray-500 hover:text-gray-400 transition-colors text-base flex items-center gap-2 opacity-60 cursor-not-allowed">
+                                            <span class="text-sm">🔒</span>
                                             Гайд на Снайпера
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink :href="route('guides.dark-knight')"
-                                                 class="text-gray-300 hover:text-white transition-colors text-base">
+                                        <NavLink :href="route('403')"
+                                                 class="text-gray-500 hover:text-gray-400 transition-colors text-base flex items-center gap-2 opacity-60 cursor-not-allowed">
+                                            <span class="text-sm">🔒</span>
                                             Гайд на Тёмного рыцаря
                                         </NavLink>
                                     </li>
@@ -136,6 +138,20 @@ import NavLink from "@/Components/NavLink.vue";
                                 </h3>
                                 <ul class="space-y-2">
                                     <li>
+                                        <a href="https://www.youtube.com/watch?v=YTKJk-iIUaQ" target="_blank"
+                                           class="text-blue-400 hover:text-blue-300 transition-colors text-base flex items-center gap-2">
+                                            <span class="text-sm">▶️</span>
+                                            Гайд на Разбойника
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/watch?v=6PNu_s7HH2M" target="_blank"
+                                           class="text-blue-400 hover:text-blue-300 transition-colors text-base flex items-center gap-2">
+                                            <span class="text-sm">▶️</span>
+                                            Гайд на Ассасина
+                                        </a>
+                                    </li>
+                                    <li>
                                         <NavLink :href="route('403')"
                                                  class="text-gray-500 hover:text-gray-400 transition-colors text-base flex items-center gap-2 opacity-60 cursor-not-allowed">
                                             <span class="text-sm">🔒</span>
@@ -147,20 +163,6 @@ import NavLink from "@/Components/NavLink.vue";
                                                  class="text-gray-500 hover:text-gray-400 transition-colors text-base flex items-center gap-2 opacity-60 cursor-not-allowed">
                                             <span class="text-sm">🔒</span>
                                             Гайд на Чернокнижника
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink :href="route('403')"
-                                                 class="text-gray-500 hover:text-gray-400 transition-colors text-base flex items-center gap-2 opacity-60 cursor-not-allowed">
-                                            <span class="text-sm">🔒</span>
-                                            Гайд на Разбойника
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink :href="route('guides.dark-knight')"
-                                                 class="text-gray-500 hover:text-gray-400 transition-colors text-base flex items-center gap-2 opacity-60 cursor-not-allowed">
-                                            <span class="text-sm">🔒</span>
-                                            Гайд на Ассасина
                                         </NavLink>
                                     </li>
                                 </ul>
