@@ -37,46 +37,48 @@ import TalentCard from "@/Components/TalentCard.vue";
                                     href="https://royalquest.info/index.php/Охотник"
                                     target="_blank">Охотнике</a>
                                 </p>
-                                <div class="flex gap-2 my-3">
+                                <div class="flex gap-2 my-3 flex-wrap">
                                     <badge
-                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
+                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700 text-base">
                                         Может приручать питомцев :3
                                     </badge>
                                     <badge
-                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
+                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700 text-base">
                                         Быстро бегает
                                     </badge>
                                     <badge
-                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
+                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700 text-base">
                                         Имеет хороший урон в соло цель
                                     </badge>
                                     <badge
-                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
+                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700 text-base">
                                         Имеет хороший массовый урон
                                     </badge>
                                 </div>
-                                <div class="flex gap-2 mb-6">
+                                <div class="flex gap-2 mb-6 flex-wrap">
                                     <badge
-                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
+                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700 text-base">
                                         Может водить парики
                                     </badge>
                                     <badge
-                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
+                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700 text-base">
                                         Имеет билд в котором может танчить боссов
                                     </badge>
                                     <badge
-                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700">
+                                        class="bg-green-700 hover:bg-green-600 transition-colors duration-700 text-base">
                                         Очень полезен на данжах
                                     </badge>
                                 </div>
-                                <div class="text-base">
-                                    <p>Охотник - класс у которого буквально нету минусов. Он имеет высокую скорость
+                                <div class="text-lg">
+                                    <p class="text-lg">Охотник - класс у которого буквально нету минусов. Он имеет
+                                        высокую скорость
                                         бега, неплохую выживаемость, и хороший урон как по толпе, так и по одиночной
                                         цели. Он всегда полезен на данжах и может фармить в соло.
                                         <br><br>
                                     </p>
                                     <HighlightBlock color="orange">
-                                        <p>Хант имеет разнообразные билды. В одном больше урона, в другом выживаемости.
+                                        <p class="text-lg">Хант имеет разнообразные билды. В одном больше урона, в
+                                            другом выживаемости.
                                             Есть билды, через вторую ветку, которые подходят для PVP и имеют больше
                                             контроля.
                                             Есть билд через волка, в котором хант может танчить боссов. Сегодня мы
@@ -94,7 +96,7 @@ import TalentCard from "@/Components/TalentCard.vue";
                                             <!--Рассказать о скилах, вставить все варианты билдов.<br>-->
                                             <!--Рассказать о важных талантах-->
                                         </span>
-                                        <p class="mb-4 text-base">
+                                        <p class="mb-4 text-lg">
                                             Начнём с билда который я бы рекомендовал построить на 20 уровне. И как он
                                             будет
                                             меняться по уровне прокачки. Так же постараюсь объяснить почему именно такой
@@ -102,7 +104,7 @@ import TalentCard from "@/Components/TalentCard.vue";
                                             20 уровне.
                                             Та что справа, это билд к который у вас будет на 65
                                         </p>
-                                        <div class="flex gap-6">
+                                        <div class="flex gap-6 flex-wrap">
                                             <img src="/assets/images/skills/hunter/b1.png"
                                                  alt="Билд на ханта Royal Quest">
                                             <img src="/assets/images/skills/hunter/b2.png"
@@ -159,7 +161,7 @@ import TalentCard from "@/Components/TalentCard.vue";
 
                                             <div
                                                 class="my-8 p-6 bg-orange-500/5 rounded-xl border border-orange-500/20">
-                                                <p class="text-center">
+                                                <p class="text-center text-lg">
                                                     После этого я бы рекомендовал вкачивать вторую ветку до середины,
                                                     потом верхнюю до середины. Как только вы начнёте ходить на боссов
                                                     вам понадобиться РБ, поэтому его важно взять. До этого момента, оно
@@ -208,7 +210,7 @@ import TalentCard from "@/Components/TalentCard.vue";
 
                                         <div class="mt-3 text-lg">
                                             <div class="mt-11">
-                                                <p>
+                                                <p class="text-lg">
                                                     В этом билде много талантов, которые нацелены на более комфортную
                                                     игру, до 65, где вам не сильно нужен урон по одной цели, а в
                                                     приоритете выживаемость. После того как вы возьмёте 60-65, билд
@@ -226,7 +228,7 @@ import TalentCard from "@/Components/TalentCard.vue";
                                                     <br><br>
                                                 </p>
                                             </div>
-                                            <div class="flex gap-6">
+                                            <div class="flex gap-6 flex-wrap">
                                                 <img src="/assets/images/skills/hunter/b3.png"
                                                      alt="Билд на ханта Royal Quest">
                                                 <img src="/assets/images/skills/hunter/b4.png"
@@ -243,4 +245,3 @@ import TalentCard from "@/Components/TalentCard.vue";
         </div>
     </AuthenticatedLayout>
 </template>
-
