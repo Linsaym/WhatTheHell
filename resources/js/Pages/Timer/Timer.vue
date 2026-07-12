@@ -51,43 +51,21 @@ const playedSounds = new Set();
 const playSound = async (boss, timeLeft) => {
     if (voiceMode.value === 'off') return
 
-    // Приводим timeLeft к ближайшему целевому значению (1, 60, 300)
-    // если разница не больше 2
-    const targets = [0, 60, 300];
-    const normalizedTimeLeft = targets.find(target => Math.abs(timeLeft - target) <= 2) || timeLeft;
+    const normalizedTimeLeft = [0, 60, 300].find(t => Math.abs(timeLeft - t) <= 2);
+    if (normalizedTimeLeft === undefined) return; // обрываем, если не подошло
 
-    // Создаем уникальный ключ для звука
     const soundKey = `${boss}_${normalizedTimeLeft}`;
+    if (playedSounds.has(soundKey)) return;
 
-    // Если звук уже воспроизводился - пропускаем
-    if (playedSounds.has(soundKey)) {
-        return;
-    }
     const url = `/assets/sounds/${boss}${normalizedTimeLeft}.ogg`
-
     try {
         const res = await fetch(url, {method: 'HEAD'})
-
-        if (!res.ok) {
-            console.log('Озвучка не найдена:', url)
-            return
-        }
-
-        // Отмечаем, что звук воспроизведен
+        if (!res.ok) return
         playedSounds.add(soundKey);
-
-        const audio = new Audio(url)
-        await audio.play()
-        console.log(boss)
-
-        // Удаляем ключ через 2 секунды, чтобы можно было снова воспроизвести
-        // при следующем появлении босса
-        setTimeout(() => {
-            playedSounds.delete(soundKey);
-        }, 2000);
-
+        await new Audio(url).play()
+        setTimeout(() => playedSounds.delete(soundKey), 3000);
     } catch (e) {
-        console.error('Ошибка при проверке файла:', e)
+        console.error('Ошибка:', e)
     }
 }
 
