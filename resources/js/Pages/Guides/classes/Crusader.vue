@@ -258,6 +258,20 @@ import TalentCard from "@/Components/TalentCard.vue";
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>
+                        <div class="text-center mt-8 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-xl">
+                            <p class="text-yellow-400 text-lg font-medium">
+                                ⚠️ ВНИМАНИЕ!
+                            </p>
+                            <p class="text-gray-300 text-base mt-1">
+                                Возможно, всё это ерунда 😅<br>
+                                Лучше гляньте видео на моём
+                                <a href="https://www.youtube.com/@Lion-programmer" target="_blank"
+                                   class="text-orange-400 hover:text-orange-300 transition-colors font-medium">
+                                    YouTube канале
+                                </a>
+                                👀
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
