@@ -334,12 +334,23 @@ const isUseDieBtn = (boss) => {
                                 </TabsList>
                                 <div class="p-4">
                                     <Select v-model="voiceMode">
-                                        <SelectTrigger class="w-[90px]">
-                                            <SelectValue/>
+                                        <SelectTrigger
+                                            class="w-[150px] h-10 border border-slate-700 bg-[#111827] text-white transition-colors duration-200 hover:bg-[#161e2e] hover:border-slate-600 focus:ring-0 focus:ring-offset-0">
+                                            <div class="flex items-center gap-2"><span>🔊</span>
+                                                <SelectValue><span v-if="voiceMode === 'off'">Без озвучки</span><span
+                                                    v-else-if="voiceMode === 'girl'">Девушка</span></SelectValue>
+                                            </div>
                                         </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="off">off</SelectItem>
-                                            <SelectItem value="girl">girl</SelectItem>
+                                        <SelectContent
+                                            class="border border-slate-700 bg-[#111827] text-white shadow-none">
+                                            <SelectItem value="off"
+                                                        class="cursor-pointer focus:bg-slate-800 focus:text-white">🔇 Без
+                                                озвучки
+                                            </SelectItem>
+                                            <SelectItem value="girl"
+                                                        class="cursor-pointer focus:bg-slate-800 focus:text-white">🔊
+                                                Девушка
+                                            </SelectItem>
                                         </SelectContent>
                                     </Select>
                                 </div>
@@ -480,36 +491,79 @@ const isUseDieBtn = (boss) => {
                                 </div>
                             </TabsContent>
                         </Tabs>
-                        <!--Модалка с историей-->
+                        <!-- Модалка с историей -->
                         <Dialog :open="isHistoryModalOpen"
                                 @update:open="(value)=>isHistoryModalOpen=value">
-                            <DialogContent>
-                                <DialogHeader>
-                                    <DialogTitle class="text-center">
-                                        Последние 10 изменений
+                            <DialogContent
+                                class="sm:max-w-[500px] bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 shadow-2xl p-4">
+                                <DialogHeader class="border-b border-gray-700 pb-3">
+                                    <DialogTitle
+                                        class="text-center text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                                        📜 История изменений
                                     </DialogTitle>
+                                    <DialogDescription class="text-center text-gray-400 text-base mt-1">
+                                        Последние 10 изменений
+                                    </DialogDescription>
                                 </DialogHeader>
-                                <DialogDescription class="text-center">
-                                    Время на которое изменили | Кто изменил | Когда изменил
-                                </DialogDescription>
-                                <div class="grid gap-4 py-4">
-                                    <ul class="mt-2">
-                                        <li v-for="edit in bossHistory" class="flex justify-between mt-1">
-                                            <div>{{ formatTime(edit.new_time_to_death) }}</div>
-                                            <div>
+
+                                <div class="py-3 max-h-[350px] overflow-y-auto custom-scrollbar">
+                                    <div v-if="bossHistory.length === 0" class="text-center text-gray-500 py-6">
+                                        <span class="text-3xl block mb-2">📭</span>
+                                        <span class="text-base">История пуста</span>
+                                    </div>
+                                    <ul class="space-y-2.5">
+                                        <li v-for="(edit, index) in bossHistory"
+                                            :key="index"
+                                            class="flex items-center justify-between p-2.5 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-all duration-200 border border-gray-700/50 hover:border-gray-600">
+
+                                            <div class="flex items-center gap-2 min-w-[120px]">
+                        <span class="text-blue-400 font-mono text-base font-semibold whitespace-nowrap">
+                            {{ formatTime(edit.new_time_to_death) }}
+                        </span>
+                                            </div>
+
+                                            <div class="flex-1 flex justify-center px-2">
                                                 <MyTooltip>
                                                     <template v-slot:main>
-                                                        {{ edit.user.name.substring(0, 20) }}
+                                                        <div
+                                                            class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-700/50">
+                                    <span class="text-purple-400 text-base font-medium">
+                                        {{ edit.user.name.substring(0, 20) }}
+                                    </span>
+                                                            <span class="text-gray-500 text-sm">👤</span>
+                                                        </div>
                                                     </template>
                                                     <template v-slot:text>
-                                                        {{ edit.comment || 'Без комментария' }}
+                                                        <div class="max-w-xs">
+                                                            <p class="font-medium text-gray-200 text-base">
+                                                                Комментарий:</p>
+                                                            <p class="text-gray-400 text-base italic">
+                                                                {{ edit.comment || 'Без комментария' }}
+                                                            </p>
+                                                        </div>
                                                     </template>
                                                 </MyTooltip>
                                             </div>
-                                            <div>{{ formatTime(edit.created_at) }}</div>
+
+                                            <div class="min-w-[140px] text-right">
+                        <span
+                            class="text-gray-400 text-sm font-mono flex items-center justify-end gap-1.5 whitespace-nowrap">
+                            <span>🕐</span>
+                            {{ formatTime(edit.created_at) }}
+                        </span>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>
+
+                                <DialogFooter class="border-t border-gray-700 pt-3">
+                                    <DialogClose as-child>
+                                        <Button variant="outline"
+                                                class="w-full bg-gray-700 hover:bg-gray-600 border-gray-600 text-gray-200 hover:text-white transition-colors text-base py-2">
+                                            ✕ Закрыть
+                                        </Button>
+                                    </DialogClose>
+                                </DialogFooter>
                             </DialogContent>
                         </Dialog>
                     </div>
@@ -537,5 +591,88 @@ const isUseDieBtn = (boss) => {
 
 .lost-bg {
     background: none;
+}
+
+/* Стили для кастомного скроллбара */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(75, 85, 99, 0.2);
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #60a5fa, #a78bfa);
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+}
+
+/* Анимация появления элементов списка */
+.custom-scrollbar li {
+    animation: fadeInSlide 0.25s ease-out forwards;
+    opacity: 0;
+}
+
+.custom-scrollbar li:nth-child(1) {
+    animation-delay: 0.03s;
+}
+
+.custom-scrollbar li:nth-child(2) {
+    animation-delay: 0.06s;
+}
+
+.custom-scrollbar li:nth-child(3) {
+    animation-delay: 0.09s;
+}
+
+.custom-scrollbar li:nth-child(4) {
+    animation-delay: 0.12s;
+}
+
+.custom-scrollbar li:nth-child(5) {
+    animation-delay: 0.15s;
+}
+
+.custom-scrollbar li:nth-child(6) {
+    animation-delay: 0.18s;
+}
+
+.custom-scrollbar li:nth-child(7) {
+    animation-delay: 0.21s;
+}
+
+.custom-scrollbar li:nth-child(8) {
+    animation-delay: 0.24s;
+}
+
+.custom-scrollbar li:nth-child(9) {
+    animation-delay: 0.27s;
+}
+
+.custom-scrollbar li:nth-child(10) {
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Улучшение читаемости для мониторов */
+@media (min-width: 1920px) {
+    .custom-scrollbar li {
+        font-size: 1.1rem !important;
+    }
 }
 </style>
