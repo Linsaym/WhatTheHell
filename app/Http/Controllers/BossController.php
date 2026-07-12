@@ -19,6 +19,19 @@ class BossController extends Controller
         })->get();
     }
 
+    public function getAllShowedBossesRequest(Request $request)
+    {
+        $userId = $request->user()->id;
+
+        return response()->json(
+            [
+                "bosses" => Boss::whereDoesntHave('hiddenRelations', function ($query) use ($userId) {
+                    $query->where('user_id', $userId);
+                })->get()
+            ]
+        );
+    }
+
     public function getAllHiddenBosses(int $userId)
     {
         return Boss::whereHas('hiddenRelations', function ($query) use ($userId) {

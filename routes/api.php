@@ -12,3 +12,6 @@ Route::post('api/hideBoss/{id}', [BossController::class, 'hideBoss'])->name('api
 Route::delete('api/hideBoss/{id}', [BossController::class, 'deleteBossFromHideList'])->name('api.delete-boss-from-hide-list');
 
 Route::get('api/bossHistory/{id}', [BossController::class, 'getBossHistory'])->name('api.boss-history');
+
+
+Route::get('api/get-bosses', [BossController::class, 'getAllShowedBossesRequest'])->name('api.get-bosses');

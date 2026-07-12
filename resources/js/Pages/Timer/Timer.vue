@@ -51,15 +51,20 @@ const playedSounds = new Set();
 const playSound = async (boss, timeLeft) => {
     if (voiceMode.value === 'off') return
 
+    // Приводим timeLeft к ближайшему целевому значению (1, 60, 300)
+    // если разница не больше 2
+    const targets = [1, 60, 300];
+    const normalizedTimeLeft = targets.find(target => Math.abs(timeLeft - target) <= 2) || timeLeft;
+
     // Создаем уникальный ключ для звука
-    const soundKey = `${boss}_${timeLeft}`;
+    const soundKey = `${boss}_${normalizedTimeLeft}`;
 
     // Если звук уже воспроизводился - пропускаем
     if (playedSounds.has(soundKey)) {
         return;
     }
 
-    const url = `/assets/sounds/${boss}${timeLeft}.ogg`
+    const url = `/assets/sounds/${boss}${normalizedTimeLeft}.ogg`
 
     try {
         const res = await fetch(url, {method: 'HEAD'})
@@ -96,6 +101,16 @@ const comment = ref('')
 
 const isHistoryModalOpen = ref(false)
 const bossHistory = ref([])
+const refreshBossList = async () => {
+    try {
+        const {data} = await axios.get(route('api.get-bosses'));
+        bossList.value = addFieldsInBossList(data.bosses);
+        hiddenBossList.value = data.hiddenBosses;
+    } catch (e) {
+        console.error('Ошибка обновления списка:', e);
+        toast.error('Не удалось обновить список');
+    }
+}
 
 const openModal = () => {
     time.value = moment().format('YYYY-MM-DDTHH:mm:ss')
@@ -222,9 +237,13 @@ onMounted(() => {
     const interval = setInterval(updateRespawnTimers, 1000);
     updateRespawnTimers(); // Первоначальный расчет
 
+    // Пулим всех боссов через апишку (шобы не перезагружать страницу)
+    const refreshInterval = setInterval(refreshBossList, 10000);
+
     // Очищаем интервал при удалении компонента
     onUnmounted(() => {
         clearInterval(interval);
+        clearInterval(refreshInterval);
     });
 });
 
