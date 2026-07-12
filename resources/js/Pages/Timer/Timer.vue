@@ -561,7 +561,7 @@ const isUseDieBtn = (boss) => {
                                     <ul class="space-y-2.5">
                                         <li v-for="(edit, index) in bossHistory"
                                             :key="index"
-                                            class="grid grid-cols-3 gap-2 items-center p-2.5 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-all duration-200 border border-gray-700/50 hover:border-gray-600">
+                                            class="mr-4 grid grid-cols-3 gap-2 items-center p-2.5 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-all duration-200 border border-gray-700/50 hover:border-gray-600">
 
                                             <!-- Колонка 1: Время на которое указали -->
                                             <div class="flex items-center gap-2">
